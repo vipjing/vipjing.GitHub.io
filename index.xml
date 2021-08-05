@@ -1,10 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>开篇 on 惊鸣航空</title>
+    <link>https://example.com/</link>
+    <description>Recent content in 开篇 on 惊鸣航空</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 05 Aug 2021 16:22:56 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FirstArticle</title>
+      <link>https://example.com/post/firstarticle/</link>
+      <pubDate>Thu, 05 Aug 2021 16:24:08 +0800</pubDate>
+      
+      <guid>https://example.com/post/firstarticle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FirstArticle</title>
+      <link>https://example.com/post/secarticle/</link>
+      <pubDate>Thu, 05 Aug 2021 16:24:08 +0800</pubDate>
+      
+      <guid>https://example.com/post/secarticle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aboutme</title>
+      <link>https://example.com/aboutme/</link>
+      <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
+      
+      <guid>https://example.com/aboutme/</guid>
+      <description>大家好，我叫不安分的猿人！</description>
+    </item>
+    
+    <item>
+      <title>第一讲</title>
+      <link>https://example.com/page-1-one/</link>
+      <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
+      
+      <guid>https://example.com/page-1-one/</guid>
+      <description>大家好，我叫不安分的人！</description>
+    </item>
+    
+    <item>
+      <title>第一讲</title>
+      <link>https://example.com/page-top/</link>
+      <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
+      
+      <guid>https://example.com/page-top/</guid>
+      <description>大家好，我叫不安分的人！</description>
+    </item>
+    
   </channel>
 </rss>
