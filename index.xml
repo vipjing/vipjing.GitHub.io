@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>开篇 on 惊鸣航空</title>
-    <link>https://example.com/</link>
-    <description>Recent content in 开篇 on 惊鸣航空</description>
+    <title>开篇 on 惊鸣</title>
+    <link>https://vipjing.github.io/</link>
+    <description>Recent content in 开篇 on 惊鸣</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Aug 2021 16:22:56 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 16:22:56 +0800</lastBuildDate><atom:link href="https://vipjing.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aboutme</title>
-      <link>https://example.com/aboutme/</link>
+      <link>https://vipjing.github.io/aboutme/</link>
       <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
       
-      <guid>https://example.com/aboutme/</guid>
+      <guid>https://vipjing.github.io/aboutme/</guid>
       <description>大家好，我叫不安分的猿人人！</description>
     </item>
     
     <item>
       <title>第一讲</title>
-      <link>https://example.com/page-1-one/</link>
+      <link>https://vipjing.github.io/page-1-one/</link>
       <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
       
-      <guid>https://example.com/page-1-one/</guid>
+      <guid>https://vipjing.github.io/page-1-one/</guid>
       <description>大家好，我叫不安分的人！</description>
     </item>
     
     <item>
       <title>第一讲</title>
-      <link>https://example.com/page-top/</link>
+      <link>https://vipjing.github.io/page-top/</link>
       <pubDate>Thu, 05 Aug 2021 16:22:56 +0800</pubDate>
       
-      <guid>https://example.com/page-top/</guid>
+      <guid>https://vipjing.github.io/page-top/</guid>
       <description>大家好，我叫不安分的人！</description>
     </item>
     
