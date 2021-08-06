@@ -1,31 +1,10 @@
 [
 {
-	"uri": "https://example.com/post/firstarticle/",
-	"title": "FirstArticle",
-	"tags": null,
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://example.com/post/secarticle/",
-	"title": "FirstArticle",
-	"tags": null,
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://example.com/post/",
-	"title": "Posts",
-	"tags": null,
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://example.com/aboutme/",
 	"title": "Aboutme",
 	"tags": null,
 	"description": "",
-	"content": "大家好，我叫不安分的猿人！\n"
+	"content": "大家好，我叫不安分的猿人人！\n"
 },
 {
 	"uri": "https://example.com/",
