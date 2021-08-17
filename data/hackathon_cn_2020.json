@@ -1,0 +1,492 @@
+{
+  "highlights": [
+    {
+      "title": "奖项",
+      "icon": "https://download.pingcap.com/images/community/hackathon2020/icon-trophy.svg",
+      "desc": "除了金额丰厚的一二三等奖，本次大赛还将增设最佳人气奖，欢迎小伙伴们围观 Demo 现场投出你心中最佳的项目！"
+    },
+    {
+      "title": "全球联动",
+      "icon": "https://download.pingcap.com/images/community/hackathon2020/icon-globe.svg",
+      "desc": "去年北上广三地联动 Demo 的场景还历历在目，今年 TiDB 将更进一步，联动全球开发者共享代码狂欢！"
+    },
+    {
+      "title": "赛后支持",
+      "icon": "https://download.pingcap.com/images/community/hackathon2020/icon-support.svg",
+      "desc": "通过 <a href=\"https://github.com/pingcap/community\" target=\"_blank\" rel=\"noopener noreferrer\">TOC</a>（Technical Oversight Committee） 投票表决的优秀项目将在大赛结束后进入 TiDB Incubator 继续孵化，成为真正落地的社区项目。"
+    }
+  ],
+
+  "judges": [
+    {
+      "name": "覃左言",
+      "title": "小米云平台部-存储平台总监",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/tanzuoyan.png"
+    },
+    {
+      "name": "李雨来",
+      "title": "讯达云架构师",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/liyulai.png"
+    },
+    {
+      "name": "徐成选",
+      "title": "伴鱼基础架构负责人",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/xuchengxuan.png"
+    },
+    {
+      "name": "唐刘",
+      "title": "PingCAP 首席架构师",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/tangliu.png"
+    },
+    {
+      "name": "张东晖",
+      "title": "TiDB 产品顾问",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/zhangdonghui.png"
+    },
+    {
+      "name": "吴亮",
+      "title": "字节跳动技术学院院长",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/wuliang.png"
+    },
+    {
+      "name": "张雁飞",
+      "title": "青云 QingCloud 数据库高级技术专家",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/zhangyanfei.png"
+    },
+    {
+      "name": "李钰",
+      "title": "Apache Flink & Apache HBase PMC",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/liyu.png"
+    },
+    {
+      "name": "谢佳",
+      "title": "华创资本企业软件投资负责人",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/xiejia.png"
+    },
+    {
+      "name": "陈昱",
+      "title": "云启资本董事总经理",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/chenyu.png"
+    },
+    {
+      "name": "白珅",
+      "title": "TiDB Committer ",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/baikun.png"
+    },
+    {
+      "name": "王贺",
+      "title": "TiDB Committer",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/wanghe.png"
+    },
+    {
+      "name": "杨文",
+      "title": "TUG 华南区 Leader",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/yangwen.png"
+    },
+    {
+      "name": "韩明聪",
+      "title": "TiDB Committer",
+      "avatar": "https://download.pingcap.com/images/community/hackathon2020/hanmingcong.png"
+    }
+  ],
+
+  "awards": [
+    {
+      "award": "一等奖",
+      "bonus": "￥ 100,000",
+      "team_numbers": "1 支队伍",
+      "medal": "https://download.pingcap.com/images/hackathon2019/golden.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/golden-bg.png"
+    },
+    {
+      "award": "二等奖",
+      "bonus": "￥ 60,000",
+      "team_numbers": "2 支队伍",
+      "medal": "https://download.pingcap.com/images/hackathon2019/sliver.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/silver-bg.png"
+    },
+    {
+      "award": "三等奖",
+      "bonus": "￥ 20,000",
+      "team_numbers": "2 支队伍",
+      "medal": "https://download.pingcap.com/images/hackathon2019/bronze.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/bronze-bg.png"
+    },
+    {
+      "award": "CTO 特别奖",
+      "gift": "Switch + 健身环",
+      "team_numbers": "1 支队伍",
+      "medal": "https://download.pingcap.com/images/hackathon2019/gift.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/gift-bg.png"
+    },
+    {
+      "award": "最佳人气奖",
+      "team_numbers": "1 支队伍",
+      "gift": "LOFREE 洛斐 DOT 圆点蓝牙机械键盘",
+      "medal": "https://download.pingcap.com/images/hackathon2019/gift.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/gift-bg.png"
+    },
+    {
+      "award": "最终 20 强",
+      "team_numbers": "20 支队伍",
+      "gift": "Divoom 点音 Evo 蓝牙音箱",
+      "medal": "https://download.pingcap.com/images/hackathon2019/gift.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/gift-bg.png"
+    },
+    {
+      "award": "CNCF 特别奖",
+      "team_numbers": "1 支队伍",
+      "gift": "KubeCon 2021 门票+交通",
+      "medal": "https://download.pingcap.com/images/hackathon2019/gift.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/gift-bg.png"
+    },
+    {
+      "award": "最具市场潜力奖",
+      "team_numbers": "1 支队伍",
+      "gift": "万元精彩大奖",
+      "medal": "https://download.pingcap.com/images/hackathon2019/gift.svg",
+      "bg": "https://download.pingcap.com/images/hackathon2019/gift-bg.png"
+    }
+  ],
+
+  "winners_2020": [
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-first.png",
+      "award": "一等奖",
+      "project_name": "' or 0=0 or '",
+      "project_intro": "我们将为 TiDB 实现一个用户自定义函数（UDF，User Defined Function）引擎。通过 UDF 用户可以编写复杂的自定义函数执行逻辑，并在数据库上直接进行计算。 我们的 UDF 实现具有以下特性：高性能；沙盒安全，可用于 TiDB Cloud；执行逻辑丰富，甚至支持机器学习、受控的网络访问等；用户可使用多种编程语言（例如自己最熟悉的语言）编写函数逻辑；相同的 UDF 能同时在 TiDB、TiKV 和 TiFlash 上执行，最大化利用分布式资源；相同的 UDF 同时兼容 x86、ARM 等不同平台架构，TiDB Cloud 可以无负担切换到 ARM；为 MySQL 编写的 UDF 可运行在 TiDB 上；符合人行分布式数据库评测标准。",
+      "github": "https://github.com/tidb-hackathon-2020-wasm-udf",
+      "rfc": "https://docs.google.com/document/d/1TdZJR9vkVgfvpiirhruQKnu7pLYfK6jEhZWkZctAov4/edit"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-cto.png",
+      "award": "二等奖 & CTO 特别奖",
+      "project_name": "B.A.D",
+      "project_intro": "开发一个 Visual Studio Code 插件，极大提升开发者开发和调试 TiDB 项目的体验。",
+      "github": "https://github.com/dragonly/ticode",
+      "rfc": "https://gist.github.com/dragonly/dfe1d5c9ecb50eb4fc460a663a5d5076"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-second.png",
+      "award": "二等奖",
+      "project_name": "TiGraph",
+      "project_intro": "Integrate graph mode in TiDB and make TiDB a hybrid mode distributed database.",
+      "github": "https://github.com/tigraph/tidb",
+      "rfc": "https://docs.google.com/document/d/1KHOAYJLim-A7YMOVZvZUc1PIxXDmT6nk0fQ5GNiU0T8/edit"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-third.png",
+      "award": "三等奖",
+      "project_name": "zh.md",
+      "project_intro": "本提案提供一套侧重中文技术文档的写作风格检查与自动化管理解决方案，包括： 完整的中文文档写作风格指南： 为文档作者和审校者提供统一的文档写作参考规范中文文档分析工具和中文文档风格检测工具： 可检测存量或增量文档中的风格问题基于 GitHub 的文档管理 bot： 可以自动建立 issue 或 PR 修复存量或增量文档中的风格问题**基于机器学习辅助文档写作：**可以辅助生成具有统一风格的文档可明显降低文档的审查工作量、提高文档整体质量，调动工程师积极参与文档内容建设。 本提案适用于任何需要专业技术文档的项目，具有普及性。",
+      "github": "https://github.com/zh-md/zh.md",
+      "rfc": "https://github.com/WPH95/zh.md/blob/main/PROPOSAL.md"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-yunqi.png",
+      "award": "三等奖 & 云启资本最具市场潜力奖",
+      "project_name": "Mods",
+      "project_intro": "GPU Accelerated TiDB For Analytical Queries Empower TiDB using GPU acceleration techniques to improve performance of CPU-intensive analytical query processing, such as joins, aggregations, etc. Other than scaling out, which TiDB is already capable of, the ability of scaling up by embracing new generation hardware will be extended.",
+      "github": "https://github.com/zanmato1984/cura https://github.com/windtalker/tidb/tree/tidb_cura",
+      "rfc": "https://gist.github.com/zanmato1984/520400e0426ca18ef3711355ac930e86"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-huachuang-marketing.png",
+      "award": "华创最具市场潜力奖",
+      "project_name": "Ti-Improve",
+      "project_intro": "AWS native testing framework TiDB 作为一款云上数据库，其云上特性与云厂商提供的特性息息相关，如何使用领先的云厂商 aws 基础设施对 TiDB 进行全自动化的测试一直是一个难点和重点，这个 hackathon 项目完全使用 aws 的基础设施来进行测试 TiDB, 如 s3 存储备份文件，lambda 来执行具体的测试事项，aws codepipeline 来作为调度执行引擎，cloud watch 观测 TiDB 的表现，并且可以使用 chaos mesh 作为注入等",
+      "github": "https://docs.google.com/document/d/1bgbI0hVkWRtIe_jFSc_Kx0IfbPu15MOyRY7TtW2e6xI/edit",
+      "rfc": "https://github.com/titaas"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-cncf.png",
+      "award": "CNCF 特别奖",
+      "project_name": "森海飞霞",
+      "project_intro": "dynamic copysets proposal： 对于一个分布式存储系统，使用多副本机制可以保证数据的安全性。然而，通常情况下，随着集群规模的增长，绝大部分的数据副本数并不会随之增长。久而久之，就会出现当集群规模成百上千时，挂掉的机器节点数等于或者大于数据的副本数(这个数字通常是 3 )的概率也会随之上升。 对于一个 3副本的集群，当集群发生 3 个节点宕机时，对于不同的调度算法而言，丢失数据的概率与影响范围也是不同的。我们希望通过 dynamic copysets 在该情况发生时，降低丢失数据的概率。",
+      "github": "https://github.com/Yisaer/pd/tree/support_elastic_copyset",
+      "rfc": "https://docs.google.com/document/d/1emQUIJ_ayczFCWNvVVgzdGY8n6LSyE7fDC5tXb5ZjmI/edit"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-ggv-marketing.png",
+      "award": "GGV 最具市场潜力奖",
+      "project_name": "hundundm",
+      "project_intro": "TiBI: 将 Metabase 类似的 BI 分析工具结合到 TiDB 生态中，在 TiDB Dashboard 直接进行展示，为 TiDB 插上 BI 分析的翅膀。既能帮助分析师能基于 TiDB 直接进行数据可视化分析，也能帮助 DBA 直接分析集群状况，如表的数据分布，索引分布等。",
+      "github": "https://github.com/HunDunDM/tidb-dashboard/tree/TiBI/master",
+      "rfc": "https://docs.google.com/document/d/1-yuJ3GLrrRqFC1YFBAzQ56ppTGvbtVNJgIf_jPvXa6c/edit"
+    },
+    {
+      "thumbnail": "https://download.pingcap.com/images/community/hackathon2020/winner-popularity.png",
+      "award": "最佳人气奖",
+      "project_name": "TiFlink",
+      "project_intro": "为Flink实现更好的TiKV Source、Sink和TiDB Catalog Reader，支持 Snapshot 读取和 Change Log增量读取和 2 Phase Commit 写入。以实现在 TiDB 里快速创建 Materialized View 和在 Flink 里方便编写读写 TiKV 数据的批/流处理任务。",
+      "github": "https://github.com/TiFlink/TiFlink",
+      "rfc": "https://docs.google.com/document/d/1ksdPxk4WLIzTJmy7pPh37JrsoBSuJy8uK28rABWQYa0/edit"
+    }
+  ],
+
+  "moments": [
+    {
+      "date": "2020.12.15-2021.1.10",
+      "name": "提交项目设计 RFC"
+    },
+    {
+      "date": "2021.1.11",
+      "name": "技术委员会针对 RFC 返回指导意见"
+    },
+    {
+      "date": "2021.1.16-2021.1.17",
+      "name": "Hacking Time"
+    },
+    {
+      "date": "2021.1.17",
+      "name": "分组筛选 & 最终 Demo"
+    }
+  ],
+
+  "schedule": [
+    {
+      "step": "1",
+      "name": "开启报名 & 项目指导",
+      "time": "12 月 15 日-1 月 10 日",
+      "detail": "选手可以在表单中提交自己的项目说明与 RFC 设计，1 月 10 日之前提交的 RFC 都将由 TiDB Hackathon 技术委员会进行 Review 并返回指导意见。",
+      "align_left": true,
+      "btn_text": "报名截止",
+      "disabled": true
+    },
+    {
+      "step": "2",
+      "name": "赛前沟通",
+      "time": "1 月 11 日",
+      "detail": "组委会将在 1.11 日和各个小组沟通 Hackathon 技术委员会的意见，建议参赛队伍根据委员会的指导调整项目设计，准备项目开发。",
+      "align_left": true,
+      "btn_link": "https://github.com/pingcap/tidb/blob/master/docs/design/TEMPLATE.md",
+      "btn_text": "RFC 模板"
+    },
+    {
+      "step": "3",
+      "name": "Hacking Time!",
+      "time": "1 月 16 日-1 月 17 日 12:00",
+      "detail": "全力以赴享受 Hacking 的乐趣！",
+      "btn_text": "日程表",
+      "modal_name": "agenda",
+      "modal_content": [
+        {
+          "day": "01.16",
+          "list": [
+            { "time": "8:30", "content": "签到" },
+            { "time": "9:15", "content": "开幕式讲话" },
+            { "time": "9:30", "content": "开始 Hack" },
+            { "time": "12:00", "content": "午餐" },
+            { "time": "13:00", "content": "继续 Hack" },
+            { "time": "18:00", "content": "晚餐" }
+          ]
+        },
+        {
+          "day": "01.17",
+          "list": [
+            {
+              "time": "8:00",
+              "content": "抽签确定顺序，进行快速答辩，评委根据答辩内容，选出 20 强。"
+            },
+            {
+              "time": "11:00",
+              "content": "与参赛队伍沟通（举例：队伍申诉等等），确认下午 20 强的 Demo 顺序"
+            },
+            { "time": "12:00", "content": "午餐、截止代码提交" },
+            { "time": "13:00", "content": "20 强 Demo Show" }
+          ]
+        }
+      ]
+    },
+    {
+      "step": "4",
+      "name": "演示 & 评选",
+      "time": "1 月 17日 13:00",
+      "detail": "Demo Show～ 开始你们的表演！",
+      "btn_text": "评分标准",
+      "modal_name": "criteria",
+      "modal_content": [
+        {
+          "label": "创新性",
+          "content": "作品的创新程度，是否具有发展潜力（35%）"
+        },
+        {
+          "label": "应用性",
+          "content": "项目的整体规划和应用程度。是否可持续的为 TiDB 增加生产力，提高效率。（35%）"
+        },
+        {
+          "label": "完成度",
+          "content": "作品的完整性，核心功能是否可以演示。（20%）"
+        },
+        {
+          "label": "展示度",
+          "content": "整个演示是否流畅，模块叙述清晰（10%）"
+        }
+      ]
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "1. 每支参赛队伍最多几个人？",
+      "a": [
+        {
+          "d": "团队参赛最多 4 人为一个小组。"
+        }
+      ]
+    },
+    {
+      "q": "2. 我有一个绝妙的 idea，就差几个程序员了怎么办？",
+      "a": [
+        {
+          "d": "没有队员也可以先提交报名表单，之后可以在官方交流群寻找队友。"
+        }
+      ]
+    },
+    {
+      "q": "3. Demo Day 选手一定要在现场么？",
+      "a": [
+        {
+          "d": "原则上答辩选手需在现场，有特殊情况可以和组委会沟通，具体请以赛前通知为准。"
+        }
+      ]
+    },
+    {
+      "q": "4. 1.10 日之后还能报名参赛吗？",
+      "a": [
+        {
+          "d": "1.10 日-1.15 日之间还可以提交报名表单哦，不过 1.10 日之后的报名技术委员将不会返回指导意见。"
+        }
+      ]
+    }
+  ],
+
+  "sponsors": [
+    {
+      "img": "https://download.pingcap.com/images/community/hackathon2020/logo-flink.png",
+      "link": "https://flink.apache.org/zh/"
+    }
+  ],
+
+  "partners": {
+    "resources": [
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-qingcloud.png",
+        "link": "https://www.qingcloud.com/"
+      }
+    ],
+    "community": [
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-elastic.png",
+        "link": "https://www.elastic.co/cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-cncf.svg",
+        "link": "https://www.cncf.io/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-zhihu.png",
+        "link": "https://www.zhihu.com/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-pulsar.svg",
+        "link": "https://pulsar.apache.org/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-juejin.png",
+        "link": "https://juejin.cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-oschina.png",
+        "link": "https://www.oschina.net/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-gocn.png",
+        "link": "https://gocn.vip/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-rust.cc.png",
+        "link": "https://rustcc.cn"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-rust.png",
+        "link": "https://2020conf.rustcc.cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-palfish.png",
+        "link": "https://www.ipalfish.com/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-broadview.png",
+        "link": "http://www.broadview.com.cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-chaosMesh.png",
+        "link": "https://chaos-mesh.org/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-tikv.png",
+        "link": "https://tikv.org/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-csdn.png",
+        "link": "https://www.csdn.net/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-alauda.png",
+        "link": "https://www.alauda.cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-cnbpa.png",
+        "link": "https://www.cnbpa.org/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-ecloud.svg",
+        "link": "https://ecloud.10086.cn/home/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-epay.svg",
+        "link": "https://www.bestpay.com.cn/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-qiping.svg",
+        "link": "https://tech.pingan.com/"
+      }
+    ],
+    "investor": [
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-yunqi.svg",
+        "link": "http://www.yunqi.vc"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-huachuang.svg",
+        "link": "http://www.chinagrowthcapital.com/"
+      },
+      {
+        "img": "https://download.pingcap.com/images/community/hackathon2020/logo-ggv.svg",
+        "link": "https://www.ggvc.com/"
+      }
+    ]
+  },
+
+  "reviews": [
+    {
+      "link": "/community-cn/hackathon2019/",
+      "image": "https://download.pingcap.com/images/community/hackathon2020/hack19-review-img.jpg",
+      "outbound": false,
+      "alt": "TiDB Hackathon 2019"
+    },
+    {
+      "link": "/community-cn/hackathon2018/",
+      "image": "https://download.pingcap.com/images/community/hackathon2020/hack18-review-img.jpg",
+      "outbound": false,
+      "alt": "TiDB Hackathon 2018"
+    },
+    {
+      "link": "http://gohack2017.golangfoundation.org/",
+      "image": "https://download.pingcap.com/images/community/hackathon2020/hack17-review-img.jpg",
+      "outbound": true,
+      "alt": "TiDB Hackathon 2017"
+    }
+  ]
+}

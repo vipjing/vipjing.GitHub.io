@@ -1,0 +1,80 @@
+// import global variables
+@import "./variables.less";
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+//   align-items: flex-start;
+  margin: 1em auto;
+}
+
+.card {
+  flex: 1 1 auto;
+  position: relative;
+  width: 30%;
+  max-width: 300px;
+  margin: 20px 1.6%;
+  padding: 1em 0.8em;
+  border-radius: 6px;
+  box-shadow: @cardBoxShadow;
+  transform: translateZ(0);
+  transition: all 0.3s 0s ease-in;
+
+  &:hover {
+    box-shadow: @cardHoverBoxShadow;
+    transform: translate(0, -4px);
+  }
+
+  .read-more {
+    display: block;
+    margin-top: 20px;
+    font-size: 15px;
+    color: @themeBlue;
+  }
+
+  /* sup */
+  sup {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 0 3px;
+    border-radius: 3px;
+    background-color: @bannerBgColor;
+    font-size: 12px;
+    color: #fff;
+  }
+}
+
+.card__avatar {
+  height: 100px;
+  width: auto;
+  margin: auto;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
+
+  img {
+    display: block;
+    width: 50%;
+  }
+}
+
+h3.card__title {
+  margin: 12px 0;
+  font-size: 18px !important;
+  line-height: 1.6;
+}
+
+.card__location,
+.card__description {
+  color: @lightDimGray;
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+}

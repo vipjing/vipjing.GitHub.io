@@ -1,0 +1,549 @@
+{{- define "headTpl" -}}
+{{- partial "head/preload-css" (dict "href" "/css/user-words.css") -}}
+{{ $.Scratch.Set "nav_active" "cases" }}
+{{ $.Scratch.Set "data_i18_link" "/" }}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "no_footer" true }}
+{{- partial "head/preload-css" (dict "href" "/css/vendor/swiper.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="pc-container">
+    <div class="panel hero-panel">
+        <section class="hero">
+            <div class="title">TiDB 非官方使用指南</div>
+            <div class="slogan">
+                <p>我们邀请了 48 位用户代表</p>
+                <p>汇成了这份“非官方使用指南”</p>
+                <p>这些实操中闯过的关和踩过的坑</p>
+                <p>创造了 TiDB 的更多可能</p></br>
+
+                <p>一切伟大，都源于开始</p>
+                <p>2020 到来了，感谢大家</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="panel" id="one">
+        <section class="s1">
+            <div class="section-title">
+                他们说 TiDB 解决了很多问题，希望这里也有你的燃眉之急
+            </div>
+            <div class="swiper-container swiper-one">
+                <div class="swiper-wrapper">
+                    {{ range $i := .Site.Data.user_words.section1 }}
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="quote quote1"></div>
+                            <div class="words">
+                                {{ $i.words }}
+                            </div>
+                            <div class="read-more s1-color s1-">Read More</div>
+                            <div class="name">
+                                {{ $i.name }}
+                            </div>
+                            <div class="misc">
+                                <span>{{ $i.company }}</span>
+                                <span>{{ $i.title }}</span>
+                            </div>
+                            <div class="avatar">
+                                <img src="{{ $i.avatar }}" alt="avatar" />
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="swiper-pagination pagination-one"></div>
+
+            <div class="swiper-button-prev button-prev-one"></div>
+            <div class="swiper-button-next button-next-one"></div>
+        </section>
+    </div>
+
+    <div class="panel" id="two">
+        <section class="s2">
+            <div class="section-title">
+                这里汇聚了 TiDB 的多种玩法，有惊喜，也有灵感
+            </div>
+            <div class="swiper-container swiper-two">
+                <div class="swiper-wrapper">
+                    {{ range $i := .Site.Data.user_words.section2 }}
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="quote quote2"></div>
+                            <div class="words">
+                                {{ $i.words }}
+                            </div>
+                            <div class="read-more s2-color s2-">Read More</div>
+                            <div class="name">
+                                {{ $i.name }}
+                            </div>
+                            <div class="misc">
+                                <span>{{ $i.company }}</span>
+                                <span>{{ $i.title }}</span>
+                            </div>
+                            <div class="avatar">
+                                <img src="{{ $i.avatar }}" alt="avatar" />
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+
+            <div class="swiper-pagination pagination-two"></div>
+            <div class="swiper-button-prev button-prev-two"></div>
+            <div class="swiper-button-next button-next-two"></div>
+        </section>
+    </div>
+
+    <div class="panel" id="three">
+        <section class="s3">
+            <div class="section-title">
+                面对大家的期待，我们还在努力完善，也希望能得到更多的反馈
+            </div>
+            <div class="swiper-container swiper-three">
+                <div class="swiper-wrapper">
+                    {{ range $i := .Site.Data.user_words.section3 }}
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="quote quote3"></div>
+                            <div class="words">
+                                {{ $i.words }}
+                            </div>
+                            <div class="read-more s3-color s3-">Read More</div>
+                            <div class="name">
+                                {{ $i.name }}
+                            </div>
+                            <div class="misc">
+                                <span>{{ $i.company }}</span>
+                                <span>{{ $i.title }}</span>
+                            </div>
+                            <div class="avatar">
+                                <img src="{{ $i.avatar }}" alt="avatar" />
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="swiper-pagination pagination-three"></div>
+            <div class="swiper-button-prev button-prev-three"></div>
+            <div class="swiper-button-next button-next-three"></div>
+        </section>
+    </div>
+</div>
+
+
+<div id="slider-control">
+    <a id="one-dot" href="#one" class="active">
+        <div class="dot"></div>
+    </a>
+    <a id="two-dot" href="#two">
+        <div class="dot"></div>
+    </a>
+    <a id="three-dot" href="#three">
+        <div class="dot"></div>
+    </a>
+</div>
+
+
+<div class="swiper-container mobile-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="panel hero-panel">
+                <section class="hero">
+                    <div class="title">TiDB 非官方使用指南</div>
+                    <div class="slogan">
+                        <p>我们邀请了 48 位用户代表</p>
+                        <p>汇成了这份“非官方使用指南”</p>
+                        <p>这些实操中闯过的关和踩过的坑</p>
+                        <p>创造了 TiDB 的更多可能</p></br>
+
+                        <p>一切伟大，都源于开始</p>
+                        <p>2020 到来了，感谢大家</p>
+                    </div>
+                    <div class="down-arrow"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel" id="one">
+                <section class="s1">
+                    <div class="section-title">
+                        他们说 TiDB 解决了很多问题，希望这里也有你的燃眉之急
+                    </div>
+                    <div class="swiper-container swiper-one-mobile">
+                        <div class="swiper-wrapper">
+                            {{ range $i := .Site.Data.user_words.section1 }}
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="quote quote1"></div>
+                                    <div class="words">
+                                        {{ $i.words }}
+                                    </div>
+                                    <div class="read-more s1-color s1-">Read More</div>
+                                    <div class="name">
+                                        {{ $i.name }}
+                                    </div>
+                                    <div class="misc">
+                                        <span>{{ $i.company }}</span>
+                                        <span>{{ $i.title }}</span>
+                                    </div>
+                                    <div class="avatar">
+                                        <img src="{{ $i.avatar }}" alt="avatar" />
+                                    </div>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="swiper-pagination pagination-one-mobile"></div>
+                    <div class="down-arrow"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel" id="two">
+                <section class="s2">
+                    <div class="section-title">
+                        这里汇聚了 TiDB 的多种玩法，有惊喜，也有灵感
+                    </div>
+                    <div class="swiper-container swiper-two-mobile">
+                        <div class="swiper-wrapper">
+                            {{ range $i := .Site.Data.user_words.section2 }}
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="quote quote2"></div>
+                                    <div class="words">
+                                        {{ $i.words }}
+                                    </div>
+                                    <div class="read-more s2-color s2-">Read More</div>
+                                    <div class="name">
+                                        {{ $i.name }}
+                                    </div>
+                                    <div class="misc">
+                                        <span>{{ $i.company }}</span>
+                                        <span>{{ $i.title }}</span>
+                                    </div>
+                                    <div class="avatar">
+                                        <img src="{{ $i.avatar }}" alt="avatar" />
+                                    </div>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination pagination-two-mobile"></div>
+                    <div class="down-arrow"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel" id="three">
+                <section class="s3">
+                    <div class="section-title">
+                        面对大家的期待，我们还在努力完善，也希望能得到更多的反馈
+                    </div>
+                    <div class="swiper-container swiper-three-mobile">
+                        <div class="swiper-wrapper">
+                            {{ range $i := .Site.Data.user_words.section3 }}
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="quote quote3"></div>
+                                    <div class="words">
+                                        {{ $i.words }}
+                                    </div>
+                                    <div class="read-more s3-color s3-">Read More</div>
+                                    <div class="name">
+                                        {{ $i.name }}
+                                    </div>
+                                    <div class="misc">
+                                        <span>{{ $i.company }}</span>
+                                        <span>{{ $i.title }}</span>
+                                    </div>
+                                    <div class="avatar">
+                                        <img src="{{ $i.avatar }}" alt="avatar" />
+                                    </div>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="swiper-pagination pagination-three-mobile"></div>
+                    <div class="down-arrow"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel">
+                <div class="user-case">
+                    <div class="datas">
+                        <div class="data">
+                            <p class="num num1"><span>20000+</span></p>
+                            <p class="desc">节点规模</p>
+                        </div>
+                        <div class="data">
+                            <p class="num num2"><span>20000+</span><span>亿</span></p>
+                            <p class="desc">单表最大数据规模</p>
+                        </div>
+                        <div class="data">
+                            <p class="num num3"><span>200+</span></p>
+                            <p class="desc">单集群最大节点规模</p>
+                        </div>
+                        <div class="data">
+                            <p class="num num4"><span>700+</span></p>
+                            <p class="desc">单公司最大集群规模</p>
+                        </div>
+                    </div>
+                    <div class="intro">
+                        <p>2019 年</p>
+                        <p>TiDB 被广泛应用于海内外互联网、银行、保险、证券、支付、物流、制造业、快消、电信等多个行业</p>
+                        <p>经受住了近 1000 家企业的线上环境打磨</p>
+                        <p>护航数十家电商、物流及金融机构应对 6.18、11.11 等大促流量高峰</p></br>
+
+                        <p>TiDB 过硬的产品实力背后，有社区开发者持续贡献的支撑</p>
+                        <p>也有一线用户在实操中对其的不断打磨</p>
+                        <p>感谢所有热爱、信任 TiDB 的伙伴们</p>
+                    </div>
+                </div>
+                <div class="down-arrow down-arrow-center"></div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel">
+                <div class="logo">
+                    <img src="/images/user-words/logo-mobile1.png" alt="logo" />
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="panel">
+                <div class="logo logo2">
+                    <img src="/images/user-words/logo-mobile2.png" alt="logo" />
+                </div>
+                {{- partial "archives/readMoreBtn.html" (dict "url" "/cases-cn/" "btnText" "更多案例文章") }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="user-case pc-user-case">
+    <div class="datas">
+        <div class="data">
+            <p class="num num1"><span>20000+</span></p>
+            <p class="desc">节点规模</p>
+        </div>
+        <div class="data">
+            <p class="num num2"><span>20000+</span><span>亿</span></p>
+            <p class="desc">单表最大数据规模</p>
+        </div>
+        <div class="data">
+            <p class="num num3"><span>200+</span></p>
+            <p class="desc">单集群最大节点规模</p>
+        </div>
+        <div class="data">
+            <p class="num num4"><span>700+</span></p>
+            <p class="desc">单公司最大集群规模</p>
+        </div>
+    </div>
+    <div class="intro">
+        <p>2019 年</p>
+        <p>TiDB 被广泛应用于海内外互联网、银行、保险、证券、支付、物流、制造业、快消、电信等多个行业</p>
+        <p>经受住了近 1000 家企业的线上环境打磨</p>
+        <p>护航数十家电商、物流及金融机构应对 6.18、11.11 等大促流量高峰</p></br>
+
+        <p>TiDB 过硬的产品实力背后，有社区开发者持续贡献的支撑</p>
+        <p>也有一线用户在实操中对其的不断打磨</p>
+        <p>感谢所有热爱、信任 TiDB 的伙伴们</p>
+    </div>
+</div>
+<div class="pc-logos logos"></div>
+<div class="pc-readMoreBtn">
+    {{- partial "archives/readMoreBtn.html" (dict "url" "/cases-cn/" "btnText" "更多案例文章") }}
+</div>
+<div class="pc-footer">
+    {{- partial "layout/footer-cn.html" -}}
+</div>
+
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/swiper.min.js"></script>
+<script type="text/javascript">
+    var slides_per_view, slides_per_group, pagination_one, pagination_two, pagination_three
+
+
+    if (window.matchMedia('(max-width: 600px)').matches) {
+        slides_per_view = 1
+        slides_per_group = 1
+    } else {
+        slides_per_view = 3
+        slides_per_group = 3
+    }
+
+    function removeModal() {
+        $('.word-modal').remove()
+    }
+
+    var swiperOne = new Swiper('.swiper-one', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-one',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+        loop: false,
+        navigation: {
+            nextEl: '.button-next-one',
+            prevEl: '.button-prev-one',
+        },
+    })
+
+    var swiperTwo = new Swiper('.swiper-two', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-two',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.button-next-two',
+            prevEl: '.button-prev-two',
+        },
+    })
+
+    var swiperThree = new Swiper('.swiper-three', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-three',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.button-next-three',
+            prevEl: '.button-prev-three',
+        },
+    })
+
+    var swiperOneMobile = new Swiper('.swiper-one-mobile', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-one-mobile',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+    })
+
+    var swiperTwoMobile = new Swiper('.swiper-two-mobile', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-two-mobile',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+    })
+
+    var swiperThreeMobile = new Swiper('.swiper-three-mobile', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.pagination-three-mobile',
+            clickable: true,
+        },
+        slidesPerView: slides_per_view,
+        slidesPerGroup: slides_per_group,
+        spaceBetween: 20,
+    })
+
+    var mobileContainer = new Swiper('.mobile-container', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        on: {
+            slideChange: function () {
+                removeModal()
+            },
+        }
+    })
+
+    $('.words').each(function () {
+        const $this = $(this)
+        if ($this[0].scrollHeight == $this[0].clientHeight) {
+            $this.next().css('visibility', 'hidden')
+        }
+    })
+
+    $('.read-more').click(function () {
+        const $this = $(this)
+        var bgColor = $this.attr('class').split(' ')[2]
+        var words = $this.prev()[0].innerText
+        $('.panel').append('\
+        <div class="word-modal ' + bgColor + 'bg"><p>' + words + '</p></div>\
+        ')
+
+        $('.word-modal').click(function () {
+            removeModal()
+        })
+    })
+
+    function addSmoothScrolling() {
+        var links = document.querySelectorAll('#slider-control a')
+
+        for (let i = 0; i < links.length; i++) {
+            let link = links[i]
+            let id = $(link).attr('href')
+
+            link.addEventListener('click', function (event) {
+                event.preventDefault()
+                $('html, body').animate(
+                    {
+                        scrollTop:
+                            $(id).offset().top - 50
+                    },
+                    1000
+                )
+            })
+        }
+    }
+    addSmoothScrolling()
+
+
+
+    window.addEventListener('scroll', function () {
+        var diffTop = $('#slider-control').offset().top
+        if (diffTop)
+            if (diffTop > 2700 || diffTop < 600) {
+                $('#slider-control').css('opacity', 0)
+            } else {
+                $('#slider-control').css('opacity', 1)
+                if (diffTop > 2000) {
+                    $('a').removeClass('active')
+                    $('#three-dot').addClass('active')
+                } else if (diffTop > 1300) {
+                    $('a').removeClass('active')
+                    $('#two-dot').addClass('active')
+                } else {
+                    $('a').removeClass('active')
+                    $('#one-dot').addClass('active')
+                }
+            }
+    })
+</script>
+{{- end -}}

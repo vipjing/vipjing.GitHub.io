@@ -1,0 +1,11 @@
+{{ $cv := .cv }}
+{{ $sv := .sv }}
+{{ $tv := .tv }}
+{{ $docs_type := .docs_type }}
+{{ $permalink := .global.RelPermalink }}
+{{ $content_file_path := .global.File.Path }}
+{{ $title := print .title_prefix (cond (eq .lang_prefix "docs_cn_") " 文档" " Documentation") }}
+
+{{ $toc_file_name := replace (print .lang_prefix $docs_type "_" $cv "_toc") "." "" }}
+
+{{ partial "archives/sticky-tree.html" (dict "permalink" $permalink "content_file_path" $content_file_path "tree" (index .global.Site.Data $toc_file_name) "title" $title "sv" $sv "tv" $tv "cv" $cv "type" "docs" "docs_type" $docs_type) }}

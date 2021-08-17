@@ -1,0 +1,504 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "High Performance TiDB Challenge" }}
+High Performance TiDB Challenge
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_link" "/community-cn/high-performance-tidb-challenge" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/high-performance-tidb-challenge.css") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@100&display=swap"
+    rel="stylesheet">
+{{- end -}}
+
+{{- define "main" -}}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container reverse">
+            <div class="slogan">
+                <div class="title-wrapper">
+                    <div class="date date-en">
+                        Sept.17 - Dec. 05, 2020
+                    </div>
+                </div>
+
+                <h1 class="title title-en">
+                    High Performance <br />
+                    TiDB Challenge
+                </h1>
+                <div class="buttons">
+                    <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge.md"
+                        target="_blank">
+                        <button class="button white-bg">
+                            About
+                        </button>
+                    </a>
+                    <a target="_blank" id="register-btn-banner"
+                        href="https://forms.pingcap.com/f/high-performance-challenge-en?"
+                        onclick="trackViews('banner', 'hptc_form')">
+                        <button class="button color-bg">
+                            Sign Up
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-bg">
+                <img src="https://download.pingcap.com/images/community/high-performance-tidb/hero-bg.svg" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="content">
+                <div class="title-wrapper">
+                    <div class="title title-en">High Performance TiDB Challenge is now officially launched!</div>
+                </div>
+                <div class="detail">
+                    High-Performance TiDB Challenge is a mentoring program which
+                    focuses on workload optimization to bring TiDB performance to
+                    a higher level.Several typical workloads in need of
+                    optimization are now open for participants to discuss and work
+                    on. Completion of each challenge task under the selected
+                    workload is recognized through challenge points, which could
+                    be redeemed into cash awards and swags.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="challenge-problems">
+    <div class="problems-body">
+        <div class="container">
+            <div class="challenge-problems-body">
+                <div class="element ele-1"></div>
+                <div class="element ele-2"></div>
+                <div class="element ele-3"></div>
+                <div class="title-wrapper">
+                    <div class="title title-en">
+                        Tasks
+                    </div>
+                </div>
+
+                <div class="scene-overview">
+                    <div class="scene-bg">
+                        <img class="img-pc" src="/images/community/high-performance-tidb/scenes-overview.svg" />
+                        <img class="img-mobile"
+                            src="/images/community/high-performance-tidb/scenes-overview-mobile.svg" />
+                    </div>
+                </div>
+                <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge.md#step-1-sign-up"
+                    target="_blank">
+                    <button class="button white-bg">
+                        All Tasks
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="process">
+    <div class="process-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">How to Challenge</div>
+            </div>
+            <div class="steps">
+                <div class="step step1-bg img-pc">
+                    <img src="https://download.pingcap.com/images/community/high-performance-tidb/step1-bg.svg" />
+                </div>
+                <div class="step">
+                    <div class="label">Step 1</div>
+                    <div class="step-title">Challenge Application</div>
+                    <div class="detail">Make sure you read the
+                        <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge.md#participation-notes"
+                            target="_blank">Participation Notes</a>
+                        before you apply for the program. To apply, click the
+                        <strong>Sign Up</strong> button below and fill in the
+                        application form. Note that once the form is submitted, it
+                        cannot be modified.
+                    </div>
+                    <a target="_blank" id="register-btn-step"
+                        href="https://forms.pingcap.com/f/high-performance-challenge-en"
+                        onclick="trackViews('step', 'hptc_form')">
+                        <button class="button">Sign Up</button>
+                    </a>
+                </div>
+                <div class="step">
+                    <div class="label">Step 2</div>
+                    <div class="step-title">Team Bonding and Coding</div>
+                    <div class="detail">In this period, you get to know your teammates and mentors
+                        and work together on diagnosing performance bottlenecks.
+                        Once the bottlenecks are identified, you need to create the
+                        corresponding issues and start coding to optimize.</div>
+                    <a
+                        href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge.md">
+                        <button class="button">About Challenge</button>
+                    </a>
+                </div>
+                <div class="step">
+                    <div class="label">Step 3</div>
+                    <div class="step-title">Code Submission</div>
+                    <div class="detail">Submit the code change before Nov.15. PRs merged after
+                        Nov.15 will not be counted for the points.</div>
+                </div>
+                <div class="step">
+                    <div class="label">Step 4</div>
+                    <div class="step-title">Presentation</div>
+                    <div class="detail">Submit your presentation slides before 10:00 (China Standard
+                        Time), Nov.20. The team leader presents the optimization
+                        process and results at 13:00-17:00 on Nov.21 (onlin</div>
+                    <button class="button grading-btn">Evaluation criteria</button>
+                    <div class="grading">
+                        <div class="close">X</div>
+                        <div class="grading-title">Evaluation criteria</div>
+                        <div class="item">
+                            <p class="criterion">Performance improvement (65%)</p>
+                            <p class="detail">The performance improvement (percentage) of your working
+                                branch compared with the base Master branch when the
+                                program started</p>
+                        </div>
+                        <div class="item">
+                            <p class="criterion">PR points of the team (30%)</p>
+                            <p class="detail">The validated PRs merged into the Master branch</p>
+                        </div>
+                        <div class="item">
+                            <p class="criterion">Presentation (5%)</p>
+                            <p class="detail">Presentation performance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="step step4-bg">
+                    <img src="https://download.pingcap.com/images/community/high-performance-tidb/step4-bg.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="award-title img-pc">
+    <div class="container">
+        <div class="title-wrapper">
+            <div class="title title-en">Awards</div>
+        </div>
+    </div>
+</section>
+
+<section class="awards">
+    <div class="award-body">
+        <div class="container">
+            <div class="title-wrapper img-mobile">
+                <div class="title title-en">1st prize</div>
+            </div>
+            <div class="content">
+                <div class="award">
+                    <div class="award-level">1st prize</div>
+                    <div class="detail">
+                        <span class="strong">7,000</span> US dollars for the
+                        team; <span class="strong">1,350</span> US dollars for
+                        the mentor
+                    </div>
+                </div>
+                <div class="award">
+                    <div class="award-level">2nd prize</div>
+                    <div class="detail">
+                        <span class="strong">4,250</span> US dollars for the
+                        team; <span class="strong">1,350</span> US dollars for
+                        the mentor
+                    </div>
+                </div>
+                <div class="award">
+                    <div class="award-level">3rd prize</div>
+                    <div class="detail"><span class="strong">1,350</span> US dollars for the
+                        team</div>
+                </div>
+                <div class="annotation">
+                    <strong>Note:</strong>
+                    <ul>
+                        <li>
+                            Teams that finish the final presentation will be evaluated
+                            by the judges, among which no more than five winning teams
+                            will be generated.
+                        </li>
+                        <li>
+                            If the winning team does not have a mentor, the mentor
+                            prize will be automatically added to the team.
+                        </li>
+                        <li>
+                            Each member of the finisher team can get a special swag.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="judges">
+    <div class="judges-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">Judges</div>
+            </div>
+            <div class="judge-list">
+                <div class="judge">
+                    <img class="avatar"
+                        src="https://download.pingcap.com//images/community/high-performance-tidb/huangdongxu.png"></img>
+                    <div class="name">Ed Huang</div>
+                    <div class="desc">CTO & Co-founder at PingCAP</div>
+                </div>
+                <div class="judge">
+                    <img class="avatar"
+                        src="https://download.pingcap.com//images/community/high-performance-tidb/wangyang.png"></img>
+                    <div class="name">Yang Wang</div>
+                    <div class="desc">Head of Database Product Department at Ping An Technology</div>
+                </div>
+                <div class="judge">
+                    <img class="avatar"
+                        src="https://download.pingcap.com//images/community/high-performance-tidb/sunxiaoguang.png"></img>
+                    <div class="name">Xiaoguang Sun</div>
+                    <div class="desc">Head of Technology Platform at Zhihu</div>
+                </div>
+                <div class="judge">
+                    <img class="avatar"
+                        src="https://download.pingcap.com//images/community/high-performance-tidb/xuchengxuan.png"></img>
+                    <div class="name">Chengxuan Xu</div>
+                    <div class="desc">Head of Database Infrastructure at PalFish</div>
+                </div>
+                <div class="judge">
+                    <img class="avatar"
+                        src="https://download.pingcap.com//images/community/high-performance-tidb/tangliu.png"></img>
+                    <div class="name">Siddon Tang</div>
+                    <div class="desc">Chief Engineer at PingCAP</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="learning-materials">
+    <div class="learning-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">Learning materials</div>
+            </div>
+            <div class="content">
+                <div class="learning-card">
+                    <div class="header"></div>
+                    <a href="https://github.com/pingcap/community/blob/master/challenge-programs/performance-tuning-package.md"
+                        target="_blank">
+                        <div class="detail">
+                            <div class="thumb">
+                                <img
+                                    src="https://download.pingcap.com/images/community/high-performance-tidb/video-course.svg" />
+                            </div>
+                            <div class="title">Performance Tuning Package</div>
+                            <div class="desc">This package provides workload-related background knowledge and commonly
+                                used tuning tools for participants to better understand TiDB performance workloads.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="learning-card">
+                    <div class="header"></div>
+                    <a href="hhttps://github.com/pingcap/talent-plan" target="_blank">
+                        <div class="detail">
+                            <div class="thumb">
+                                <img
+                                    src="https://download.pingcap.com/images/community/high-performance-tidb/doc-package.svg" />
+                            </div>
+                            <div class="title">PingCAP Talent Plan</div>
+                            <div class="desc">This is a series of training courses about writing distributed systems in
+                                Go and Rust with no previous experience of TiDB or TiKV required.</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="ranking">
+    <div class="ranking-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">Leaderboard</div>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="season-score">PR points ranking</div>
+                </div>
+                <div class="terminal-body">
+                    <div id="ranking-list"></div>
+                    <div class="annotation">Note: The leaderboard does not indicate the final group ranking.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="attention">
+    <div class="attention-body">
+        <div class="container">
+            <div class="attention-bg img-mobile">
+                <img src="https://download.pingcap.com/images/community/high-performance-tidb/entry-notice.svg" />
+            </div>
+            <div class="content">
+                <div class="title-wrapper">
+                    <div class="title title-en">
+                        Participation notes
+                    </div>
+                </div>
+                <div class="attention-list">
+                    <div class="list-card">
+                        About team-up
+                    </div>
+                    <div class="list-card">
+                        About challenge points
+                    </div>
+                    <div class="list-card">
+                        About mentors
+                    </div>
+
+                    <div class="detail detail-js detail-1">
+                        <div class="item">
+                            <p class="numb">1.</p>
+                            <p class="desc">You need to team up before submitting the application form. One team could
+                                only select one workload for optimization. Once the form is submitted, no information
+                                can be modified.</p>
+                        </div>
+                        <div class="item">
+                            <p class="numb">2.</p>
+                            <p class="desc">Up to six participants are allowed in a team (mentor included). Cross
+                                team-up is not allowed.</p>
+                        </div>
+                        <div class="item">
+                            <p class="numb">3.</p>
+                            <p class="desc">
+                                If you have trouble teaming up, give a shout in the <a
+                                    href="https://slack.tidb.io/invite?team=tidb-community&channel=tidb-challenge-program&ref=website-en">Slack
+                                    channel</a> for help. Or you can sign up as a one-person team.
+                        </div>
+                    </div>
+
+
+                    <div class="detail detail-js detail-2">
+                        <div class="item">
+                            <p class="numb">1.</p>
+                            <p class="desc"> Your team only earns points when you resolve the issues that you proposed
+                                for workload optimization. If the issues resolved are not relevant, there will be no
+                                points granted.</p>
+                        </div>
+                        <div class="item">
+                            <p class="numb">2.</p>
+                            <p class="desc">The team points are the sum of the points of all the tasks completed by your
+                                team members.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail detail-js detail-3">
+                        <div class="item">
+                            <p class="numb">1.</p>
+                            <p class="desc">Only one mentor is allowed in a team and one mentor could only provide
+                                instructions to one team.</p>
+                        </div>
+                        <div class="item">
+                            <p class="numb">2.</p>
+                            <p class="desc">Besides providing regular mentoring instructions, the mentor is allowed to
+                                claim the tasks to submit PRs. As such, in addition to the mentor prize, the mentor is
+                                eligible to share the team prize.</p>
+                        </div>
+                        <div class="item">
+                            <p class="numb">3.</p>
+                            <p class="desc">The team that needs mentoring could contact the organizing committee in the
+                                <a
+                                    href="https://slack.tidb.io/invite?team=tidb-community&channel=tidb-challenge-program&ref=website-en">Slack
+                                    channel</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews">
+    <div class="reviews-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">Previous TiDB performance challenges</div>
+            </div>
+            <div class="cards">
+                <div class="usability">
+                    <a href="/community-cn/tidb-usability-challenge/">
+                        <img src="/images/community/high-performance-tidb/usability-en.svg" />
+                    </a>
+                </div>
+                <div class="performance">
+                    <a href="/community-cn/tidb-performance-challenge/">
+                        <img src="/images/community/high-performance-tidb/performance-en.svg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partners">
+    <div class="partners-body">
+        <div class="container">
+            <div class="title-wrapper">
+                <div class="title title-en">Partners</div>
+            </div>
+            <div class="ucloud">
+                <h2 class="sponsor-type">Cloud computing equipment support</h2>
+                <div class="logo-list">
+                    <img class="lazy" data-original="/images/community/high-performance-tidb/ucloud.svg"
+                        src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                    <img class="lazy" data-original="/images/community/high-performance-tidb/pingankeji.png"
+                        src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                </div>
+            </div>
+            <h2 class="sponsor-type">Community support</h2>
+            <div class="logo-list">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/oschina.svg"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/juejin.svg"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/segmentfault.png"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/datafun.svg"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/csdn.svg"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/gocn.svg"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+                <img class="lazy" data-original="/images/community/high-performance-tidb/banyu.png"
+                    src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+            </div>
+        </div>
+    </div>
+</section>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200,
+    })
+</script>
+<script src="/js/high_performance_tidb_challenge.js"></script>
+{{- end -}}

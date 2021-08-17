@@ -1,0 +1,330 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "Community Organization" }}
+Community Organization
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "community"}}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "data_i18_link" "/community/organization" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/organization-cn.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="community-organization">
+  <div class="banner__section organization__banner">
+    <div class="banner__content-container">
+      <div id="architecture">
+        <div class="line-divider">
+          <div class="headBtn orgBtn tl">Community Organization</div>
+          <div class="branches">
+            <div class="branch">
+              <button class="branchBtn pmcBtn orgBtn j-hover j-mobile-hover tl cursor-text">PMC</button>
+              <div class="org-tooltiptext tt-tr">项目管理委员会，为项目核心管理团队，参与 roadmap 制定与社区相关的重大决议。</div>
+            </div>
+            <div class="branch">
+              <a href="/community-cn/developer-group/"><button class="branchBtn devBtn orgBtn tl j-hover">Developer
+                  Group</button></a>
+              <div class="devSubBtns tr">
+                {{- range $idx, $i := .Site.Data.community_organization.architecture.developer_group -}}
+                <div class="btn-tooltip">
+                  <a href="{{ $i.link }}" class="j-hover j-devSubBtn-hover"><button
+                      class="devBtn devSubBtn orgBtn">{{ $i.name }}</button></a>
+                  <div class="org-tooltiptext tt-left">{{ $i.desc }}</div>
+                </div>
+                {{- end -}}
+              </div>
+            </div>
+            <div class="branch">
+              <a href="/community-cn/user-group/"><button class="branchBtn userBtn orgBtn tl j-hover">User
+                  Group</button></a>
+              <div class="devSubBtns tl">
+                {{- range $idx, $i := .Site.Data.community_organization.architecture.user_group -}}
+                <div class="btn-tooltip">
+                  <a href="{{ $i.link }}" class="j-hover j-devSubBtn-hover"><button
+                      class="devBtn userSubBtn orgBtn j-hover">{{ $i.name }}</button></a>
+                  <div class="org-tooltiptext tt-right">{{ $i.desc }}</div>
+                </div>
+                {{- end -}}
+              </div>
+            </div>
+            <div class="branch">
+              <button class="branchBtn comBtn orgBtn tr j-hover j-mobile-hover cursor-text">Organization
+                Committee</button>
+              <div class="org-tooltiptext tt-tl">项目组织委员会，负责执行、输出，推广技术内容的组织者们，成员包括各地区用户组组长以及社区活动负责人。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content"> TiDB 社区组织架构 </div>
+    </div>
+  </div>
+
+  <div class="community-dynamics">
+    <div class="container">
+      <div class="section-title">社区动态</div>
+      {{ $communityTag := "社区动态" }}
+      {{ $posts := where (where (where (index .Site.Taxonomies.tags $communityTag).Pages "Section" "blog-cn") ".Params.title" "!=" nil) ".Params.category" "!=" "case" }}
+      <div class="flex-lists">
+        {{- range (first 3 $posts) }}
+        <a href="{{ .RelPermalink }}" class="dynamic-item">
+          {{- if .Params.image -}}
+          <img class="lazy" data-original="{{ .Params.image }}" src="/images/svgs/loader-spinner.svg" alt="cover" />
+          {{- else -}}
+          <img class="lazy" data-original="https://download.pingcap.com/images/community-banner-mobile.jpg"
+            src="/images/svgs/loader-spinner.svg" alt="cover" />
+          {{- end -}}
+          <p>{{ .Params.title }}</p>
+        </a>
+        {{- end -}}
+      </div>
+      {{- partial "archives/readMoreBtn.html" (dict "url" "/blog-cn/#社区动态" "btnText" "查看更多") }}
+    </div>
+  </div>
+
+  <!-- <div class="community-members">
+    <div class="container">
+      <div class="section-title">社区成员</div>
+      <div class="developer-group-members">
+        <div class="member-header">Developer Group 成员</div>
+        <div class="member-list">
+          <div class="member-type">Maintainer</div>
+          <div class="flex-lists members divider">
+            {{- range $idx, $i := .Site.Data.community_cn_organization.maintainer.tidb -}}
+            <div class="member flex-lists member-hover">
+              <a href="https://github.com/{{ $i }}" target="_blank">
+                <img class="lazy avatar" data-original="https://github.com/{{ $i }}.png" src="/images/svgs/loader-spinner.svg"
+                  alt="avatar" />
+              </a>
+              <a href="https://github.com/{{ $i }}" target="_blank" class="member-info">
+                <p><span class="tag-tidb sig-tag">tidb</span></p>
+                <div class="github-icon">
+                  <p>{{ $i }}</p>
+                </div>
+              </a>
+            </div>
+            {{- end -}}
+            {{- range $idx, $i := .Site.Data.community_cn_organization.maintainer.tikv -}}
+            <div class="member flex-lists member-hover">
+              <a href="https://github.com/{{ $i }}" target="_blank">
+                <img class="lazy avatar" data-original="https://github.com/{{ $i }}.png" src="/images/svgs/loader-spinner.svg"
+                  alt="avatar" />
+              </a>
+              <a href="https://github.com/{{ $i }}" target="_blank" class="member-info">
+                <p><span class="tag-tikv sig-tag">tikv</span></p>
+                <div class="github-icon">
+                  <p>{{ $i }}</p>
+                </div>
+              </a>
+            </div>
+            {{- end -}}
+          </div>
+
+          <div class="member-type" id="sigs">特别兴趣小组 SIGs</div>
+          <div class="flex-lists divider members contributor">
+            {{- range $idx, $i := .Site.Data.community_cn_organization.tikv -}}
+            <div class="contributor-info contributor-info-cn member flex-lists">
+              <a href="/developer/sig/{{ $i.sig_name }}" class="name">
+                <p>{{ $i.sig_name }}</p>
+              </a>
+              <a href="{{ $i.sig_url }}" target="_blank" class="github-link"><img src="/images/community/organization/github-sig.svg" /></a>
+              <a href="{{ $i.channel }}" target="_blank" class="slack-link"><img src="/images/community/organization/slack-sig.svg" /></a>
+            </div>
+            {{- end -}}
+            {{- range $idx, $i := .Site.Data.community_cn_organization.tidb -}}
+            <div class="contributor-info contributor-info-cn member flex-lists">
+              <a href="/developer/sig/{{ $i.sig_name }}" class="name">{{ $i.sig_name }}</a>
+              <a href="{{ $i.sig_url }}" target="_blank" class="github-link"><img src="/images/community/organization/github-sig.svg" /></a>
+              <a href="{{ $i.channel }}" target="_blank" class="slack-link"><img src="/images/community/organization/slack-sig.svg" /></a>
+            </div>
+            {{- end -}}
+          </div>
+
+          <div class="member-type">Contributor</div>
+          <div class="flex-lists members contributor">
+            <div class="contributor-item">
+              <img class="lazy" data-original="https://download.pingcap.com/images/appreciate.jpg"
+                src="/images/svgs/loader-spinner.svg" alt="cover">
+              <p class="text">当你的一个 PR 被合并之后，你就正式成为 TiDB Contributor 了。我们为每一个 contributor 都准备了纪念马克杯，感谢你们踏出了第一步！在 TiDB
+                星球里，你们的名字也将一直闪耀。</p>
+            </div>
+            <div class="contributor-item">
+              <a href="https://pingcap.com/tidb-planet/" target="_blank">
+                <img class="lazy tidb-planet-banner"
+                  data-original="https://download.pingcap.com/images/tidb-planet.jpeg"
+                  src="/images/svgs/loader-spinner.svg" alt="cover">
+                <p class="text text-hover">
+                  <span class="text-arrow"><img src="/images/svgs/light-blue-right-arrow.svg" alt="Arrow" /></span>
+                  <span class="btn-text2">查看 TiDB Contributor 完整名单</span>
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="developer-group-members user-group-members">
+        <div class="member-header user">User Group</div>
+        <div class="member-list">
+          <div class="member-list">
+            <div class="member-type user-type">TUG Management Committee（TUG 管理委员会，简称 TMC）</div>
+            <div class="flex-lists members user-divider">
+              {{- range $idx, $i := .Site.Data.community_organization.user_members.leader -}}
+              <div class="member flex-lists {{if $i.githubID }}member-hover{{ end }}">
+                {{- if $i.githubID -}}
+                <a href="{{ $i.link }}" target="_blank">
+                  <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                    alt="avatar" />
+                </a>
+                <a href="{{ $i.link}}" target="_blank" class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                  <div class="github-icon user-github-icon">
+                    <p>{{ $i.githubID }}</p>
+                  </div>
+                </a>
+                {{- else -}}
+                <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                  alt="avatar" />
+                <div class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                </div>
+                {{- end -}}
+              </div>
+              {{- end -}}
+            </div>
+            <div class="member-type user-type">Content Team（内容组）</div>
+            <div class="flex-lists members user-divider">
+              {{- range $idx, $i := .Site.Data.community_organization.user_members.content -}}
+              <div class="member flex-lists {{if $i.githubID }}member-hover{{ end }}">
+                {{- if $i.githubID -}}
+                <a href="{{ $i.link }}" target="_blank">
+                  <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                    alt="avatar" />
+                </a>
+                <a href="{{ $i.link}}" target="_blank" target="_blank" class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                  <div class="github-icon user-github-icon">
+                    <p>{{ $i.githubID }}</p>
+                  </div>
+                </a>
+                {{- else -}}
+                <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                  alt="avatar" />
+                <div class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                </div>
+                {{- end -}}
+              </div>
+              {{- end -}}
+            </div>
+            <div class="member-type user-type">Local Team（区域组）</div>
+            <div class="flex-lists members user-divider">
+              {{- range $idx, $i := .Site.Data.community_organization.user_members.local -}}
+              {{ if $i.blank }}
+              <div class="member flex-lists"></div>
+              {{ else }}
+              <div class="member flex-lists {{if $i.githubID }}member-hover{{ end }}">
+                {{- if $i.githubID -}}
+                <a href="{{ $i.link }}" target="_blank">
+                  <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                    alt="avatar" />
+                </a>
+                <a href="{{ $i.link}}" target="_blank" target="_blank" class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                  <div class="github-icon user-github-icon">
+                    <p>{{ $i.githubID }}</p>
+                  </div>
+                </a>
+                {{- else -}}
+                <img class="lazy avatar" data-original="{{ $i.avatar }}" src="/images/svgs/loader-spinner.svg"
+                  alt="avatar" />
+                <div class="member-info">
+                  <p>{{ $i.name }}</p>
+                  <p class="title">{{ $i.title }}</p>
+                </div>
+                {{- end -}}
+              </div>
+              {{ end }}
+              {{- end -}}
+            </div>
+            <div class="member-type user-type">Ambassador</div>
+            <div class="ambassador-lists j-ambassador-pc flex-lists">
+              {{- range .Site.Data.community_organization.user_members.ambassador_1 -}}
+              <p>{{ . }}</p>
+              {{- end -}}
+              {{- range .Site.Data.community_organization.user_members.ambassador_2 -}}
+              <p>{{ . }}</p>
+              {{- end -}}
+            </div>
+
+            <div class="ambassador-lists j-ambassador-mobile">
+              {{- range .Site.Data.community_organization.user_members.ambassador_1 -}}
+              <p>{{ . }}</p>
+              {{- end -}}
+              <div class="more-contributor-list-question question">查看更多名单</div>
+              <div class="answer">
+                {{- range .Site.Data.community_organization.user_members.ambassador_2 -}}
+                <p class="rest-list">{{ . }}</p>
+                {{- end -}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="tidb-mva-2019">
+        <h2 class="header centerd">2019 年度 TiDB MVA</h2>
+        <p class="centerd">TiDB MVA (Most Valuable Advocate) 通过分享优质的技术内容，帮助大家更好地使用 TiDB，是经过认证的技术先锋，享受极高的社区荣誉。</p>
+        <div class="list">
+          {{ range $mva := .Site.Data.community_organization.mva2019 }}
+          <div class="card-wrapper">
+            <div class="card">
+              <div class="left">
+                <img class="avatar" src="{{ $mva.avatar }}" alt="{{ $mva.name }}" />
+              </div>
+              <div class="right">
+                <div class="name">{{ $mva.name }}</div>
+                <div class="extra-info">
+                  <div class="company">{{ $mva.company }}</div>
+                  <div class="title">{{ $mva.title }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="links">
+              {{ range $link := $mva.links }}
+              <a target="_blank" href="{{ $link.href }}">{{ $link.name }}</a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-to-community-section">
+    <a href="/community-cn/">
+      <button class="back-to-community">
+        回到社区主页
+      </button>
+    </a>
+  </div> -->
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/community.js"></script>
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+  $(".lazy").lazyload({
+    effect: "fadeIn",
+    threshold: 200
+  });
+</script>
+{{- end -}}

@@ -1,0 +1,178 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "下载试用" }}
+下载试用
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "download"}}
+{{$.Scratch.Set "data_i18_link" "/download"}}
+{{$.Scratch.Set "data_i18_cn" true }}
+{{- partial "head/preload-css" (dict "href" "/css/download-cn.css") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+{{- end -}}
+
+{{- define "main" -}}
+<div class="download-cn">
+    <div class="community-wrapper">
+        <div class="tidb-logo">
+            <img class="lazy" src="/images/download-cn/tidb-logo.png" />
+        </div>
+        <div class="card">
+            <div class="header">
+                <div class="rocket-icon"><img class="lazy" src="/images/download-cn/rocket-icon.svg" /></div>
+                <h1>开始体验 TiDB</h1>
+            </div>
+            <div class="form-wrapper">
+                <div class="title-field">
+                    <div class="title">
+                        <p>社区版下载</p>
+                        <img class="lazy linux-icon" src="/images/svgs/loader-spinner.svg"
+                            data-original="/images/download-cn/linux-icon.svg" alt="linux-icon" />
+                    </div>
+                </div>
+
+                <div class="form-field community-download">
+                    <div class="select-wrapper">
+                        <div class="select">
+                            <select id="version" onChange="handleVersionChange()">
+                                <option value="" disabled selected class="disabled">选择 TiDB 版本</option>
+                                {{- range $idx, $version := .Site.Data.tidb_download_pkg.versions -}}
+                                <option>{{ $version }}</option>
+                                {{- end -}}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="select-wrapper">
+                        <div class="select">
+                            <select id="package" onChange="handlePackageChange()">
+                                <option value="" disabled selected class="disabled">选择软件下载包</option>
+                                <option>tidb-community-server</option>
+                                <option>tidb-community-toolkit</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="package-desc"></div>
+                </div>
+
+                <div class="control">
+                    <label class="checkbox" onclick="clickbox()">
+                        <input type="checkbox" id="protocol-checked">
+                        我同意<a href="/licenses"> PingCAP 社区软件许可协议</a>与<a href="/zh/privacy-policy">隐私协议</a>。
+                    </label>
+                </div>
+                <div class="download-btn">
+                    <a href="/" download="" class="allow-download"><button onclick="download()"
+                            class="button">下载</button></a>
+                    <button onclick="download()" class="disallow-download button">下载</button>
+                </div>
+                <div class="wrong-tips">错误提示：<span class="tips"></span></div>
+            </div>
+        </div>
+
+        <div class="more-info">
+            <div class="title">查看更多信息</div>
+            <div class="items">
+                <p><a href="https://docs.pingcap.com/zh/tidb/stable/production-deployment-using-tiup"
+                        target="_blank">如何安装</a></p>
+                <p><a href="https://docs.pingcap.com/zh/tidb/stable/upgrade-tidb-using-tiup" target="_blank">如何升级</a></p>
+                <p><a href="https://docs.pingcap.com/zh/tidb/stable/release-notes" target="_blank">Release Note</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $(".lazy").lazyload({
+        threshold: 200,
+        effect: "fadeIn"
+    });
+</script>
+<script type="text/javascript">
+    let selPkg = $('#package').val()
+    let selVersion = $('#version').val()
+    let termChecked = $("#protocol-checked").prop('checked')
+    const packageDesc = {
+        "tidb-community-server": "获取 TiDB 一键安装离线包",
+        "tidb-community-toolkit": "获取 TiDB 工具包"
+    }
+
+    function validateForm() {
+        $('.wrong-tips').css('display', 'none')
+        const version = $('#version').val()
+        const package = $('#package').val()
+        const boxChecked = $("#protocol-checked").prop('checked')
+        $('.tips')[0].innerText = ''
+        let errArr = []
+        if (!version) {
+            errArr.push('请选择 TiDB 版本')
+        }
+
+        if (!package) {
+            errArr.push('请选择下载软件包')
+        }
+
+        if (!boxChecked) {
+            errArr.push('必须同意 PingCAP 社区软件许可协议与隐私协议。')
+        }
+
+        if (errArr.length == 0) {
+            $('.allow-download').css('display', 'block')
+            $('.disallow-download').css('display', 'none')
+        } else {
+            $('.allow-download').css('display', 'none')
+            $('.disallow-download').css('display', 'initial')
+        }
+        return errArr
+    }
+
+    function download() {
+        const errMsg = validateForm()
+
+        if (errMsg.length != 0) {
+            $('.wrong-tips').css('display', 'block')
+            $('.wrong-tips .tips').append(
+                errMsg.map(e => '<span>' + e + '</span>').join('，')
+            )
+        }
+    }
+
+    function genDownloadURL() {
+        if (selPkg && selVersion && termChecked) {
+            const url = 'https://download.pingcap.org/' + selPkg + '-' + selVersion + '-linux-amd64.tar.gz'
+            $('.allow-download').attr('href', url)
+            $('.allow-download').attr('download', 'tidb-community-toolkit')
+            $('.allow-download').css('display', 'block')
+            $('.disallow-download').css('display', 'none')
+        } else {
+            $('.allow-download').css('display', 'none')
+            $('.disallow-download').css('display', 'initial')
+        }
+    }
+
+    function clickbox() {
+        termChecked = $("#protocol-checked").prop('checked')
+        genDownloadURL()
+        validateForm()
+    }
+
+    function handlePackageChange() {
+        selPkg = $('#package').val()
+        $('.package-desc').css('display', 'block')
+        $('.package-desc')[0].innerText = packageDesc[selPkg]
+        genDownloadURL()
+        validateForm()
+    }
+
+    function handleVersionChange() {
+        selVersion = $('#version').val()
+        genDownloadURL()
+        validateForm()
+    }
+
+</script>
+{{- end -}}

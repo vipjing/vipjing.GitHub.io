@@ -1,0 +1,17 @@
+[submodule "content/blog-cn"]
+	path = content/blog-cn
+	url = https://github.com/pingcap/blog-cn
+	shallowed = true
+[submodule "content/weekly"]
+	path = content/weekly
+	url = https://github.com/pingcap/weekly
+	shallowed = true
+[submodule "content/meetup"]
+	path = content/meetup
+	url = https://github.com/pingcap/meetup
+	shallowed = true
+[submodule "content/tidb-academy"]
+	path = content/tidb-academy
+	url = git@github.com:pingcap/private-tidb-academy.git
+	shallowed = true
+

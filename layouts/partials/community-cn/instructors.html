@@ -1,0 +1,18 @@
+{{ $cardBg := .cardBg }}
+
+<div class="instructors__list">
+    {{- range $idx, $i := .instructors -}}
+    <div class="instructor {{ if eq $cardBg "dark" }}card-dark-bg{{ end }}">
+        {{- if $i.intro -}}
+            <div class="intro">
+                <p>{{ $i.intro }}</p>
+            </div>
+        {{- end -}}
+        <div class="avatar">
+            <img src="{{ $i.image}}" alt="Avatar" />
+        </div>
+        <div class="name">{{ $i.name}}</div>
+        <div class="company">{{ $i.company }} {{ if $i.company }}|{{ end }} {{ $i.title }}</div>
+    </div>
+    {{- end -}}
+</div>

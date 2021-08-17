@@ -1,0 +1,490 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "High Performance TiDB Challenge" }}
+High Performance TiDB Challenge
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "data_i18_link" "/community/events/high-performance-tidb-challenge" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/high-performance-tidb-challenge.css") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@100&display=swap"
+  rel="stylesheet">
+{{- end -}}
+
+{{- define "main" -}}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container reverse">
+      <div class="slogan">
+        <div class="title-wrapper">
+          <div class="date">
+            2020.09.17-2020.12.05
+          </div>
+        </div>
+
+        <h1 class="title">
+          TiDB 性能竞赛
+        </h1>
+        <div class="subtitle">
+          High Performance TiDB Challenge
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge-cn.md"
+            target="_blank">
+            <button class="button white-bg">
+              竞赛细则
+            </button>
+          </a>
+          <a target="_blank" id="register-btn-banner" href="https://forms.pingcap.com/f/high-performance-challenge-cn"
+            onclick="trackViews('banner', 'hptc_form')">
+            <button class="button color-bg">
+              立即报名
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="hero-bg">
+        <img src="https://download.pingcap.com/images/community/high-performance-tidb/hero-bg.svg" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="content">
+        <div class="title-wrapper">
+          <div class="title">TiDB 性能竞赛火热来袭！</div>
+        </div>
+        <div class="subtitle left-align">黑客马拉松 OR 挑战赛升级？</div>
+        <div class="subtitle right-align">全新赛制，激发无限可能。</div>
+        <div class="detail">
+          本次竞赛将围绕性能优化的主题，提供两种类型的参赛题目：「围绕固定 workload 优化」与「性能优化高难度 issue」，选手只能选择一个优化题目组队参赛。比赛最终以优化成果（性能提升百分比）、小组 PR
+          总分（成功提交对应竞赛 PR 即获积分）和现场答辩完成度进行排名。优秀的参赛小组将获得五位数现金大奖～
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="challenge-problems">
+  <div class="problems-body">
+    <div class="container">
+      <div class="challenge-problems-body">
+        <div class="element ele-1"></div>
+        <div class="element ele-2"></div>
+        <div class="element ele-3"></div>
+        <div class="title-wrapper">
+          <div class="title">
+            竞赛题目
+          </div>
+        </div>
+        <div class="subtitle">
+          性能竞赛题目分两种类型，分别为围绕固定场景的性能优化和解决高难度性能优化 issue。每个小组只能选择一个题目参加比赛，目前可选题目如下
+        </div>
+
+        <div class="scene-overview">
+          <div class="card-title">固定场景进行性能优化题概览</div>
+          <div class="scene-bg">
+            <img class="img-pc"
+              src="https://download.pingcap.com/images/community/high-performance-tidb/scene-overview.svg" />
+            <img class="img-mobile"
+              src="https://download.pingcap.com/images/community/high-performance-tidb/scene-overview-mobile.svg" />
+          </div>
+        </div>
+        <div class="scene-overview">
+          <div class="card-title">性能优化高难度 issue 概览</div>
+          <div class="scene-bg">
+            <img class="img-pc"
+              src="https://download.pingcap.com/images/community/high-performance-tidb/issue-overview.svg" />
+            <img class="img-mobile"
+              src="https://download.pingcap.com/images/community/high-performance-tidb/issue-overview-mobile.svg" />
+          </div>
+        </div>
+        <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge-cn.md#%E5%8F%82%E8%B5%9B%E6%B5%81%E7%A8%8B"
+          target="_blank">
+          <button class="button white-bg">
+            更多题目
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="process">
+  <div class="process-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">参赛流程</div>
+      </div>
+      <div class="steps">
+        <div class="step step1-bg img-pc">
+          <img src="https://download.pingcap.com/images/community/high-performance-tidb/step1-bg.svg" />
+        </div>
+        <div class="step">
+          <div class="label">Step 1</div>
+          <div class="step-title">报名组队 （即日起至 2020.11.29）</div>
+          <div class="detail">请仔细阅读
+            <a href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge-cn.md#%E6%B4%BB%E5%8A%A8%E8%A7%84%E5%88%99"
+              target="_blank">「参赛须知」</a>
+            并填写下方表单进行报名。一旦表单提交就不可以修改哦～
+          </div>
+          <a target="_blank" id="register-btn-step" href="https://forms.pingcap.com/f/high-performance-challenge-cn"
+            onclick="trackViews('step', 'hptc_form')">
+            <button class="button">报名组队</button>
+          </a>
+        </div>
+        <div class="step">
+          <div class="label">Step 2</div>
+          <div class="step-title">实现任务 （ 2020.09.17-2020.11.29）</div>
+          <div class="detail">Workload 优化：在小组顾问的指导下，大家围绕本小组场景主题，进行性能瓶颈判断及针对性的优化。对优化点提出 issue 并解决即可获得相应分数。<br />
+            固定性能优化相关大 issue：在小组顾问的指导下解决 issue 后获得相应的分数。</div>
+          <a
+            href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge-cn.md">
+            <button class="button">竞赛细则</button>
+          </a>
+        </div>
+        <div class="step">
+          <div class="label">Step 3</div>
+          <div class="step-title">提交成果（ 2020.11.29 之前）</div>
+          <div class="detail">所有参赛小组需在 11.29 日之前提交竞赛成果。11.29 日之后合并的 PR 将不得分。 </div>
+        </div>
+        <div class="step">
+          <div class="label">Step 4</div>
+          <div class="step-title">现场答辩 （2020.12.05）</div>
+          <div class="detail">答辩时间为 12.05 日下午 13:00-17:00。所有参赛小组必须在 12.04 日上午 10:00 之前提交答辩 PPT。组长需在 PingCAP
+            各地办公室同步进行现场答辩（海外队伍可线上进行答辩）。</div>
+          <button class="button grading-btn">评分标准</button>
+          <div class="grading">
+            <div class="close">X</div>
+            <div class="grading-title">评分标准</div>
+            <div class="item">
+              <p class="criterion">性能提升度 （65%）</p>
+              <p class="detail">基于比赛开始时 Master 版本的性能提升百分比</p>
+            </div>
+            <div class="item">
+              <p class="criterion">小组 PR 总分 （30%）</p>
+              <p class="detail">竞赛有效 PR 合并至 Master，本小组成员一共得到的分数</p>
+            </div>
+            <div class="item">
+              <p class="criterion">答辩完成度（5%）</p>
+            </div>
+          </div>
+        </div>
+        <div class="step step4-bg">
+          <img src="https://download.pingcap.com/images/community/high-performance-tidb/step4-bg.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="award-title img-pc">
+  <div class="container">
+    <div class="title-wrapper">
+      <div class="title">奖项设置</div>
+    </div>
+  </div>
+</section>
+
+<section class="awards">
+  <div class="award-body">
+    <div class="container">
+      <div class="title-wrapper img-mobile">
+        <div class="title">奖项设置</div>
+      </div>
+      <div class="content">
+        <div class="award">
+          <div class="award-level">第一名</div>
+          <div class="detail">每支参赛队伍 <span class="strong">5 万元</span> RMB + 团队顾问个人奖金 <span class="strong">1 万元</span>
+            RMB</div>
+        </div>
+        <div class="award">
+          <div class="award-level">第二名</div>
+          <div class="detail">每支参赛队伍 <span class="strong">3 万元</span> RMB + 团队顾问个人奖金 <span class="strong">1 万元</span>
+            RMB</div>
+        </div>
+        <div class="award">
+          <div class="award-level">第三名</div>
+          <div class="detail">每支参赛队伍 <span class="strong">1 万元</span> RMB</div>
+        </div>
+        <div class="award">
+          <div class="award-level">新增四重大礼包</div>
+          <div class="detail">除了一二三等奖的现金奖励，组委会决定增设竞赛大礼包；5 万云端资源免费用、10 万 TiDB Cloud
+            代金券送不停、更有知名企业内推和社区周边大礼等你来拿。具体活动规则请参见<a
+              href="https://github.com/pingcap/community/blob/master/challenge-programs/high-performance-tidb-challenge-cn.md"
+              target="_blank">
+              竞赛细则
+            </a></div>
+        </div>
+        <div class="annotation">
+          注：所有完赛选手都可以获得神秘纪念周边一个～如获奖队伍没有顾问，则顾问奖金分发到参赛小组。如果本次没有足够的项目完成比赛，奖金将会累积到第二季比赛和 hackathon 共享奖金池。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="judges">
+  <div class="judges-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">评委</div>
+      </div>
+      <div class="judge-list">
+        <div class="judge">
+          <img class="avatar"
+            src="https://download.pingcap.com//images/community/high-performance-tidb/huangdongxu.png"></img>
+          <div class="name">黄东旭 PingCAP</div>
+          <div class="desc">联合创始人兼 CTO</div>
+        </div>
+        <div class="judge">
+          <img class="avatar"
+            src="https://download.pingcap.com//images/community/high-performance-tidb/wangyang.png"></img>
+          <div class="name">汪洋 平安科技</div>
+          <div class="desc">数据库产品部门总经理</div>
+        </div>
+        <div class="judge">
+          <img class="avatar"
+            src="https://download.pingcap.com//images/community/high-performance-tidb/sunxiaoguang.png"></img>
+          <div class="name">孙晓光 知乎</div>
+          <div class="desc">技术平台负责人</div>
+        </div>
+        <div class="judge">
+          <img class="avatar"
+            src="https://download.pingcap.com//images/community/high-performance-tidb/xuchengxuan.png"></img>
+          <div class="name">徐成选 伴鱼</div>
+          <div class="desc">基础架构负责人</div>
+        </div>
+        <div class="judge">
+          <img class="avatar"
+            src="https://download.pingcap.com//images/community/high-performance-tidb/tangliu.png"></img>
+          <div class="name">唐刘 PingCAP</div>
+          <div class="desc">首席架构师</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="learning-materials">
+  <div class="learning-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">学习资料</div>
+      </div>
+      <div class="content">
+        <div class="learning-card">
+          <div class="header"></div>
+          <a href="https://space.bilibili.com/86485707/channel/detail?cid=145009" target="_blank">
+            <div class="detail">
+              <div class="thumb">
+                <img src="https://download.pingcap.com/images/community/high-performance-tidb/video-course.svg" />
+              </div>
+              <div class="title">High Performance TiDB 专项视频课程</div>
+              <div class="desc">由 TiDB 核心研发工程师以及 TiDB 社区 Committer 和 Maintainer 联合打造的 High Performance TiDB
+                连载视频教学课程，将带领大家从源码层面了解 TiDB 的设计与实现，并帮助大家对分布式系统领域知识有更加深入的了解。
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="learning-card">
+          <div class="header"></div>
+          <a href="https://github.com/pingcap/community/blob/master/challenge-programs/tidb-learning-materials-cn.md"
+            target="_blank">
+            <div class="detail">
+              <div class="thumb">
+                <img src="https://download.pingcap.com/images/community/high-performance-tidb/doc-package.svg" />
+              </div>
+              <div class="title">专项学习文档包</div>
+              <div class="desc">参赛必读。提供了一些常用的调优工具和 workload 相关知识背景,帮助参赛选手更了解 TiDB 性能测试场景。</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="ranking">
+  <div class="ranking-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">PR 积分排行榜</div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="season-score">赛季积分</div>
+        </div>
+        <div class="terminal-body">
+          <div id="ranking-list"></div>
+          <div class="annotation">注：不代表最终获奖排名</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="attention">
+  <div class="attention-body">
+    <div class="container">
+      <div class="attention-bg img-mobile">
+        <img src="https://download.pingcap.com/images/community/high-performance-tidb/entry-notice.svg" />
+      </div>
+      <div class="content">
+        <div class="title-wrapper">
+          <div class="title">
+            参赛须知
+          </div>
+        </div>
+        <div class="attention-list">
+          <div class="list-card">
+            关于报名组队
+          </div>
+          <div class="list-card">
+            关于积分
+          </div>
+          <div class="list-card">
+            关于顾问
+          </div>
+
+          <div class="detail detail-js detail-1">
+            <div class="item">
+              <p class="numb">1.</p>
+              <p class="desc">参赛选手必须以小组形式参赛，小组人数最多六人（包括顾问和队长），每一名参赛队员只能选择一个优化方向，且只能参加一个小组。</p>
+            </div>
+            <div class="item">
+              <p class="numb">2.</p>
+              <p class="desc">所有参赛的选手需在填写报名表单前完成组队，一旦提交表单则默认完成组队，不接受后期小组的调整。（增加组员或换组、换题等）</p>
+            </div>
+            <div class="item">
+              <p class="numb">3.</p>
+              <p class="desc">没有找到组员的参赛选手可先加入 <a
+                  href="https://slack.tidb.io/invite?team=tidb-community&channel=tidb-challenge-program&ref=officialweb"
+                  target="_blank">slack channel</a> 与其他选手沟通，完成组队后再填写报名表单。也可以个人报名参与竞赛，单人成组。</p>
+            </div>
+          </div>
+
+          <div class="detail detail-js detail-2">
+            <div class="item">
+              <p class="numb">1.</p>
+              <p class="desc">组员完成非小组竞赛任务不得分。</p>
+            </div>
+            <div class="item">
+              <p class="numb">2.</p>
+              <p class="desc">小组积分为组内选手完成对应任务的分数之和。</p>
+            </div>
+            <div class="item">
+              <p class="numb">3.</p>
+              <p class="desc">对于 workload 优化小组，提出对应 workload 相关性能优化的 issue 并解决会获得对应的积分；对于固定性能 issue 小组，解决小组对应 issue
+                会获得对应积分。</p>
+            </div>
+            <div class="item">
+              <p class="numb">4.</p>
+              <p class="desc">排行榜积分并非最终小组排名，最终结果参考「评分标准」。</p>
+            </div>
+          </div>
+
+          <div class="detail detail-js detail-3">
+            <div class="item">
+              <p class="numb">1.</p>
+              <p class="desc">每个小组最多一名顾问，一位顾问最多指导一个小组。</p>
+            </div>
+            <div class="item">
+              <p class="numb">2.</p>
+              <p class="desc">固定 issue 的小组顾问由每个 issue 的 mentor 担任。</p>
+            </div>
+            <div class="item">
+              <p class="numb">3.</p>
+              <p class="desc">没有顾问的小组可以与组委会进行协调，但不保证每个小组都有顾问。</p>
+            </div>
+            <div class="item">
+              <p class="numb">4.</p>
+              <p class="desc">技术顾问也是队伍成员之一，可以参与团队奖金分配。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="reviews-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">往期回顾</div>
+      </div>
+      <div class="cards">
+        <div class="usability">
+          <a href="/community-cn/tidb-usability-challenge/">
+            <img src="https://download.pingcap.com/images/community/high-performance-tidb/usability.svg" />
+          </a>
+        </div>
+        <div class="performance">
+          <a href="/community-cn/tidb-performance-challenge/">
+            <img src="https://download.pingcap.com/images/community/high-performance-tidb/performance.svg" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="partners-body">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="title">合作伙伴</div>
+      </div>
+      <div class="ucloud">
+        <h2 class="sponsor-type">云计算基础设施支持</h2>
+        <div class="logo-list">
+          <img class="lazy" data-original="/images/community/high-performance-tidb/ucloud.svg"
+            src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+          <img class="lazy" data-original="/images/community/high-performance-tidb/pingankeji.png"
+            src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        </div>
+      </div>
+      <h2 class="sponsor-type">社区支持</h2>
+      <div class="logo-list">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/oschina.svg"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/juejin.svg"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/segmentfault.png"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/datafun.svg"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/csdn.svg"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+        <img class="lazy" data-original="/images/community/high-performance-tidb/gocn.svg"
+          src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+          <img class="lazy" data-original="/images/community/high-performance-tidb/banyu.png"
+            src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+      </div>
+    </div>
+  </div>
+</section>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+  $('.lazy').lazyload({
+    effect: 'fadeIn',
+    threshold: 200,
+  })
+</script>
+<script src="/js/high_performance_tidb_challenge.js"></script>
+{{- end -}}

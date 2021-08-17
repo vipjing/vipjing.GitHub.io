@@ -1,0 +1,941 @@
+@primary: #4d59eb;
+@yellow: #ffc72e;
+@grey-backgroud: #f8f8f8;
+@B4: #6e77a3;
+@C2: #c9d4e3;
+@font-size: 0.9rem;
+@mobile: ~'only screen and (max-width: 768px)';
+@tablet: ~'only screen and (min-width: 769px)';
+
+.VHCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tuc-arrow-button(@top: 15px) {
+  transition: 0.5s;
+
+  &:after {
+    content: '➔';
+    position: absolute;
+    opacity: 0;
+    top: @top;
+    left: 0;
+    transition: opacity 0.5s, left 0.5s;
+  }
+
+  &:hover {
+    padding-left: 0.8em * 2.5 !important;
+
+    &:after {
+      opacity: 1;
+      left: 0.8em;
+    }
+  }
+}
+
+.pagination(@connect-width) {
+  display: flex;
+
+  .bullet {
+    @bullet-width: 24px;
+
+    .VHCenter();
+
+    position: relative;
+    width: @bullet-width;
+    height: @bullet-width;
+    margin-right: @connect-width;
+    border: 1px solid #808080;
+    border-radius: 50%;
+    outline: none;
+    transition: 0.25s;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+
+      &:after {
+        content: none;
+      }
+    }
+
+    &:before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #808080;
+      border-radius: 50%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: @bullet-width;
+      width: @connect-width;
+      height: 1px;
+      border: 1px dashed @C2;
+    }
+
+    &.active {
+      background: @primary;
+      border: none;
+
+      &:before {
+        background: @yellow;
+      }
+    }
+  }
+}
+
+.button {
+  a {
+    color: @primary;
+  }
+}
+
+progress.progress {
+  height: 0.5rem;
+
+  &::-webkit-progress-value {
+    background-color: @primary;
+  }
+
+  &::-moz-progress-bar {
+    background-color: @primary;
+  }
+
+  &::-ms-fill {
+    background-color: @primary;
+  }
+}
+
+.title,
+.subtitle {
+  &.primary {
+    color: @primary;
+  }
+
+  &.tab {
+    position: relative;
+    margin-bottom: 3rem;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      display: block;
+      width: 40px;
+      margin-left: -20px;
+      border-top: 4px solid @yellow;
+    }
+  }
+}
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.tuc-hero {
+  margin-top: 3rem;
+
+  .hero-body {
+    @media @mobile {
+      height: 250px;
+      background-position: top;
+      background-image: url(https://download.pingcap.com/images/tidb-usability-challenge/banner-mobile.svg);
+    }
+
+    background-image: url(https://download.pingcap.com/images/tidb-usability-challenge/banner-pc.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &.bug-hunting {
+      @media @mobile {
+        &.bug-hunting {
+          background-image: url(/images/tidb-4-challenge/banner-mobile.svg);
+        }
+      }
+
+      background-image: url(/images/tidb-4-challenge/banner-pc.svg);
+    }
+  }
+
+  .title,
+  .subtitle {
+    @media @mobile {
+      display: none;
+    }
+
+    color: #fff;
+  }
+
+  .banner-buttons {
+    @media @mobile {
+      display: none;
+    }
+
+    margin-top: 5rem;
+
+    .button {
+      width: 180px;
+      height: auto;
+      padding: 0.8em;
+      color: @primary;
+      border: none;
+      font-size: @font-size;
+    }
+
+    .button-receive {
+      background: @yellow;
+    }
+
+    .button-details {
+      .tuc-arrow-button();
+
+      position: absolute;
+      bottom: 0;
+      left: 15em;
+      color: @primary;
+    }
+  }
+}
+
+.tuc-hero.en {
+  .hero-body {
+    @media @mobile {
+      background-image: url(https://download.pingcap.com/images/tidb-usability-challenge/banner-mobile-en.svg);
+    }
+  }
+}
+
+.tuc-readme {
+  padding-top: 0;
+
+  .desc {
+    color: @B4;
+    font-size: @font-size;
+    line-height: 1.75;
+  }
+
+  .decision {
+    margin-top: @font-size * 2;
+    font-size: @font-size;
+  }
+}
+
+.tuc-highlights {
+  background: @grey-backgroud;
+
+  .main {
+    @media @mobile {
+      flex-direction: column;
+    }
+
+    display: flex;
+
+    .placeholder,
+    .content {
+      @media @mobile {
+        margin-top: 2rem;
+      }
+
+      .VHCenter();
+    }
+
+    .placeholder {
+      flex: 1;
+
+      img {
+        width: 80%;
+      }
+    }
+
+    .content {
+      flex: 1.3;
+
+      ul.highlights {
+        width: 80%;
+        list-style: none;
+        text-align: left;
+
+        li {
+          position: relative;
+          margin-bottom: 3rem;
+          color: @B4;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          &:before {
+            content: '■';
+            position: absolute;
+            top: -0.25rem;
+            left: -1.5rem;
+            color: @yellow;
+          }
+
+          .title,
+          p {
+            margin-bottom: 0.5rem;
+            font-size: @font-size;
+          }
+
+          a {
+            color: @primary;
+          }
+        }
+      }
+    }
+  }
+
+  .button-details {
+    @media @tablet {
+      .tuc-arrow-button();
+    }
+
+    width: 180px;
+    height: auto;
+    margin-top: 3rem;
+    padding: 0.8em;
+    background: transparent;
+    color: @primary;
+    border: 1px solid @primary;
+    border-radius: 0;
+    font-size: @font-size;
+  }
+}
+
+.tuc-timeline {
+  @media @mobile {
+    height: 550px;
+  }
+
+  position: relative;
+
+  .timeline-wrapper {
+    @media @mobile {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 420px;
+    }
+  }
+
+  .timeline {
+    .VHCenter();
+    .pagination(280px);
+    @media @mobile {
+      .pagination(140px);
+
+      position: absolute;
+      top: 40%;
+      right: 25%;
+      margin-top: 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  .explains {
+    @media @mobile {
+      position: absolute;
+      top: -27.5%;
+      left: 35%;
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    color: @B4;
+    font-size: @font-size;
+
+    .text {
+      @margin: 110px;
+
+      @media @mobile {
+        margin: 0 !important;
+
+        &.text1 {
+          margin-top: 7.5rem !important;
+        }
+
+        &.text2,
+        &.text3 {
+          margin-top: 6.5rem !important;
+        }
+      }
+
+      &:first-child {
+        margin-right: @margin;
+      }
+
+      &:last-child {
+        margin-left: @margin;
+      }
+
+      &.active {
+        color: @primary;
+      }
+
+      .desc {
+        margin-top: 1rem;
+        color: @B4;
+        text-decoration: underline;
+
+        a {
+          @media @tablet {
+            max-width: 150px;
+          }
+
+          display: inline-block;
+          cursor: pointer;
+
+          &:hover {
+            color: @primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tuc-demands {
+  background: @grey-backgroud;
+
+  .columns {
+    justify-content: space-around;
+  }
+
+  .column {
+    @media @mobile {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .task {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .bonus {
+      color: @primary;
+      font-size: @font-size;
+      font-style: italic;
+    }
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    .text {
+      margin-top: -0.25rem;
+      margin-bottom: 0.5rem;
+      color: @B4;
+      font-size: @font-size;
+
+      a {
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+          color: @primary;
+        }
+      }
+
+      .finish {
+        position: absolute;
+        top: 0.2rem;
+        left: -1rem;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url(https://download.pingcap.com/images/tidb-usability-challenge/check.svg)
+          no-repeat center;
+        background-size: cover;
+      }
+    }
+  }
+
+  .button-details {
+    @media @tablet {
+      .tuc-arrow-button();
+    }
+
+    width: 180px;
+    height: auto;
+    margin-top: 3rem;
+    padding: 0.8em;
+    background: transparent;
+    color: @primary;
+    border: 1px solid @primary;
+    border-radius: 0;
+    font-size: @font-size;
+  }
+}
+
+.tuc-prizes {
+  .desc {
+    color: @B4;
+    font-size: @font-size;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: @B4;
+    outline: none;
+
+    &:after {
+      font-size: @font-size * 2;
+    }
+  }
+
+  .swiper-button-prev {
+    @media @mobile {
+      left: -10px;
+    }
+
+    left: 30px;
+  }
+
+  .swiper-button-next {
+    @media @mobile {
+      right: -10px;
+    }
+
+    right: 30px;
+  }
+
+  .swiper-container {
+    width: 90%;
+    height: 400px;
+    margin-top: 4rem;
+
+    .swiper-slide {
+      .VHCenter();
+    }
+
+    .swiper-slide-active + .swiper-slide {
+      .card {
+        height: 90%;
+        box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+          0 0 0 1px rgba(10, 10, 10, 0.02);
+      }
+    }
+
+    .card {
+      .VHCenter();
+
+      flex-direction: column;
+      width: 90%;
+      height: 80%;
+      border: 1px solid @C2;
+      box-shadow: none;
+      transition: 0.5s;
+
+      .score {
+        position: relative;
+        margin-bottom: 1.5rem;
+        color: @primary;
+        font: 2rem Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        &:after {
+          content: '分';
+          position: absolute;
+          top: 24px;
+          right: -@font-size * 1.5;
+          color: @B4;
+          font-size: @font-size;
+        }
+
+        &.no-suffix {
+          &:after {
+            content: none;
+          }
+        }
+
+        &.is-text {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+      }
+
+      .text {
+        padding: 0 1rem;
+        color: @B4;
+        font-size: @font-size;
+      }
+
+      img {
+        width: 90%;
+        height: 30%;
+        margin-top: 2.5rem;
+
+        &.is-png {
+          width: 30%;
+          height: 30%;
+        }
+      }
+    }
+  }
+}
+
+.tuc-prizes.en {
+  .card {
+    .score {
+      margin-bottom: 0.5rem;
+
+      &:after {
+        content: 'points';
+        right: -@font-size * 2.75;
+      }
+    }
+
+    img {
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.tuc-studies {
+  .card {
+    @media @mobile {
+      flex-direction: column;
+    }
+
+    display: flex;
+    border: 1px solid @C2;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+        0 0 0 1px rgba(10, 10, 10, 0.02);
+    }
+
+    > * {
+      flex: 1;
+    }
+
+    .placeholder {
+      @media @mobile {
+        padding: 3rem;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      @media @tablet {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+      .VHCenter();
+
+      position: relative;
+      background: #0d2256;
+
+      img {
+        width: 60%;
+        margin-top: 1rem;
+      }
+
+      .pu {
+        position: absolute;
+        top: calc(~'5% - 1rem');
+        left: 3%;
+        width: 25%;
+      }
+    }
+
+    .content {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      height: 250px;
+      padding: 1rem;
+      text-align: left;
+
+      .text {
+        color: @B4;
+        font-size: @font-size;
+      }
+    }
+  }
+}
+
+.tuc-leaderboard {
+  background: @grey-backgroud;
+
+  #ranking-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    @media @mobile {
+      margin-top: 3rem;
+    }
+
+    > div {
+      @media @mobile {
+        width: 50%;
+      }
+
+      position: relative;
+      width: 20%;
+      height: 50px;
+      line-height: 50px;
+      background: #dad8ea;
+      color: @B4;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      cursor: pointer;
+
+      @media @mobile {
+        height: 40px;
+        line-height: 40px;
+      }
+
+      &.first {
+        left: 1rem;
+      }
+
+      &.second {
+        left: -1rem;
+      }
+
+      &.slider {
+        @media @mobile {
+          width: 50%;
+        }
+
+        position: absolute;
+        width: 20%;
+        background: @primary;
+        color: #fff;
+        transition: left ease 0.5s;
+      }
+    }
+  }
+
+  #ranking-list {
+    margin-top: 2rem;
+
+    > div {
+      @media @mobile {
+        width: calc(100% - 10rem);
+        margin: 2rem auto;
+      }
+
+      display: flex;
+      align-items: center;
+      width: calc(100% - 4rem);
+      margin: 4rem auto;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .medal {
+        @media @mobile {
+          width: 24px;
+          height: 24px;
+        }
+
+        width: 48px;
+        height: 48px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .medal1 {
+        background-image: url(https://download.pingcap.com/images/tidb-performance-challenge/medal1.png);
+      }
+
+      .medal2 {
+        background-image: url(https://download.pingcap.com/images/tidb-performance-challenge/medal2.png);
+      }
+
+      .medal3 {
+        background-image: url(https://download.pingcap.com/images/tidb-performance-challenge/medal3.png);
+      }
+
+      .index {
+        @media @mobile {
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+        }
+
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        color: @primary;
+        font-style: italic;
+      }
+
+      .github {
+        @media @mobile {
+          width: 24px;
+          height: 24px;
+        }
+
+        width: 48px;
+        height: 48px;
+        margin-left: 1rem;
+        background: url(https://download.pingcap.com/images/tidb-usability-challenge/github.svg)
+          no-repeat center;
+        background-size: contain;
+      }
+
+      .main {
+        flex: 1;
+        margin-left: 2rem;
+
+        @media @mobile {
+          margin-left: 1rem;
+        }
+
+        .info {
+          display: flex;
+          justify-content: space-between;
+
+          .name {
+            color: @primary;
+
+            .ti {
+              position: relative;
+              top: 50%;
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              margin-left: 0.5rem;
+              background: url(https://download.pingcap.com/images/tidb-performance-challenge/ti.png)
+                no-repeat center;
+              background-size: cover;
+              transform: translateY(-50%);
+
+              @media @mobile {
+                width: 12px;
+                height: 12px;
+                transform: translateY(-100%);
+              }
+            }
+
+            .team {
+              position: relative;
+              bottom: 1px;
+              margin-left: 0.5rem;
+              padding: 0.1rem 0.3rem;
+              background: #1bafea;
+              color: #fff;
+              border-radius: 25px;
+              font-size: 0.6rem;
+              font-weight: bold;
+
+              @media @mobile {
+                bottom: 2px;
+                font-size: 0.5rem;
+              }
+            }
+          }
+
+          .score {
+            color: @primary;
+            font-weight: bold;
+            font-style: italic;
+          }
+        }
+
+        .progress-wrapper {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.tuc-support {
+  .text {
+    margin-top: 0.5rem;
+    color: @B4;
+    font-size: @font-size;
+  }
+}
+
+.tuc-review {
+  .card {
+    @media @mobile {
+      height: 170px;
+    }
+
+    display: inline-block;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+        0 0 0 1px rgba(10, 10, 10, 0.02);
+    }
+
+    img {
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+
+.t4c-demands {
+  .box {
+    .VHCenter();
+
+    flex-direction: column;
+    box-shadow: none;
+  }
+
+  .title {
+    color: @B4;
+    font-size: @font-size;
+
+    &:hover {
+      color: @primary;
+    }
+  }
+
+  .button {
+    .tuc-arrow-button(8px);
+
+    width: 150px;
+    color: @primary;
+    font-size: @font-size;
+    border-radius: 25px;
+    border-color: @primary;
+
+    &:hover {
+      background: @primary;
+      color: #fff;
+    }
+  }
+}

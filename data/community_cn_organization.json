@@ -1,0 +1,92 @@
+{
+  "maintainer": {
+    "tidb": [
+      "coocood",
+      "shenli",
+      "jackysp",
+      "zz-jason",
+      "winkyao"
+    ],
+    "tikv": [
+      "siddontang",
+      "BusyJay",
+      "sunxiaoguang",
+      "winkyao",
+      "zhangjinpeng1987"
+    ]
+  },
+  "tikv": [
+    {
+      "sig_name": "coprocessor",
+      "channel": "https://slack.tidb.io/invite?team=tikv-wg&channel=sig-copr&ref=website",
+      "sig_url": "https://github.com/tikv/community/tree/master/sig/coprocessor"
+    },
+    {
+      "sig_name": "engine",
+      "channel": "https://slack.tidb.io/invite?team=tikv-wg&channel=sig-engine&ref=website",
+      "sig_url": "https://github.com/tikv/community/tree/master/sig/engine"
+    },
+    {
+      "sig_name": "raft",
+      "channel": "https://slack.tidb.io/invite?team=tikv-wg&channel=sig-raft&ref=website",
+      "sig_url": "https://github.com/tikv/community/tree/master/sig/raft"
+    },
+    {
+      "sig_name": "scheduling",
+      "channel": "https://slack.tidb.io/invite?team=tikv-wg&channel=sig-scheduling&ref=website",
+      "sig_url": "https://github.com/tikv/community/tree/master/sig/scheduling"
+    },
+    {
+      "sig_name": "transaction",
+      "channel": "https://slack.tidb.io/invite?team=tikv-wg&channel=sig-transaction&ref=website",
+      "sig_url": "https://github.com/tikv/community/tree/master/sig/transaction"
+    }
+  ],
+  "tidb": [
+    {
+      "sig_name": "sql-infra",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-sql-infra&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-sql-infra"
+    },
+    {
+      "sig_name": "diagnosis",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-diagnosis&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-diagnosis"
+    },
+    {
+      "sig_name": "docs",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-docs&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-docs"
+    },
+    {
+      "sig_name": "execution",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-exec&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-exec"
+    },
+    {
+      "sig_name": "k8s",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-k8s&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-k8s"
+    },
+    {
+      "sig_name": "migrate",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-migrate&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-migrate"
+    },
+    {
+      "sig_name": "planner",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-planner&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-planner"
+    },
+    {
+      "sig_name": "tiup",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-tiup&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-tiup"
+    },
+    {
+      "sig_name": "web",
+      "channel": "https://slack.tidb.io/invite?team=tidb-community&channel=sig-web&ref=website",
+      "sig_url": "https://github.com/pingcap/community/tree/master/special-interest-groups/sig-web"
+    }
+  ]
+}

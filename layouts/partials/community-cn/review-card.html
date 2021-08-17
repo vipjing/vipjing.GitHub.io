@@ -1,0 +1,16 @@
+{{ $reviews := .reviews }}
+
+{{- range $idx, $i := $reviews -}}
+    <a href="{{ $i.link}}">
+        <div class="review-card techday-review-card">
+            <div class="review-thumbnail">
+                <img src="{{ $i.image }}" alt="Cover" />
+            </div>
+            
+            <div class="review-content">
+                <div class="review-title techday-review-desc">{{ $i.title}}</div>
+                <div class="review-desc techday-review-desc">{{ $i.desc }}</div>
+            </div>
+        </div>
+    </a>
+{{- end -}}

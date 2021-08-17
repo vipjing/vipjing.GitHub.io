@@ -1,0 +1,62 @@
+{{ $hasMetaData := .hasMetaData }}
+{{ $hasBrief := .hasBrief }}
+{{ $listType := .listType }}
+
+<div class="list article-list">
+    {{- range .posts -}}
+    <a href="{{ .RelPermalink }}">
+      <div class="blog__article" data-category="{{ range .Params.categories }}{{ replace . " " "-" }} {{ end }}">
+          {{- if ne $listType "blog" -}}
+              <div class="logo">
+                {{- if .Params.image}}
+                    {{ $landingImg := .Params.image}}
+                    <img class="lazy" src="https://download.pingcap.com{{- $landingImg -}}" alt="Cover" />
+                {{- else -}}
+                    <img class="lazy" src="https://download.pingcap.com/images/readMoreCard/defaultThumbNail.jpg" alt="Cover" />
+                {{- end -}}
+              </div>
+          {{- end -}}
+          <div class="abstract clearfix">
+              <h1 class="title {{ if eq $listType "memoir" }}memoir-card-title{{ end }}">{{ .Title }}</h1>
+              {{- if $hasMetaData -}}
+                  <ul class="blog-post-meta">
+                      <li class="meta-item">
+                          <img src="/images/svgs/icon-date.svg" alt="Cover" />
+                          {{- .Date.Format "2006-01-02" -}}
+                      </li>
+                      <li class="meta-item">
+                          <img src="/images/svgs/icon-writer.svg" alt="Cover" />
+                          {{- if isset .Params "author" -}}
+                              {{ $len := len .Params.author }}
+                              {{- range $idx, $i := .Params.author -}}
+                                  {{ . }}
+                                  {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                              {{- end -}}
+                          {{- else -}}
+                              PingCAP
+                          {{- end -}}
+                      </li>
+                      <li class="meta-item">
+                          <div class="meta-category">
+                            {{- if isset .Params "categories" -}}
+                                {{- range $idx, $i := .Params.categories}}
+                                    {{ $i }}
+                                {{- end -}}
+                            {{- end -}}
+                          </div>
+                      </li>
+                  </ul>
+              {{- end -}}
+              {{- if $hasBrief -}}
+                  <div class="brief">
+                      {{- .Params.summary -}}
+                  </div>
+              {{- end -}}
+              <div class="readMore">
+                  <p>Read More</p>
+              </div>
+          </div>
+      </div>
+    </a>
+    {{- end -}}
+</div>

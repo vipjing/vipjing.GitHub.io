@@ -1,0 +1,158 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "DevCon 2020" }}
+DevCon 2020
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_link" "/community-cn/devcon2020" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/devcon2020.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/community/hackathon2019.css") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<style type="text/css">
+    .amap-logo,
+    .amap-copyright {
+        display: none !important;
+    }
+
+    .amap-icon img {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+</style>
+{{- end -}}
+
+{{- define "main" -}}
+<div class="devCon devCon2020">
+    <div class="banner__section devcon2020-banner devcon2020-banner-en">
+        <a class="sigup-btn" href="https://slack.tidb.io/invite?team=tidb-community&channel=everyone&ref=pingcap" target="_blank">
+            Join TiDB Community
+        </a>
+    </div>
+
+    <section class="activity-breif">
+        TiDB DevCon is the annual developer conference for the TiDB community. Launched by PingCAP, this 2-day event
+        aims to provide a venue where we showcase the evolution of product and technology in the past year and the
+        latest progress in the TiDB ecosystem. Due to Covid-19, this year's DevCon is completely virtual and will be
+        live-streamed to the entire community. 50+ TiDB adopters and committers from China and abroad will share with
+        you their practical experience applying TiDB and thoughts on open-source, covering multiple fields such as
+        finance, manufacturing, telecommunications, e-commerce, logistics, energy, FMCG, new retail, and cloud
+        computing.
+    </section>
+
+    <div class="agenda-wrapper">
+        <div class="el-side1">
+            <img src="/images/community/devcon2020/el-side.svg" />
+        </div>
+        <div class="el-side2">
+            <img src="/images/community/devcon2020/el-side.svg" />
+        </div>
+        <div class="el-side3">
+            <img src="/images/community/devcon2020/el-side.svg" />
+        </div>
+        <section class="dc20-agenda">
+            <h1 class="dc20-title" id="dc20-agenda-table">Schedule</h1>
+            <div class="dates">
+                <div class="date date1 is-active">DAY 1 - 2020.06.06</div>
+                <div class="date date2">DAY 2 - 2020.06.07</div>
+            </div>
+
+            <div class="venues">
+                <div class="day1">
+                    {{- range $idx, $i := .Site.Data.devcon.venues_2020_en.day1 -}}
+                    <div class="venue-detail venue-detail-en">
+                        <div class="time">{{ $i.time }}</div>
+                        <div>
+                            {{- range $j := $i.venues -}}
+                            <div class="venue-lists">
+                                <a class="venue" href="#{{ replace (replace $j.name "/" "-" ) " " "-" }}">
+                                    <img src="{{ $j.icon }}" alt="{{ $j.name }}">
+                                    <p class="{{ if $j.main }}large-size{{ end }}">{{ $j.name }}</p>
+                                </a>
+                            </div>
+                            {{- end -}}
+                        </div>
+
+                    </div>
+                    {{- end -}}
+                </div>
+                <div class="day2 hide-schedule">
+                    {{- range $idx, $i := .Site.Data.devcon.venues_2020_en.day2 -}}
+                    <div class="venue-detail venue-detail-en">
+                        <div class="time">{{ $i.time }}</div>
+                        <div>
+                            {{- range $j := $i.venues -}}
+                            <div class="venue-lists">
+                                <a class="venue column" href="#{{ replace (replace $j.name "/" "-" ) " " "-" }}">
+                                    <img src="{{ $j.icon }}" alt="{{ $j.name }}">
+                                    <p>{{ $j.name }}</p>
+                                </a>
+                            </div>
+                            {{- end -}}
+                        </div>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            {{- partial "community-cn/devcon2020-schedule-table.html" (dict "schedule" .Site.Data.devcon.devcon2020_day1_schedule_en "global" . "date" "day1" "isCn" false) -}}
+
+            {{- partial "community-cn/devcon2020-schedule-table.html" (dict "schedule" .Site.Data.devcon.devcon2020_day2_schedule_en "global" . "date" "day2" "isCn" false) -}}
+
+            <div class="switch-date-btn date2">DAY2 日程</div>
+        </section>
+    </div>
+
+    <div class="tutor-members">
+        <section>
+            <h1 class="dc20-title">Speakers</h1>
+            <div class="tutor-list">
+                {{- range $idx, $i := .Site.Data.devcon.instructors_2020_en -}}
+                {{- if not $i.noAvatar -}}
+                <div class="tutor">
+                    <div class="tutor-avatar">
+                        <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.avatar }}"
+                            alt="Tutor avator" />
+                    </div>
+                    <div class="name">{{ $i.name }}</div>
+                    <div class="title">{{ $i.company }} {{ if $i.title }}| {{ $i.title }}{{ end }}</div>
+                </div>
+                {{- end -}}
+                {{- end -}}
+            </div>
+        </section>
+    </div>
+
+    <section class="support-medias">
+        <h1 class="dc20-title">PROUDLY SUPPORTED BY</h1>
+        <div class="medias">
+            {{- range $idx, $i := .Site.Data.devcon.support_meida2020 -}}
+            <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i }}" />
+            {{- end -}}
+        </div>
+    </section>
+
+    <div class="reviews">
+        {{- partial "community-cn/activities-review.html" (dict "review_posts" .Site.Data.devcon.reviews_2019 "type" "devcon2020" "isCn" false) -}}
+    </div>
+
+    <!-- <section class="back-to-community-section">
+        <a href="/community-cn/#activities">
+            <button class="back-to-community">
+                更多社区活动
+            </button>
+        </a>
+    </section> -->
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200
+    })
+</script>
+<script type="text/javascript" src="/js/devcon.js"></script>
+{{- end -}}

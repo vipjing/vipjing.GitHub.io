@@ -1,0 +1,124 @@
+{{ $schedule := .schedule.table }}
+{{ $city_en := .schedule.city }}
+{{ $video_desc := .schedule.video_desc }}
+{{ $theme_bg_color := "_bg_theme" | printf "%s%s" $city_en }}
+{{ $theme_font_color := "_font_theme" | printf "%s%s" $city_en }}
+{{ $time := .schedule.time }}
+{{ $link := .schedule.link }}
+{{ $addr := .schedule.addr }}
+{{ $video_link := .schedule.video_link }}
+{{ $image_link := .schedule.image_link }}
+{{ $activity_end := .activity_end }}
+{{ $video_landing_img := .schedule.video_landing_img }}
+
+<div class="schedule-table">
+    <div class="review-video">
+        {{- if $video_link -}}
+            <video id="video" preload="auto" controls poster="{{ $video_landing_img }}">
+                <source src="{{ $video_link }}" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'
+                /> Your browser does not support the video tag.
+            </video>
+        {{- else if $image_link -}}
+            <img src="{{ $image_link }}"  alt="Cover"/>
+        {{- end -}}
+        <p class="view-desc">{{ $video_desc }}</p>
+    </div>
+    <div class="city-info">{{ $time }}</div>
+    <div class="city-info">{{ $addr }}</div>
+    <table class="pc-agenda-table">
+        {{- range $idx, $i := $schedule -}}
+            {{- if $i.highlight_bg -}}
+                <tr>
+                    <td class="col-time">{{ $i.time }}</td>
+                    <td class="{{ $theme_bg_color }}" colspan="2">{{ $i.talk_title }}</td>
+                </tr>
+            {{- else -}}
+                <tr>
+                    <td class="col-time">{{ $i.time }}</td>
+                    <td class="{{ $theme_font_color }} col-talk-title">{{ $i.talk_title }}
+                        <span class="tooltiptext">{{ $i.talk_detail }}</span>
+                    </td>
+                    {{- if $i.tba -}}
+                        <td class="col-speaker">
+                            敬请期待
+                        </td>
+                    {{- else -}}
+                        <td class="col-speaker">
+                            {{- if gt (len $i.speaker) 1 -}}
+                                {{- range $idx2, $i2 := $i.speaker }}
+                                <div class="multi-speakers">
+                                    <img src="{{ index $i.image $idx2 }}" class="multi-img" alt="avatar" />
+                                    <span class="speaker">{{ index $i.speaker $idx2 }}</span>
+                                    <span> {{ index $i.company $idx2 }} |
+                                      {{ index $i.speaker_title $idx2 }}</span><br />
+                                </div>
+                                {{- end -}}
+                            {{- else -}}
+                                <img src="{{ $i.image }}" alt="avatar" />
+                                <span class="speaker">{{ index $i.speaker 0 }} </span>
+                                <span>{{ $i.company }} | {{ $i.speaker_title }}</span>
+                            {{- end -}}
+                        </td>
+                    {{- end -}}
+                </tr>
+            {{- end -}}
+        {{- end -}}
+    </table>
+
+    <table class="mobile-agenda-table">
+        {{- range $idx, $i := $schedule -}}
+            {{- if $i.highlight_bg -}}
+                <tr>
+                    <td class="col-time">{{ $i.time }}</td>
+                    <td class="{{ $theme_bg_color }}" colspan="2">{{ $i.talk_title }}</td>
+                </tr>
+            {{- else -}}
+                <tr>
+                    <td class="col-time" rowspan="2">{{ $i.time }}</td>
+                    <td class="{{ $theme_font_color }} col-talk-title">{{ $i.talk_title }}
+                        <span class="tooltiptext">{{ $i.talk_detail }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    {{- if $i.tba -}}
+                        <td class="col-speaker">
+                            敬请期待
+                        </td>
+                    {{- else -}}
+                        <td class="col-speaker" style="border-top-style:hidden;">
+                            {{- if gt (len $i.speaker) 1 -}}
+                                {{- range $idx2, $i2 := $i.speaker }}
+                                <div class="multi-speakers">
+                                    <img src="{{ index $i.image $idx2 }}" class="multi-img" alt="avatar" />
+                                    <span class="speaker">{{ index $i.speaker $idx2 }}</span><br />
+                                    <span class="speaker-info">{{ index $i.company $idx2 }} | {{ index $i.speaker_title $idx2 }}</span><br/>
+                                </div>
+                                {{- end -}}
+                            {{- else -}}
+                                <img src="{{ $i.image }}" alt="avatar" />
+                                <span class="speaker">{{ index $i.speaker 0 }}</span><br />
+                                <span class="speaker-info">{{ $i.company }} | {{ $i.speaker_title }}</span>
+                            {{- end -}}
+                        </td>
+                    {{- end -}}
+                    
+                </tr>
+                <tr>
+
+                </tr>
+            {{- end -}}
+        {{- end -}}
+    </table>
+</div>
+
+<a href="{{ $link }}">
+    {{- if $activity_end -}} 
+        <button class="techday-signup-btn {{ $theme_bg_color }}" style="cursor: not-allowed;">
+            活动已结束
+        </button>
+    {{- else -}}
+        <button class="techday-signup-btn {{ $theme_bg_color }} {{ $city_en }}">
+            立即报名 
+        </button>
+    {{- end -}}
+</a>

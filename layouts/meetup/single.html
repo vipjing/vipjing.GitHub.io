@@ -1,0 +1,56 @@
+{{- define "headTpl" -}}
+    <style type="text/css" media="screen">
+        .st_tree {
+            display: none;
+        }
+    </style>
+    {{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/github-markdown.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+    {{$.Scratch.Set "nav_active" "meetup"}}
+    {{$.Scratch.Set "data_i18_cn" true }}
+    {{$.Scratch.Set "data_i18_link" "/weekly" }}
+    {{ $.Scratch.Set "summary" "我们相信对技术的追求和对开源的热爱把你带到了这里。欢迎加入 TiDB 社区，和我们一起开启一段精彩的旅程。" }}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="meetup">
+    <div class="container">
+        <!-- category: memoir/ record -->
+        {{ if in .Permalink "meetup/recording" }}
+            {{ $meetup_articles := where (where (where .Site.Pages "Section" "meetup") ".Params.meetup_type" "!=" nil) ".Params.meetup_type" "==" "memoir" }}
+            {{- partial "navs/tags-nav.html" (dict "type" "single" "title" "热门标签" "posts" $meetup_articles "prefixHref" "/meeting/recording/" "global" .) -}}
+        {{ else }}
+            {{ $meetup := where (where (where .Site.Pages "Section" "meetup") ".Params.title" "!=" nil) ".Params.meetup_type" "!=" "memoir"}}
+            {{- partial "navs/date-tree-nav.html" (dict "title" "Meetup" "data" $meetup ) -}}
+        {{ end }}
+
+        <div class="archive">
+            <div class="content markdown-body">
+                <h1 class="title">{{ .Title }}</h1>
+                <ul class="blog-post-meta">
+                    <li class="meta-item">
+                        <img src="/images/svgs/icon-date.svg" alt="Date icon">
+                        {{- .Date.Format "Mon, Jan 2, 2006" -}}
+                    </li>
+                    <li class="meta-item">
+                        <img src="/images/svgs/icon-writer.svg" alt="Pen icon">
+                        {{ $len := len .Params.author }}
+                        {{- range $idx, $i := .Params.author -}}
+                            {{ . }}
+                            {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                        {{- end -}}
+                    </li>
+                </ul>
+                <div class="blog-text">{{- .Content -}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript" src="/js/doc.js"></script>
+    <script type="text/javascript" src="/js/anchor.js"></script>
+{{- end -}}
+

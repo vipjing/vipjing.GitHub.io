@@ -1,0 +1,369 @@
+/* blog page */
+
+// import global variables
+@import './variables.less';
+
+// import partials
+@import './post-share.less';
+
+@import './article-reading-card.less';
+
+// fontawsome
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.blog {
+  // padding: 0 @horizontalPadding;
+  margin-top: @headerHeight;
+
+  .blog__hugeTitle {
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background: #F2F2F2;
+
+    h1 {
+      color: #3C3C3C;
+      font-size: 54px;
+      position: relative;
+
+      .rss {
+        position: absolute;
+        top: -27px;
+        margin-left: 13px;
+      }
+    }
+
+    .guide {
+      margin-top: 2.5rem;
+      font-size: 24px;
+    }
+
+    .tutorial-platform {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .PLogo {
+        margin: 2.5rem 50px 0;
+        height: 80px;
+        transition: margin-top 0.2s ease-in-out;
+
+        img {
+          height: 100%;
+        }
+
+        &:hover {
+          margin-top: 2.2rem;
+        }
+      }
+    }
+  }
+
+  .blog__container {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 0 4rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  .blog__list {
+    margin: 0 1rem;
+  }
+
+  .nav-tags {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    line-height: 1.8;
+    justify-content: space-evenly;
+    padding: 4rem 0;
+
+    .category {
+      text-align: center;
+      display: inline;
+      width: 23%;
+      height: auto;
+      line-height: 1.8;
+      padding: 0 1rem;
+      // margin: 0 15px;
+      position: relative;
+      border: 1px solid #DDDDDD;
+
+      .category__icon {
+        height: 6rem;
+        margin-top: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        img {
+          height: 100%;
+          margin-top: 0.3rem;
+          transition: margin-top 0.2s ease-in-out;
+        }
+      }
+
+      .category__content {
+        margin-top: 0.3rem;
+
+        .title {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        &::before {
+          content: '';
+          margin: 1rem 0;
+          width: 100%;
+          border-top: 2px solid #DDDDDD;
+          display: inline-block;
+        }
+
+        .summary {
+          padding: 0.7rem 0;
+          font-weight: normal;
+          font-size: 18px;
+          text-align: left;
+          line-height: 1.8;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 2px 9px 0 #DDDDDD;
+
+        .category__icon {
+          img {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    a.sel {
+      .category__content {
+        &::before {
+          border-top: 2px solid #3A58F0;
+        }
+      }
+
+      // .category__icon {
+      //   bottom: 100%;
+      //   transition: bottom 0.3s ease-in-out;
+      // }
+    }
+  }
+}
+
+.blogArticle__container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 4rem 1rem;
+}
+
+.tabs {
+  min-width: 320px;
+  max-width: 100%;
+  margin: 2em auto;
+  background: #fff;
+
+  h3 {
+    margin: 0 0 20px;
+  }
+
+  section {
+    display: none;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+
+    img {
+      width: 20px;
+      display: inline;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      background: transparent;
+    }
+  }
+
+  .label__title {
+    margin-left: 30px;
+  }
+
+  label:hover {
+    color: #888;
+    cursor: pointer;
+  }
+
+  input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid @bannerBgColor;
+    border-bottom: 1px solid #fff;
+  }
+
+  .continue__arrow {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .continue__arrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top: 2px solid #3a59f0;
+    border-right: 2px solid #3a59f0;
+    display: block;
+    top: 50%;
+    left: .6em;
+    position: absolute;
+    margin-top: -2px;
+  }
+
+  .continue__arrow::after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    background: #3a59f0;
+    margin-top: 1px;
+  }
+}
+
+#showMore {
+  display: block;
+  width: 100%;
+  color: #3A58F0;
+  text-align: center;
+  font-size: large;
+  padding: 0 0 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .blog {
+    .blog__hugeTitle {
+      .guide {
+        font-size: 18px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .tutorial-platform {
+        justify-content: space-around;
+
+        .PLogo {
+          margin: 2.5rem 0 0;
+          height: 50px;
+        }
+      }
+    }
+
+    .tutorial-platform {
+      background: none;
+      font-weight: 600;
+      padding: 0;
+    }
+
+    .nav-tags {
+      padding: 0;
+      margin: 1rem 0 2rem;
+
+      .category {
+        width: 46%;
+        margin-bottom: 10px;
+        position: relative;
+        border: 1px solid #DDDDDD;
+
+        .category__icon {
+          height: 4rem;
+        }
+
+        .category__content {
+          &::before {
+            content: '';
+            margin: 1rem 0;
+            width: 100%;
+            border-top: 2px solid #DDDDDD;
+            display: inline-block;
+          }
+
+          .summary {
+            padding: 0.5rem 0;
+            font-size: 13px;
+            text-align: left;
+            line-height: 1.7;
+          }
+        }
+
+        &:hover {
+          box-shadow: 0 2px 9px 0 #DDDDDD;
+
+          .category__icon {
+            img {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .blog {
+    padding: 0;
+
+    .blog__container {
+      padding: 0 0;
+    }
+
+    .blog__hugeTitle {
+      h1 .rss {
+        top: -21px;
+        margin-left: 9px;
+      }
+
+      .tutorial-platform {
+        .PLogo {
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  .blogArticle__container {
+    padding: 0 1rem 3rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .article-nav {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}

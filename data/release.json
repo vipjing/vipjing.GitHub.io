@@ -1,0 +1,12 @@
+{
+  "isShow": true,
+  "announcement": {
+    "en_part1": "Join the TiDB Community Slack channel",
+    "en_part2": "to interact with the community!",
+    "cn": "TiDB 4.0 全面升级，最高性能提升 44 倍，欢迎报名参加 4.0 官方上线一对一支持计划，通过后，更有认证考试资格赠送。"
+  },
+  "link": {
+    "en": "https://slack.tidb.io/invite?team=tidb-community&channel=everyone&ref=pingcap",
+    "cn": "http://pingcaptidb.mikecrm.com/WywFDVX"
+  }
+}

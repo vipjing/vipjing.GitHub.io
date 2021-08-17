@@ -1,0 +1,74 @@
+{{ $hasMetaData := .hasMetaData }}
+{{ $hasBrief := .hasBrief }}
+{{ $listType := .listType }}
+
+<div class="list article-list">
+    {{- range .posts -}}
+    {{- if eq $listType "blog" -}}
+        <div class="article" data-category="{{ range .Params.categories }}{{ replace . " " "-" }} {{ end }}">
+    {{- else -}}
+        <div class="article" data-tag="{{ range .Params.tags }}{{ replace . " " "-" }} {{ end }}">
+    {{- end -}}
+            <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+            {{- if $hasMetaData -}}
+                <ul class="blog-post-meta">
+                <li class="meta-item">
+                    <img src="/images/svgs/icon-date.svg" alt="Date icon" />
+                    {{- .Date.Format "2006-01-02" -}}
+                </li>
+                <li class="meta-item">
+                    <img src="/images/svgs/icon-writer.svg" alt="Pen icon" />
+                    {{- if isset .Params "author" -}}
+                        {{ $len := len .Params.author }}
+                        {{- if isset .Params "second_author" -}}第一作者：{{- end -}}
+                        {{- range $idx, $i := .Params.author -}}
+                            {{ . }}
+                            {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                        {{- end -}}
+                    {{- else -}}
+                        PingCAP
+                    {{- end -}}
+                    {{- if isset .Params "second_author" -}}
+                        {{ $len := len .Params.second_author }}
+                        ，第二作者：
+                        {{- range $idx, $i := .Params.second_author -}}
+                            {{ . }}
+                            {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                </li>
+                <li class="meta-item">
+                    {{- if eq $listType "blog" -}}
+                    <div class="meta-category">
+                        {{- if isset .Params "categories" -}}
+                        {{- range $idx, $i := .Params.categories}}
+                        {{ $i }}
+                        {{- end -}}
+                        {{- end -}}
+                      </div>
+                    {{- else -}}
+                    <div>
+                        {{- if isset .Params "tags" -}}
+                            {{ $len := len .Params.tags }}
+                            {{- range $idx, $i := .Params.tags -}}
+                                {{- $tag := replace $i " " "-" -}}
+                                <a href="#{{ $tag | urlize }}" class="link anchor-tag" data-tag="{{$tag}}">{{ $tag }}</a>
+                                {{- if lt $idx (sub $len 1) -}}|{{- end -}}
+                            {{- end -}}
+                        {{- end -}}
+                    </div>
+                    {{- end -}}
+                </li>
+                </ul>
+            {{- end -}}
+            {{- if $hasBrief -}}
+                <a href="{{ .RelPermalink }}">
+                    <div class="brief">
+                        <p>{{- .Params.summary -}}</p>
+                    </div>
+                </a>
+            {{- end -}}
+            <div class="article_divider"></div>
+        </div>
+    {{- end -}}
+</div>

@@ -1,0 +1,11 @@
+<div class="sidebar">
+    <div class="sticky-sidebar {{ if .type }}docs-sticky-sidebar{{ end }}">
+        <div class="title"> {{ .title }} </div>
+        {{- if .type -}}
+            {{ partial "archives/version-switcher.html" (dict "global" . "permalink" .permalink "content_file_path" .content_file_path "sv" .sv "tv" .tv "cv" .cv "docs_type" .docs_type) }}
+        {{- end -}}
+        <div class="st_tree nav-toc {{ if .type }}docs-nav-toc{{ end }}">
+        {{- partial "navs/tree-nav.html" (dict "tree" .tree "global" .) -}}
+        </div>
+    </div>
+</div>

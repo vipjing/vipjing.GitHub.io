@@ -1,0 +1,236 @@
+{{ define "title" }}
+  {{ $.Scratch.Set "metaTitle" "TiDB" }}
+  TiDB Usability Challenge
+{{ end }}
+
+{{ define "headTpl" }}
+{{ $.Scratch.Set "data_i18_link" "/community-cn/tidb-usability-challenge" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@5.3.1/css/swiper.min.css">
+{{ partial "head/preload-css" (dict "href" "/css/community/tidb-usability-challenge.css") }}
+{{ end }}
+
+{{ define "main" }}
+<section class="hero is-medium tuc-hero en">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        TiDB Usability Challenge
+      </h1>
+      <h2 class="subtitle is-4">
+        2020.03.02 - 2020.05.30
+      </h2>
+      <div class="banner-buttons">
+        <a class="button button-receive" target="_blank" href="https://github.com/tidb-challenge-program/register/issues/new?template=challenge-program-register.md&title=Challenge+Program+Register">Sign Up</a>
+        <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/challenge-programs/challenge-program-season-1-cn.md">About Challenge</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-timeline">
+  <div class="timeline-wrapper">
+    <div class="timeline">
+      <span class="bullet"></span>
+      <span class="bullet"></span>
+      <span class="bullet active"></span>
+    </div>
+    <div class="explains">
+      <div class="text text1">
+        <div>2019.12.17 - 2020.01.12</div>
+        <div class="desc">
+          <a target="_blank" href="https://asktug.com/t/topic/2156">Requirements Collecting</a>
+        </div>
+      </div>
+      <div class="text text2">
+        <div>2020.02.11 - 2020.02.20</div>
+        <div class="desc">
+          <a target="_blank" href="https://asktug.com/t/topic/2684">Requirements Voting. Check the Ranking List</a>
+        </div>
+      </div>
+      <div class="text text3 active">
+        <div>2020.03.02 - 2020.05.30</div>
+        <div class="desc">
+          <a href="#get-started">Requirements Fulfilling. It’s your time to play</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section has-text-centered tuc-readme">
+  <h2 class="desc" id="get-started">Welcome to the TiDB Challenge Program Season Two! </h2>
+  <p class="desc">This time, the Challenge follows the same rules but with more fun.</p>
+  <p class="desc">At present, most tasks show the most common requirements from the "My TiDB, My Call" voting activity. More tasks for usability improvement are coming on their way!</p>
+  <h3 class="subtitle primary decision">What tasks to complete? You have the final say!</h3>
+</section>
+
+<section class="section has-text-centered tuc-highlights">
+  <div class="container">
+    <h2 class="subtitle is-6 primary tab">HIGHLIGHTS</h2>
+    <div class="main">
+      <div class="placeholder">
+        <img src="https://download.pingcap.com/images/tidb-usability-challenge/placeholder-highlights.svg" alt="placeholder" />
+      </div>
+      <div class="content">
+        <ul class="highlights">
+          <li>
+            <h3 class="title primary">My TiDB, My call</h3>
+            <p>This challenge has opened up the voting activity for users to collect requirements. The more votes the requirement get, the more concerned the requirement is.</p>
+          </li>
+          <li>
+            <h3 class="title primary">Easy to Hard</h3>
+            <p>If you are a newcomer to the challenge, you can get on board by completing easy tasks. Experienced players with more than 200 points can directly challenge medium and hard tasks!</p>
+          </li>
+          <li>
+            <h3 class="title primary">Bountiful Prizes</h3>
+            <p>Season two comes back with more and better prizes! All contestants who have completed one or more task will be awarded Challenge Completed Badges. Your participation is highly appreciated!</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/challenge-programs/challenge-program-season-2.md">Challenge Rules</a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-demands">
+  <h2 class="subtitle is-6 primary tab">REQUIREMENTS RANKING</h2>
+  <div class="container columns is-multiline">
+
+  </div>
+  <button class="button button-details">
+    <a target="_blank" href="https://github.com/pingcap/community/tree/master/challenge-programs">See ALL Tasks</a>
+  </button>
+</section>
+
+<section class="section has-text-centered tuc-prizes en">
+  <h2 class="subtitle is-6 primary tab">PRIZES</h2>
+  <div class="container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score no-suffix is-text">Complete one task to get it!</div>
+              <div class="text">Challenge Completed Badge</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/badge.svg" alt="badge" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">4000 - 30000</div>
+              <div class="text">A journey to Silicon Valley with plane tickets and hotel covered! (To be adjusted according to the location of the contestant)</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/Meetup.svg" alt="Meetup" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">4000 - 30000</div>
+              <div class="text">Honorary Seat at PingCAP DevCon (To be adjusted according to the location of the contestant)</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/DevCon-Techday.svg" alt="DevCon/Techday" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">1800</div>
+              <div class="text">THE NORTH FACE Backpack</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/bag.svg" alt="bag" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">1500</div>
+              <div class="text">Developer Tool Suite from JetBrains (one-year license)</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/jetbrians.svg" alt="jetbrains" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">500</div>
+              <div class="text">Stationery Set</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/suits.svg" alt="suits" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">300</div>
+              <div class="text">TiDB Hoodie</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/TiDB-jacket.svg" alt="TiDB jacket" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">150</div>
+              <div class="text">Bookmark Set/TiDB Inner Container Pack</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/handbag.svg" alt="handbag" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">100</div>
+              <div class="text">TiDB Black/White T-shirt</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/TiDB-tshirt.svg" alt="TiDB tshirt" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="text">More Prizes...</div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="swiper-button-next"></div>
+</div>
+</section>
+
+<section class="section has-text-centered tuc-studies">
+  <h2 class="subtitle is-6 primary tab">LEARNING MATERIALS</h2>
+  <div class="container columns">
+    <div class="column">
+      <a class="card" target="_blank" href="https://github.com/pingcap/talent-plan">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-1.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">PingCAP Talent Plan</h3>
+          <div class="text">
+            This is a series of training courses about writing distributed systems in Go and Rust with no previous experience of TiDB or TiKV required.
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="card" target="_blank" href="https://github.com/pingcap/awesome-database-learning">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-2.svg" />
+          <img class="pu" src="https://download.pingcap.com/images/tidb-usability-challenge/pu.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">Awesome Database Learning</h3>
+          <div class="text">
+            We provide a list of learning materials to help you understand databases internals, including but not limited to: papers, blogs, courses and talks.
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-leaderboard">
+  <h2 class="subtitle is-6 primary tab">LEADERBOARD</h2>
+  <div class="container">
+    <div id="ranking-switch">
+      <div class="first">Current</div>
+      <div class="second">Accumulative</div>
+      <div class="slider" data-lang="en"></div>
+    </div>
+    <div id="ranking-list"></div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "footJS" }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@5.3.1/js/swiper.min.js"></script>
+<script src="/js/tidb_usability_challenge.js"></script>
+{{ end }}

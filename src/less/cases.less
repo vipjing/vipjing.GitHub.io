@@ -1,0 +1,213 @@
+
+// import global variables
+@import "./variables.less";
+// import partials
+@import "./flap-cards.less";
+
+// import cases-en css
+@import "./cases-en.less";
+@import "./hero.less";
+@import "./list.less";
+
+.cases,
+.news,
+.contact-us {
+  padding-top: @headerHeight;
+
+  .desc {
+    margin-top: 40px;
+    max-width: 33rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .community-desc {
+    margin-top: 150px;
+  }
+
+  .contact-form {
+      margin: 80px auto;
+    }
+}
+
+.cases,
+.news {
+  .list {
+    width: 100%;
+    padding: 3rem @horizontalPadding;
+  }
+}
+
+.cases {
+  .banner {
+    position: relative;
+    height: 320px;
+    background-color: @bannerBgColor;
+  }
+
+  .banner__inner {
+    position: relative;
+    max-width: 872px;
+    height: 100%;
+    margin: 0 auto;
+    background: url(/images/svgs/banner-cases-cn.svg) no-repeat center;
+    background-size: cover;
+  }
+
+  .banner__slogan {
+    position: absolute;
+    left: 0;
+    bottom: 155px;
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+.cases__intro {
+  padding: @verticalPadding @horizontalPadding;
+  text-align: center;
+
+  p {
+    line-height: 1.8;
+    font-size: 1.12rem;
+    color: @titleColor;
+
+    strong {
+      color: @bannerBgColor;
+    }
+  }
+}
+
+#cases-tabs {
+  max-width: 1024px;
+  margin: 0 auto;
+
+  dt {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    margin: 8px;
+    padding: 2px 12px 2px 2.8em;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background-color: @silverWhite;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.8;
+    color: @bannerBgColor;
+
+    &.is-active {
+      background: @bannerBgColor;
+      color: white;
+    }
+
+    &.is-active::after {
+      height: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: " ";
+      width: 1.4em;
+      height: 1.4em;
+      top: 50%;
+      margin-top: -0.7em;
+      left: 1em;
+    }
+
+    &.tab-0::before {
+      background: url(/images/svgs/icon-internet.svg) center / contain no-repeat;
+    }
+
+    &.tab-0.is-active::before {
+      background: url(/images/svgs/icon-internet-white.svg) center / contain no-repeat;
+    }
+
+    &.tab-1::before {
+      background: url(/images/svgs/icon-video-game.svg) center / contain no-repeat;
+    }
+
+    &.tab-1.is-active::before {
+      background: url(/images/svgs/icon-video-game-white.svg) center / contain no-repeat;
+    }
+
+    &.tab-2::before {
+      background: url(/images/svgs/icon-payment.svg) center / contain no-repeat;
+    }
+
+    &.tab-2.is-active::before {
+      background: url(/images/svgs/icon-payment-white.svg) center / contain no-repeat;
+    }
+
+    &.tab-3::before {
+      background: url(/images/svgs/icon-industry.svg) center / contain no-repeat;
+    }
+
+    &.tab-3.is-active::before {
+      background: url(/images/svgs/icon-industry-white.svg) center / contain no-repeat;
+    }
+
+    &.tab-4::before {
+      background: url(/images/svgs/icon-government.svg) center / contain no-repeat;
+    }
+
+    &.tab-4.is-active::before {
+      background: url(/images/svgs/icon-government-white.svg) center / contain no-repeat;
+    }
+  }
+
+  dd {
+    min-height: 500px;
+    border: 1px solid transparent;
+  }
+}
+
+@media (min-width: 992px) {
+  .cases {
+    .banner__slogan {
+      font-size: @heroLTitleSize;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  #cases-tabs {
+    dt {
+      min-width: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .cases {
+    .banner {
+      height: 220px;
+    }
+
+    .banner__slogan {
+      bottom: 140px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .cases {
+    .banner__slogan {
+      font-size: @heroSTitleSize;
+      left: 1rem;
+    }
+  }
+
+  #cases-tabs dt {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  .cases__intro p {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,64 @@
+{{- define "headTpl" -}}
+<style type="text/css" media="screen">
+    .st_tree {
+        display: none;
+    }
+</style>
+{{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/github-markdown.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+{{$.Scratch.Set "nav_active" "docs"}}
+{{$.Scratch.Set "data_i18_link" (print "/docs" (cond (isset .Params "cn") "-cn" "") "/") }}
+{{ $.Scratch.Set "metaTitle" "TiDB Documentation" }}
+{{$.Scratch.Set "data_i18_cn" (cond (isset .Params "cn") true false) }}
+{{- end -}}
+
+{{- define "main" -}}
+{{$.Scratch.Set "docs_stable_version" ""}}
+{{$.Scratch.Set "docs_type" ""}}
+{{$.Scratch.Set "docs_repo" ""}}
+{{$.Scratch.Set "title_prefix" ""}}
+{{$docs_total_versions := slice ""}}
+
+<!-- set total versions and stable version according to the docs type -->
+{{ if hasPrefix .RelPermalink (print "/search/" (cond (isset .Params "cn") "docs-cn" "docs") "/tidb-data-migration/") }}
+<!-- docs dm -->
+{{ $.Scratch.Add "docs_type" "tidb_data_migration" }}
+{{ $.Scratch.Add "docs_stable_version" ($.Scratch.Get "dm_stable_version") }}
+{{ $.Scratch.Add "docs_repo" "docs-dm"}}
+{{ $.Scratch.Add "title_prefix" "TiDB Data Migration" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "dm_total_versions") }}
+{{ else if hasPrefix .RelPermalink (print "/search/" (cond (isset .Params "cn") "docs-cn" "docs") "/tidb-in-kubernetes/") }}
+<!-- docs operator -->
+{{ $.Scratch.Add "docs_type" "tidb_in_kubernetes"}}
+{{ $.Scratch.Add "docs_stable_version" ($.Scratch.Get "operator_stable_version") }}
+{{ $.Scratch.Add "docs_repo" "docs-tidb-operator"}}
+{{ $.Scratch.Add "title_prefix" "TiDB in Kubernetes" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "operator_total_versions") }}
+{{ else }}
+<!-- docs tidb -->
+{{ $.Scratch.Add "docs_type" "tidb" }}
+{{ $.Scratch.Add "docs_stable_version" ($.Scratch.Get "tidb_stable_version") }}
+{{ $.Scratch.Add "docs_repo" "docs"}}
+{{ $.Scratch.Add "title_prefix" "TiDB" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "tidb_total_versions") }}
+{{ end }}
+
+{{ $current_version := default "stable" (index (findRE "(v\\d+\\.\\d+|dev|stable)" .RelPermalink) 0) }}
+
+<div class="doc" id="list_page">
+    <div class="container">
+        {{ if eq ($.Scratch.Get "docs_repo") "docs" }}
+        {{ $.Scratch.Add "data_i18_link" (trim $current_version "/") }}
+        {{ else }}
+        {{ $.Scratch.Add "data_i18_link" (print (replace ($.Scratch.Get "docs_type") "_" "-") "/" $current_version )}}
+        {{ end }}
+        {{ partial "navs/docs-nav.html" (dict "global" . "lang_prefix" (cond (isset .Params "cn") "docs_cn_" "docs_") "cv" $current_version "sv" ($.Scratch.Get "docs_stable_version") "tv" $docs_total_versions "docs_type" ($.Scratch.Get "docs_type") "title_prefix" ($.Scratch.Get "title_prefix")) }}
+        {{- partial "archives/search-results-list" -}}
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript" src="/js/doc.js"></script>
+{{- end -}}

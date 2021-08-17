@@ -1,0 +1,25 @@
+<div class="search-wrapper">
+    <span class="icon-search">{{ partial "svgs/icon-search.svg" (dict "fill" "#fff" "width" 18 "height" 18 ) }}</span>
+    <input data-lang="{{ .lang }}" data-type="{{ .docs_type }}" type="search" id="search-input" name="q"
+        placeholder="{{ if eq .lang "en" }}Search TiDB Docs{{ else }}搜索 TiDB 文档{{ end }}">
+</div>
+
+<script>
+    const inputNode = document.getElementById("search-input")
+
+    inputNode.addEventListener('keyup', ({key}) => {
+        if (key === "Enter") {
+            if ($('#search-input').data('lang') == 'cn') {
+                lang = 'zh'
+            } else {
+                lang = 'en'
+            }
+
+            const query = $('#search-input').val()
+            if (query) {
+                url = "https://docs.pingcap.com/" + (lang == 'zh' ? 'zh/' : '') + "search/?lang=" + lang + "&type=tidb&version=stable&q=" + query
+                window.location.href = url
+            }
+        }
+    })
+</script>

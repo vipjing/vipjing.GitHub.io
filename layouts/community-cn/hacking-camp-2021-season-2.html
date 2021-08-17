@@ -1,0 +1,200 @@
+{{- define "title" -}}
+  {{ $.Scratch.Set "metaTitle" "TiDB Hacking Camp -- 生态" }}
+  TiDB Hacking Camp -- 生态
+{{- end -}}
+
+{{- define "headTpl" -}}
+  {{$.Scratch.Set "nav_active" "community"}}
+  {{ $.Scratch.Set "data_i18_cn" true }}
+  {{ $.Scratch.Set "data_i18_link" "/community/events/hackathon2020" }}
+  {{- partial "head/preload-css" (dict "href" "/css/community/hacking-camp-2021s2.css") -}}
+  {{- partial "head/preload-css" (dict "href" "/css/tidb-planet/modal.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="hackathon2020">
+  <section class="hacking-cam2021__banner"></section>
+
+  <section class="hackathon2020__navbar navbar-sticky">
+    <div class="container">
+      <ul class="navbar">
+        <li class="navbar__item">
+          <a href="#about">关于 Hacking Camp</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#winners">本期入围项目</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#timeline">Hacking Camp 时间线</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#partners">赞助合作</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section hackathon2020__section-about">
+    <h2 class="section__title" id="about">关于 Hacking Camp</h2>
+    <div class="container">
+      <p class="hackathon2020__intro left-align">
+        TiDB Hacking Camp 是一个长期的孵化项目，每年举办 1-3 期。活动联合了生态伙伴、合作企业等，旨在帮助 TiDB
+        生态项目从社区中获取更多资源和帮助，使其能够快速成长达到有实际应用场景的成熟阶段。本期的主题是「生态」。入选项目都将围绕着 TiDB 周边生态进行打磨。
+      </p>
+      <p class="hackathon2020__intro left-align">
+        本次活动的入围项目也面向社区公开招募贡献者。只要解决本期任一项目的 issue 就可以成为 Hacking Camp 的 Contributor，获得贡献者好礼！对于开发者来说，通过深度参与和贡献 Hacking Camp
+        中的孵化项目，不仅可以提升技术实力，活跃的贡献者还能提高在开源社区中的影响力。
+      </p>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section hackathon2020__section-winners">
+    <h2 class="section__title" id="winners">本期入围项目</h2>
+    <div class="container">
+      <p class="hackathon2020__intro">
+        本期 Hacking Camp 共有 6 个项目入围，分别为 HugeGraph、Doris、JuiceFS、TiBigData、TiDB for PostgreSQL 和 Serverlessdb for
+        HTAP，都是基于 TiDB 的生态项目。感兴趣的小伙伴可以加入讨论区或为项目贡献自己的一份力量～
+      </p>
+      <div class="list-flex">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.winners -}}
+        <div class="winner-team hacking-camp">
+          <div class="thumbnail">
+            <img class="lazy thumbnail-img" data-original="{{ $i.thumbnail }}" src="/images/svgs/loader-spinner.svg"
+              alt="team-avatar" />
+            <p class="thumbnail-text j-thumbnailText-click">{{ $i.project_intro }}</p>
+          </div>
+          {{- partial "tidb-planet/modal" (dict "type" "schedule" "modal_img" $i.modal_img) -}}
+          <div class="team-info">
+            <p class="project-name">{{ $i.project_name }}</p>
+          </div>
+          <div class="misc">
+            <div class="misc-btns">
+              {{ with $i.btn_link }}
+              <a href="{{ $i.btn_link }}" target="_blank">{{ $i.btn_name }}</a>
+              {{ end }}
+              <a href="{{ $i.project_addr }}" target="_blank">项目地址</a>
+            </div>
+          </div>
+        </div>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section">
+    <h2 class="section__title" id="timeline">Hacking Camp 时间线</h2>
+    <div class="container">
+      <ul class="moments">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.moments -}}
+        <li class="moment-item hacking-camp-moment">
+          <div class="moment__milestone"><span class="spot"></span></div>
+          <div class="moment__content">
+            <p>{{ $i.date }}</p>
+            <p>{{ $i.name }}</p>
+          </div>
+        </li>
+        {{- end -}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section hackathon2020__section-awards">
+    <h2 class="section__title" id="awards">奖项设置</h2>
+    <div class="container">
+      <div class="list-flex">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.awards -}}
+        <div class="award-card">
+          <h3>{{ $i.title }}</h3>
+          <p>{{ $i.prize }}</p>
+        </div>
+        {{- end -}}
+      </div>
+      <p class="hackathon2020__intro">
+        所有参与项目的贡献者都可以获得活动周边 T-shirt！
+      </p>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section hackathon2020__section-tuitors">
+    <h2 class="section__title" id="judges">Hacking Camp 组委会与导师团</h2>
+    <div class="container">
+      <p class="hackathon2020__intro">
+        Hacking Camp 组委会为活动协调资源、制定项目毕业标准等。导师团负责与团队沟通并提供项目的指导方向，对团队的项目规划提出合理的建议。
+      </p>
+      <div class="list-flex">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.judges -}}
+        <div class="tutor-item">
+          <div class="tutor__avatar">
+            <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.avatar }}"
+              alt="Tutor avatar" />
+          </div>
+          <div class="tutor__name">{{ $i.name }} | {{ $i.team_name }}</div>
+          <div class="tutor__title">{{ $i.word }}</div>
+        </div>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+
+  <section class="hackathon2020__section partners-list">
+    <h2 class="section__title" id="partners">赞助合作</h2>
+
+    <div class="exclusive-sponvers">
+      <h3 class="sponsor-type">独家冠名</h3>
+      <div class="list-flex container">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.exclusive -}}
+        <div class="img-wrapper">
+          <a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+            <img class="lazy logo-{{ $i.name }}"
+              data-original="/images/community/hacking-camp-2021-s2/logos/{{ $i.name }}.svg"
+              src="/images/svgs/loader-spinner.svg" alt="sponsor logo" />
+          </a>
+        </div>
+        {{- end -}}
+      </div>
+    </div>
+
+    <div class="common-sponsors">
+      <h3 class="sponsor-type">协办方</h3>
+      <div class="list-flex container">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.sponsors1 -}}
+        <div class="img-wrapper">
+          <a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+            <img class="lazy logo-{{ $i.name }}"
+              data-original="/images/community/hacking-camp-2021-s2/logos/{{ $i.name }}.svg"
+              src="/images/svgs/loader-spinner.svg" alt="sponsor logo" />
+          </a>
+        </div>
+        {{- end -}}
+      </div>
+    </div>
+
+    <div class="common-sponsors">
+      <h3 class="sponsor-type">支持企业及社区</h3>
+      <div class="list-flex container">
+        {{- range $idx, $i := .Site.Data.hacking_camp_2021_s2.sponsors2 -}}
+        <div class="img-wrapper">
+          <a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+            <img class="lazy logo-{{ $i.name }}"
+              data-original="/images/community/hacking-camp-2021-s2/logos/{{ $i.name }}.svg"
+              src="/images/svgs/loader-spinner.svg" alt="sponsor logo" />
+          </a>
+        </div>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+  $('.lazy').lazyload({
+    effect: 'fadeIn',
+    threshold: 200,
+  })
+</script>
+<script type="text/javascript" src="/js/hacking_camp_2021s2.js"></script>
+<script type="text/javascript" src="/js/community.js"></script>
+{{- end -}}

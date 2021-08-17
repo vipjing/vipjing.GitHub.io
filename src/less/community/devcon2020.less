@@ -1,0 +1,540 @@
+@import './common-style.less';
+
+@B4: #6e77a3;
+@M1: #FFF;
+@M2: #fafafa;
+@M4: #707070;
+@M5: #F4F4F4;
+@M6: #86868C;
+@light-blue: #465BF2;
+@section-title-color: #1D1D1F;
+@p: 16px;
+@subtitle: 1rem;
+@section-title-font: 1.3rem;
+@mobile: ~'only screen and (max-width: 768px)';
+@tablet: ~'only screen and (min-width: 769px)';
+@max-width: 1048px;
+@LH: 1.7;
+@padding-unit: 1rem;
+
+.devCon2020 {
+    .devcon2020-banner {
+        padding-top: 47%;
+        background: url('/images/community/devcon2020/hero-pc.jpg') no-repeat;
+        position: relative;
+
+        .sigup-btn {
+            position: absolute;
+            bottom: 25%;
+            border-radius: 30px;
+            padding: 10px 2rem;
+            background: linear-gradient(to right bottom, #03d5bc, #0c52fc);
+            transform: translateX(-50%);
+            left: 50%;
+            color: @M1;
+            cursor: pointer;
+            font-size: @p;
+        }
+
+        @media only screen and (max-width: 414px) {
+            padding-top: 62%;
+            background: url('/images/community/devcon2020/hero-mobile.jpg') no-repeat;
+
+            .sigup-btn {
+                font-size: @p * 0.75;
+                padding: 5px 1rem;
+            }
+        }
+    }
+
+    .devcon2020-banner-en {
+        background: url('/images/community/devcon2020/hero-pc-en.jpg') no-repeat;
+    }
+
+    .activity-breif,
+    .dc20-agenda,
+    .support-medias {
+        max-width: @max-width;
+        margin: 4rem auto 0;
+    }
+
+    .dc20-title {
+        font-size: @section-title-font;
+        color: @section-title-color;
+        font-weight: bold;
+        margin-bottom: 3rem;
+    }
+
+    .activity-breif {
+        padding: @padding-unit;
+        font-size: @p;
+        color: @M4;
+        text-align: center;
+        line-height: @LH;
+    }
+
+    .agenda-wrapper {
+        position: relative;
+
+        .el-side1 {
+            position: absolute;
+            top: 10rem;
+            right: -7rem;
+
+            img {
+                width: 300px;
+                height: auto;
+            }
+        }
+
+        .el-side2 {
+            position: absolute;
+            top: 40rem;
+            left: -6rem;
+
+            img {
+                width: 200px;
+                height: auto;
+            }
+        }
+
+        .el-side3 {
+            position: absolute;
+            top: 90rem;
+            right: -7rem;
+
+            img {
+                width: 200px;
+                height: auto;
+            }
+        }
+
+        @media only screen and (max-width: 414px) {
+
+            .el-side1,
+            .el-side2,
+            .el-side3 {
+                display: none;
+            }
+        }
+
+        .dc20-agenda {
+            text-align: center;
+            margin: 4rem auto 4rem;
+            position: relative;
+
+            .dates {
+                display: flex;
+                flex-flow: row wrap;
+
+                .date {
+                    width: 50%;
+                    color: @section-title-color;
+                    font-weight: bold;
+                    font-size: @subtitle;
+                    letter-spacing: 1px;
+                    position: relative;
+
+                    &.is-active,
+                    &:hover {
+                        color: @light-blue;
+                        cursor: pointer;
+
+                        &::after {
+                            display: block;
+                        }
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        border-bottom: 4px solid @light-blue;
+                        width: 50px;
+                        transform: translateX(-50%);
+                        left: 50%;
+                        bottom: -7px;
+                        display: none;
+                    }
+                }
+            }
+
+            .venues {
+                background-color: @M2;
+                margin: 3rem 0;
+
+                .day1,
+                .day2 {
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 1rem;
+
+                    .venue {
+                        min-width: 300px;
+                        display: flex;
+                        align-items: center;
+                        padding: 0.5rem 2rem;
+                        justify-content: start;
+                        cursor: pointer;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+
+                        p {
+                            font-size: @p;
+                            padding-left: 0.5rem;
+                            font-weight: bold;
+                            position: relative;
+
+                            &:hover {
+                                color: @light-blue;
+
+                                &::after {
+                                    display: block;
+                                }
+                            }
+
+                            &::after {
+                                content: '';
+                                border-bottom: 4px solid #465bf2;
+                                position: absolute;
+                                bottom: -5px;
+                                left: 0.5rem;
+                                width: 30px;
+                                display: none;
+                            }
+                        }
+
+                        .large-size {
+                            font-size: @p * 1.1;
+                        }
+                    }
+
+                    .venue-detail {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: start;
+                        align-items: center;
+
+                        .time {
+                            min-width: 135px;
+                            font-size: @p;
+                            text-align: left;
+                            padding: 1rem;
+                        }
+
+                        .venue-lists {
+                            display: flex;
+                            flex-flow: row wrap;
+                            align-items: center;
+
+                            .watch-link {
+                                font-size: @p;
+                                color: @light-blue;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            @media only screen and (max-width: 414px) {
+                                justify-content: center;
+                            }
+                        }
+                    }
+
+                    .venue-detail-en {
+                        margin-bottom: 2rem;
+                    }
+
+                    @media only screen and (max-width: 414px) {
+                        .venue {
+
+                            p,
+                            .time {
+                                font-size: @p * 0.75;
+                            }
+                        }
+                    }
+                }
+
+                .day2 {
+                    .venue {
+                        justify-content: start;
+                    }
+                }
+            }
+
+            .switch-date-btn {
+                position: absolute;
+                border-radius: 30px;
+                padding: 10px 2rem;
+                background: linear-gradient(to right bottom, #03d5bc, #0c52fc);
+                transform: translateX(-50%);
+                left: 50%;
+                width: 200px;
+                bottom: -1rem;
+                color: @M1;
+                cursor: pointer;
+                font-size: @p;
+            }
+        }
+    }
+
+    .schedule {
+        text-align: left;
+        margin-bottom: 2rem;
+        padding-top: 100px;
+        margin-top: -100px;
+
+        .venue-title {
+            font-size: @subtitle;
+            position: relative;
+            padding-left: 1rem;
+            margin-left: 1rem;
+
+            &::before {
+                content: '';
+                border-left: 4px solid @light-blue;
+                height: 100%;
+                position: absolute;
+                left: 0;
+            }
+        }
+
+        .schedule-table {
+            .selected-bg {
+                background-color: @M2;
+                color: @light-blue;
+            }
+        }
+
+        table {
+            color: @M6;
+            font-size: @p;
+            margin-top: 1rem;
+            width: 100%;
+
+            .head {
+                background-color: @M5;
+                font-weight: bold;
+            }
+
+            td {
+                padding: 10px;
+            }
+
+            td:nth-child(1) {
+                width: 25%;
+            }
+
+            td:nth-child(2) {
+                width: 40%;
+            }
+
+            td:nth-child(3) {
+                width: 25%;
+            }
+
+            td:nth-child(4) {
+                width: 10%;
+                text-align: right;
+            }
+
+            .collapsable {
+                cursor: pointer;
+
+                &:hover {
+                    td {
+                        color: @light-blue;
+                    }
+                }
+
+                .add-icon {
+                    font-weight: bold;
+                    color: black;
+                }
+            }
+
+            .detail-block {
+                display: none;
+                background-color: @M2;
+            }
+
+            @media only screen and (max-width: 414px) {
+                font-size: @p * 0.75;
+
+                td:nth-child(1) {
+                    width: 12rem;
+                }
+
+                td:nth-child(2) {
+                    width: 20rem;
+                }
+
+                td:nth-child(3) {
+                    width: 6rem;
+                }
+
+                .speaker {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .hide-schedule {
+        display: none !important;
+    }
+
+    .tutor-members {
+        background-color: @M2;
+        text-align: center;
+
+        section {
+            max-width: 1048px;
+            margin: 0 auto;
+        }
+
+        .tutor-list {
+            max-width: 1200px;
+            color: white;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 2rem 0 4rem;
+        }
+
+        .tutor {
+            position: relative;
+            width: 235px;
+            height: 300px;
+            margin: 15px 0;
+            text-align: center;
+            line-height: 1.7;
+
+            .tutor-avatar {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                    height: 100%;
+                    display: block;
+                    object-fit: cover;
+                }
+            }
+
+            .name {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+                font-weight: 600;
+                color: @M6;
+            }
+
+            .title {
+                font-size: @p;
+                padding: 0.5rem 1rem;
+                color: @M6;
+                font-weight: normal;
+                line-height: 1.7;
+            }
+
+            @media only screen and (max-width: 414px) {
+                width: 150px;
+                height: 200px;
+
+                .tutor-avatar {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .title {
+                    font-size: @p * 0.75;
+                }
+            }
+        }
+    }
+
+    .support-medias {
+        text-align: center;
+
+        .medias {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+
+            img {
+                width: 250px;
+                height: 100%;
+                padding: 1rem;
+            }
+        }
+    }
+
+    .sign-up {
+        text-align: center;
+        background-image: url('/images/community/devcon2020/signUp-bg.png');
+        background-position: center;
+        background-size: cover;
+        color: @M1;
+        margin-top: 4rem;
+        padding-top: 100px;
+
+        section {
+            max-width: 1048px;
+            margin: 0 auto;
+        }
+
+        .dc20-title,
+        .subtitle {
+            color: @M1;
+        }
+
+        h1 {
+            margin-top: -50px;
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.7;
+            font-size: @p;
+            padding: 0 2rem;
+        }
+
+        img {
+            margin: 2rem 0;
+            width: 150px;
+            height: auto;
+        }
+
+    }
+
+    .sign-up-en {
+        p {
+            margin-bottom: 1rem;
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    color: @light-blue;
+                }
+            }
+        }
+    }
+
+    .reviews {
+        margin-top: 4rem;
+
+        h1 {
+            text-align: center;
+        }
+    }
+}

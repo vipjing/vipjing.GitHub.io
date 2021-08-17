@@ -1,0 +1,107 @@
+{{- define "headTpl" -}}
+    <meta name="baidu-site-verification" content="hrZ03lmoDB" />
+    <meta name="google-site-verification" content="drHXf-Q97rcbwLZryBSFV8eW1pj1ddF4MHzZOfODhQU" />
+    {{ $.Scratch.Set "data_i18_link" "/zh" }}
+    {{ $.Scratch.Set "homepage" true }}
+    {{- partial "head/preload-css" (dict "href" "/css/index.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/carousel.css") -}}
+    {{ $.Scratch.Set "metaTitle" "SQL at Scale" }}
+{{- end -}}
+
+{{- define "main" -}}
+    <section class="homepage-slogan-mask">
+        <div class="container">
+            <div class="logo-slogan-wrap">
+                <img class="logo logo-en" src="https://download.pingcap.com/images/tidb-logo-slogan-en.png" alt="TiDB">
+            </div>
+            <h1 class="tagline tagline-en">
+              <p>Tackling MySQL Scalability with TiDB: </p>
+              <p>the most actively developed open source NewSQL database on GitHub</p>
+            </h1>
+            <div class="contributor-count"> 
+                <p>Contributor Count:</p>
+                 <div id="tidb-contributor-count" style="display: inline;">
+                 </div>
+            </div>
+            <div class="buttons-en">
+                <a href="/download" class="btn-en btn-primary-en f-fl btn-en">
+                   Free Download </a>
+                <a href="https://meetings.hubspot.com/jinkun" class="btn-en btn-secondary-en f-fl btn-en" target="_blank">
+                  Ask An Expert </a>
+            </div>
+        </div>
+    </section>
+    <section class="homepage-features homepage-features-en">
+        <div class="container">
+            <h2 class="featured-stories-title">Featured Customer Stories</h2>
+            <div class="featured-stories-lists">
+                {{- partial "layout/featured-stories.html" (dict "stories" .Site.Data.success_stories) -}}
+            </div>
+            <a href="/success-stories/"><div class="more-success-stories">See More Success Stories →</div></a>
+            <div class="row row-1">
+                <div class="item">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/icon-horizontal-scalability.svg" alt="horizontal scalability" />
+                    </div>
+                    <h3>HORIZONTAL SCALABILITY</h3>
+                    <p>TiDB scales horizontally by simply adding new nodes where sharding is automatically managed.</p>
+                </div>
+                <div class="item item-long">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/mysql-compatibility.svg" alt="mysql compatibility" />
+                    </div>
+                    <h3>MYSQL COMPATIBILITY</h3>
+                    <p>Use TiDB without changing a single line of MySQL application code in most cases and still benefit
+                      from the MySQL ecosystem.</p>
+                </div>
+                <div class="item">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/strong-consistency.svg" alt="strong consistency" />
+                    </div>
+                    <h3>STRONG CONSISTENCY</h3>
+                    <p>TiDB is a strongly consistent system that guarantees ACID compliance.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-long">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/cloud-native.svg" alt="Cloud native" />
+                    </div>
+                    <h3>CLOUD NATIVE</h3>
+                    <p>TiDB's modular architecture is designed to be cloud-native, making deployment, resource
+                      provisioning, and maintenance easy to manage and control.</p>
+                </div>
+                <div class="item item-long">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/minimize-etl.svg" alt="Minimize etl" />
+                    </div>
+                    <h3>MINIMIZE ETL</h3>
+                    <p>Getting real-time analytics is easy with TiDB's hybrid OLTP/OLAP architecture, while ETL
+                      management is minimal.</p>
+                </div>
+                <div class="item">
+                    <div class="feature-icon">
+                        <img src="https://download.pingcap.com/images/svgs/high-availability.svg" alt="High availability" />
+                    </div>
+                    <h3>HIGH AVAILABILITY</h3>
+                    <p>TiDB uses the Raft consensus algorithm to ensure that data is highly available and safely
+                      replicated throughout, with automatic failure recovery and self-healing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- {{ $heading := "World's Most Innovative Businesses Trust PingCAP" }} -->
+    <!-- {{ partial "layout/carousel.html" (dict "stories" .Site.Data.success_stories "heading" $heading "global" .) }} -->
+    {{ partial "layout/cta-footer.html" . }}
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $(".lazy").lazyload({
+    effect : "fadeIn",
+    threshold: 200
+});
+</script>
+{{- end -}}

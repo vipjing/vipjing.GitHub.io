@@ -1,0 +1,239 @@
+/* list page */
+
+// import global variables
+@import "./variables.less";
+
+// TODO: refactor
+
+.blog,
+.weekly,
+.meetup {
+  .list {
+    .article {
+      position: relative;
+
+      .title {
+        margin-bottom: 1rem;
+        font-family: "TitilliumWeb";
+        font-size: 24px;
+        font-weight: 400;
+
+        a {
+          color: #142848;
+        }
+
+        a:hover {
+          color: #666;
+        }
+      }
+
+      .blog-post-meta {
+        padding-left: 0;
+        margin-bottom: 20px;
+        font-size: 14px;
+        list-style: none;
+
+        img {
+          display: inline-block;
+          height: 16px;
+          margin-top: -2px;
+          margin-right: 6px;
+          vertical-align: middle;
+        }
+
+        .meta-item {
+          display: inline-block;
+          box-sizing: border-box;
+          padding-right: 20px;
+
+          .tag {
+            position: relative;
+            margin-right: 16px;
+            color: @themeBlue;
+          }
+
+          .tag:hover {
+            color: #127eff;
+          }
+
+          .tag:not(:last-child)::after {
+            content: " ";
+            position: absolute;
+            width: 1px;
+            height: 0.6rem;
+            top: 1px;
+            right: -8px;
+            background-color: #cdcdcd;
+          }
+        }
+      }
+
+      .brief {
+        font-family: "Lato";
+        font-weight: 400;
+        font-size: @regularFontSize;
+        line-height: 1.8;
+        color: #37434e;
+      }
+
+      .article_divider {
+        width: 100%;
+        border-top: 1px solid #cdcdcd;
+        margin: 25px 0 20px;
+      }
+
+      &::after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 3px solid @themeBlue;
+        transform: scale(0);
+        transform-origin: left center;
+        transition: transform 0.3s;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+
+      .link {
+        margin: 0 4px;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.cases,
+.news {
+  .list {
+    .list-item,
+    .loading-item {
+      display: flex;
+      align-items: center;
+      padding: 30px 0;
+      border-bottom: 1px solid #cdcdcd;
+
+      .list-item__left {
+        flex-basis: 20%;
+        padding: 0 15px;
+        text-align: center;
+
+        // .list-item__logo {
+        //   max-width: 135px;
+        // }
+
+        .list-item__name {
+          width: 180px;
+          margin: 0 auto;
+          font-size: 1.2rem;
+          color: @titleColor;
+          word-wrap: break-word;
+        }
+      }
+
+      .list-item__right {
+        flex-basis: 80%;
+        padding: 0 15px;
+
+        .list-item__name {
+          margin-bottom: 8px;
+          font-size: 1.2rem;
+        }
+
+        .list-item__industry {
+          font-size: 1rem;
+          color: @titleColor;
+          margin-bottom: 20px;
+        }
+
+        .list-item__desc {
+          margin-bottom: 20px;
+          color: @textColor;
+          font-size: @regularFontSize;
+          line-height: 28px;
+        }
+
+        .arrow-link {
+          color: @themeBlue;
+          text-transform: uppercase;
+          font-size: @regularFontSize;
+          font-weight: 500;
+          letter-spacing: 1.5px;
+
+          &:hover {
+            color: #202884;
+          }
+
+          .arrow {
+            margin-left: 4px;
+          }
+        }
+
+        .list-item__title {
+          display: block;
+          margin-top: 10px;
+          font-size: 1rem;
+          line-height: 1.7;
+          color: @themeBlue;
+
+          &:hover {
+            color: #202884;
+          }
+        }
+
+        .list-item__date {
+          font-size: @regularFontSize;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cases,
+  .news {
+    .list {
+      .list-item {
+        padding: 36px 15px;
+
+        .list-item__right {
+          .list-item__desc {
+            font-size: 18px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .blog .list .article .title,
+  .meetup .list .article .title,
+  .weekly .list .article .title {
+    font-size: 20px;
+  }
+
+  .cases,
+  .news {
+    .list {
+      .list-item {
+        display: block;
+
+        .list-item__left {
+          text-align: left;
+
+          // .list-item__logo,
+          .lazy,
+          .list-item__name {
+            margin: 0 0 20px;
+          }
+        }
+      }
+    }
+  }
+}

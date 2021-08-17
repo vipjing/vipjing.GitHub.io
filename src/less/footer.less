@@ -1,0 +1,309 @@
+/* footer module */
+
+// import global variables
+@import "./variables.less";
+
+//height
+@inputHeight: 32px;
+@logoHeight: 1.8rem;
+
+// width
+@subscribeBtnWidth: 70px;
+
+#wechat {
+  position: relative;
+}
+
+.subscribe {
+  width: 100%;
+  max-width: 12rem;
+  margin-top: 20px;
+
+  .form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .form-control {
+    width: calc(~"100% - "@subscribeBtnWidth);
+    height: @inputHeight;
+    background-color: fade(white, 12%);
+    border: 1px solid fade(white, 0%);
+    .rounded-corners(0);
+
+    padding: 0 10px;
+    color: @grayWhite;
+    font-size: 12px;
+
+    &:hover,
+    &:focus {
+      border-color: fade(@themeBlue, 50%);
+    }
+  }
+
+  .btn {
+    min-width: @subscribeBtnWidth;
+    height: @inputHeight;
+    line-height: @inputHeight;
+    padding: 0 5px;
+    .rounded-corners(0);
+
+    border: 1px solid fade(white, 0%);
+    background-color: @themeBlue;
+    font-size: 12px;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      border-color: white;
+      color: @themeBlue;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+.qr_code_outer {
+  position: absolute;
+  right: 12em;
+  top: -100px;
+
+  .qr_code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12em;
+    padding: 12px 15px;
+    border: 1px solid #d9dadc;
+    background-color: white;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 0.6rem;
+      color: #333;
+      font-weight: 300;
+    }
+
+    .qr_code_img {
+      width: 116px;
+      height: 116px;
+    }
+  }
+
+  #close_qrcode {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+.copyright {
+  padding: 0 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: fade(white, 70%);
+}
+
+.btn-lang {
+  font-size: 0.7rem;
+  color: white;
+  text-decoration: underline;
+  // display: inline-block;
+
+  &:hover {
+    color: @themeBlue;
+    transition: all 0.5s ease;
+  }
+}
+
+.copyright-btn-lang {
+  font-size: 0.7rem;
+  color: white;
+  text-decoration: underline;
+  display: inline-block;
+
+  &:hover {
+    color: @themeBlue;
+    transition: all 0.5s ease;
+  }
+}
+
+.prepared-num {
+  display: inline-flex;
+  color: #707070;
+  font-size: 0.7rem;
+  margin-left: 2rem;
+
+  img {
+    height: 18px;
+  }
+
+  p {
+    margin-left: 5px;
+  }
+}
+
+.copyright-btn-en {
+  margin-top: -3px;
+}
+
+/** add ellipsis in a line **/
+footer {
+  width: 100%;
+  padding: 1.5rem 0;
+  // border-top: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: @headerBgColor;
+  color: white;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .copyright-container {
+    align-items: center;
+  }
+
+  .flex-list {
+    h4 {
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 300;
+
+        &.tel-li {
+          margin-left: 30px;
+        }
+
+        a {
+          width: 12em;
+          color: inherit;
+          font-weight: inherit;
+
+          svg {
+            fill: #fff;
+            margin-right: 11px;
+          }
+
+          &.tel {
+            &:hover svg {
+              fill: @themeBlue;
+            }
+          }
+
+          &.twitter {
+            &:hover svg {
+              fill: #00baf0;
+            }
+          }
+
+          &.linkedin {
+            &:hover svg {
+              fill: #0079b2;
+            }
+          }
+
+          &.reddit {
+            &:hover svg {
+              fill: #d80000;
+            }
+          }
+
+          &.google-plus {
+            &:hover svg {
+              fill: #c43c2c;
+            }
+          }
+
+          &.stack-overflow {
+            &:hover svg {
+              fill: #f48024;
+            }
+          }
+
+          &.wechat {
+            &:hover svg {
+              fill: #1aad19;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .flex-list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 74%;
+
+    .flex-list {
+      flex: calc(100% / 4 - 1px);
+      padding: 0 0.75rem;
+    }
+  }
+
+  .contact-list-wrap {
+    width: 25%;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 40px;
+
+    ul {
+      li {
+        a {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+// @media (min-width: 880px) {
+//   footer {
+//     height: @pcFooterHeight;
+//   }
+// }
+
+@media (max-width: 879px) {
+  footer {
+    .container,
+    .flex-list-wrap,
+    .contact-list-wrap {
+      display: block;
+      width: 100%;
+      text-align: center;
+
+      .flex-list {
+        width: 100%;
+      }
+    }
+
+    .contact-list-wrap {
+      display: none;
+    }
+
+    .btn-lang {
+      display: none;
+    }
+  }
+}

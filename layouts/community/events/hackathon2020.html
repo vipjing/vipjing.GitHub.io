@@ -1,0 +1,243 @@
+{{- define "title" -}}
+    {{ $.Scratch.Set "metaTitle" "Hackathon 2020" }}
+    Hackathon 2020
+{{- end -}}
+
+{{- define "headTpl" -}}
+    {{$.Scratch.Set "nav_active" "community"}}
+    {{ $.Scratch.Set "data_i18_link" "/community-cn/hackathon2020" }}
+    {{- partial "head/preload-css" (dict "href" "/css/community/hackathon2020.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/tidb-planet/modal.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="hackathon2020 hackathon2020-en">
+    <section class="hackathon2020__banner">
+		<div class="container">
+			<div class="banner__inner"></div>
+			<div class="banner__buttons">
+				<a class="btn secondary uppercase btn-disabled">REGISTRATION CLOSED</a>
+				<a class="btn uppercase" href="https://slack.tidb.io/invite?team=tidb-community&channel=tidb-hackathon&ref=website" target="_blank" rel="noopener noreferrer">Slack Channel</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="hackathon2020__navbar navbar-sticky">
+		<div class="container">
+			<ul class="navbar">
+				<li class="navbar__item">
+					<a href="#about" class="uppercase">About</a>
+				</li>
+				<li class="navbar__item">
+					<a href="#winners">WINNERS</a>
+				</li>
+				<li class="navbar__item">
+					<a href="#timeline" class="uppercase">Timeline</a>
+				</li>
+				<li class="navbar__item">
+					<a href="#prize-pool" class="uppercase">Prize Pool</a>
+				</li>
+				<li class="navbar__item">
+					<a href="#participate" class="uppercase">Participate</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+    <section class="hackathon2020__section hackathon2020__section-about">
+		<h2 class="section__title uppercase" id="about">About</h2>
+		<div class="container">
+			<p class="hackathon2020__intro">
+				Welcome to TiDB Hackathon 2020, the most innovative technical challenge and one of the most popular events in the TiDB community! At TiDB Hackathon 2020, developers across the world will engage, collaborate, and innovate together to work on solutions to improve the productivity and efficiency of TiDB and its ecosystem projects, including TiKV and Chaos Mesh®️.
+			</p>
+			<p class="hackathon2020__intro">
+				The theme of Hackathon this year is [∞], by which we expect participants to innovate, to challenge, and to unlock the infinite power of TiDB.
+			</p>
+			<p>Join us to create unlimited possibilities for TiDB!</p>
+		</div>
+    </section>
+
+    <section class="hackathon2020__section hackathon2020__section-highlights">
+		<h2 class="section__title uppercase" id="highlights">Highlights</h2>
+		<div class="container list-flex">
+			{{- range $idx, $i := .Site.Data.hackathon_2020.highlights -}}
+				<div class="highlight-card">
+					<div class="card__inner">
+						<div class="highlight__title uppercase">{{ $i.title }}</div>
+						<div class="highlight__icon">
+							<img class="lazy thumbnail-img" data-original="{{ $i.icon }}" src="/images/svgs/loader-spinner.svg" alt="team-avatar" />
+						</div>
+						<div class="align-left">
+							{{ $i.desc | safeHTML }}
+						</div>
+					</div>
+				</div>
+			{{- end -}}
+		</div>
+	</section>
+
+	<section class="hackathon2020__section hackathon2020__section-winners">
+		<h2 class="section__title" id="winners">WINNERS</h2>
+		<div class="list">
+			{{- range $idx, $i := .Site.Data.hackathon_2020.winners_2020 -}}
+			<div class="winner-team">
+				<div class="thumbnail">
+					<img class="lazy thumbnail-img" data-original="{{ $i.thumbnail }}"
+						src="/images/svgs/loader-spinner.svg" alt="team-avatar" />
+					<p class="thumbnail-text j-thumbnailText-click">{{ $i.project_intro }}</p>
+				</div>
+				{{- partial "tidb-planet/modal" (dict "type" "schedule" "modal_img" $i.modal_img) -}}
+				<div class="team-info">
+					<p class="award en">{{ $i.award }}</p>
+					<p class="project-name en">{{ $i.project_name }}</p>
+				</div>
+				<div class="misc">
+					<div class="misc-btns">
+						<a href="{{ $i.rfc }}" target="_blank"><button class="GitHub-repo">RFC</button></a>
+						<a href="{{ $i.github }}" target="_blank"><button class="GitHub-repo">GitHub Repo</button></a>
+					</div>
+				</div>
+			</div>
+			{{- end -}}
+		</div>
+		<a href="https://github.com/pingcap/presentations/blob/master/hackathon-2020-projects.md">
+			<button class="more-project-btn">See All Projects</button>
+		</a>
+	</section>
+
+	<section class="hackathon2020__section">
+		<h2 class="section__title uppercase" id="timeline">Timeline</h2>
+		<div class="container">
+			<ul class="moments">
+				{{- range $idx, $i := .Site.Data.hackathon_2020.moments -}}
+				<li class="moment-item {{ if $i.active }}active{{ end }}">
+					<div class="moment__milestone"><span class="spot"></span></div>
+					<div class="moment__content">
+						<p>{{ $i.date }}</p>
+						<p>{{ $i.name }}</p>
+					</div>
+				</li>
+				{{- end -}}
+			</ul>
+		</div>
+	</section>
+
+	<section class="hackathon2020__section">
+        <h2 class="section__title uppercase" id="participate">Participate</h2>
+        <div class="list-flex container">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.schedule -}}
+            <div class="schedule-card" data-step="{{ $i.step }}">
+                <div class="schedule__title uppercase">
+					<p class="name">{{ $i.name }}</p>
+                    <p class="time">{{ $i.time }}</p>
+                </div>
+				<p class="schedule__detail {{ if $i.align_left }}align-left{{ end }}">
+					{{ $i.detail }}
+				</p>
+				{{- if $i.detail_note -}}
+					<p class="schedule__detail align-left">{{ $i.detail_note }}</p>
+				{{- end -}}
+				{{- if $i.btn_link -}}
+					<a class="btn uppercase" href="{{ $i.btn_link }}" target="_blank" rel="noopener noreferrer">{{ $i.btn_text }}</a>
+				{{- else if $i.disabled -}}
+					<a class="btn btn-disabled">{{ $i.btn_text }}</a>
+				{{- else -}}
+					<button class="btn uppercase j-open-{{$i.modal_name}}-modal">{{ $i.btn_text }}</button>
+					{{- partial "community-cn/modal" (dict "lang" "en" "type" $i.modal_name "title" $i.btn_text "modal_content" $i.modal_content) -}}
+				{{- end -}}
+            </div>
+            {{- end -}}
+        </div>
+	</section>
+
+	<section class="hackathon2020__section">
+        <h2 class="section__title uppercase" id="prize-pool">Prize Pool</h2>
+        <div class="list-flex container prize-container">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.awards -}}
+                <div class="award-card en" data-name="{{ $i.award }}" data-team="{{ $i.team_numbers }}"></div>
+            {{- end -}}
+        </div>
+    </section>
+
+    <section class="hackathon2020__section">
+        <h2 class="section__title uppercase" id="judges">Judges</h2>
+        <div class="list-flex container">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.judges -}}
+                <div class="tutor-item">
+                    <div class="tutor__avatar">
+                        <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.avatar }}" alt="Tutor avatar" />
+                    </div>
+                    <div class="tutor__name">{{ $i.name }}</div>
+                    <div class="tutor__title">{{ $i.title }}</div>
+                </div>
+            {{- end -}}
+        </div>
+    </section>
+
+    <section class="hackathon2020__section hackathon2020__section-faq">
+        <h2 class="section__title section__title-white uppercase" id="faq">FAQ</h2>
+        <div class="faq-list container">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.faq -}}
+                <div class="faq-item align-left">
+                    <div class="question faq__question">
+                        {{ $i.q }}
+                    </div>
+                    <div class="answer faq__answer">
+                    {{- range $idx2, $j := $i.a -}}
+                        <p>{{ $j.d }}</p>
+                    {{- end -}}
+                    </div>
+                </div>
+            {{- end -}}
+        </div>
+	</section>
+
+	<section class="hackathon2020__section">
+        <h2 class="section__title uppercase" id="partners">Partners</h2>
+        <h3 class="sponsor-type uppercase">Gold sponsor</h3>
+        <div class="list-flex container partners-list">
+			{{- range $idx, $i := .Site.Data.hackathon_2020.sponsors -}}
+				<a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+					<img class="lazy" data-original="{{ $i.img }}" src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+				</a>
+            {{- end -}}
+        </div>
+        <h3 class="sponsor-type uppercase">Cloud computing equipment support</h3>
+        <div class="list-flex container partners-list">
+			{{- range $idx, $i := .Site.Data.hackathon_2020.partners.resources -}}
+				<a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+					<img class="lazy" data-original="{{ $i.img }}" src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+				</a>
+            {{- end -}}
+		</div>
+		<h3 class="sponsor-type">Investor Support</h3>
+        <div class="list-flex container partners-list">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.partners.investor -}}
+			<a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+				<img class="lazy" data-original="{{ $i.img }}" src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+			</a>
+            {{- end -}}
+        </div>
+        <h3 class="sponsor-type uppercase">community support</h3>
+        <div class="list-flex container partners-list">
+            {{- range $idx, $i := .Site.Data.hackathon_2020.partners.community -}}
+			<a href="{{ $i.link }}" target="_blank" rel="noopener noreferrer">
+				<img class="lazy" data-original="{{ $i.img }}" src="/images/svgs/loader-spinner.svg" alt="sponsor logo">
+			</a>
+            {{- end -}}
+        </div>
+	</section>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+      effect: 'fadeIn',
+      threshold: 200
+    })
+</script>
+<script type="text/javascript" src="/js/hackathon2020.js"></script>
+<script type="text/javascript" src="/js/community.js"></script>
+{{- end -}}

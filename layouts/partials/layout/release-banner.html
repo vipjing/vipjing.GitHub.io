@@ -1,0 +1,29 @@
+{{ $release := .Site.Data.release}}
+{{ $data_i18_cn := $.Scratch.Get "data_i18_cn" }}
+
+{{- if and $release.isShow (not $data_i18_cn) -}}
+    <div class="release-banner" data-release="{{ $release.version }}">
+        <div class="container">
+            <div class="release-banner__inner">
+                <div class="release-banner__copy">
+                    {{ if not $data_i18_cn }}
+                    <div class="party">
+                          <span>🎉</span>
+                    </div>
+                    {{ end }}
+                    <div>
+                        <!-- {{ if $data_i18_cn }}
+                            <a href="{{ $release.link.cn }}" target="_blank" class="hover-underline"
+                              onclick="trackViews('tidb4.0-release-banner', 'tidb4.0_signup_form_view')"></a>
+                        {{ else }}
+                            {{ $release.announcement.en }}
+                            <a href="{{ $release.link.en }}">Check it out</a> -->
+                            {{ $release.announcement.en_part1 }} <a href="{{ $release.link.en }}" class="partial-underline">HERE</a> {{ $release.announcement.en_part2 }}
+                        <!-- {{ end }} -->
+                    </div>
+                </div>
+                <div class="release-banner__close"></div>
+            </div>
+        </div>
+    </div>
+{{- end -}}

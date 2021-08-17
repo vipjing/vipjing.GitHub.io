@@ -1,0 +1,38 @@
+{{ $nav_active := $.Scratch.Get "nav_active" }}
+{{ $tidb_stable_version_tag := "stable" }}
+<header role="navigation" class="fixed-top">
+    <div class="container">
+        <a class="nav-brand" href="/en"><img src="/images/pingcap-logo.png" alt="PingCAP"></a>
+        <div class="nav-wrapper">
+            <div class="navigation">
+                <ul>
+                <li {{ if eq $nav_active "cloud"}}class="sel"{{end}}><a class="a-en" href="https://en.pingcap.com">Cloud</a></li>
+                <li {{ if eq $nav_active "academy"}} class="sel" {{end}}><a class="a-en" class="tidb-academy"
+                    href="/tidb-academy">TiDB Academy</a></li>
+                <li class="docs-type-selector {{ if eq $nav_active "docs"}}sel{{end}}" id="docsTypeSelector">
+                    <a class="header-doc-nav" href="#">Docs</a>
+                    <div class="header-dropdown-menu" id="docsTypeSelectorItem">
+                        <a class="header-dropdown-item" href="https://docs.pingcap.com/tidb/stable/">TiDB</a>
+                        <a class="header-dropdown-item" href="https://docs.pingcap.com/tidb-in-kubernetes/stable/">TiDB in Kubernetes</a>
+                        <a class="header-dropdown-item" href="https://docs.pingcap.com/tidb-data-migration/stable/">TiDB Data Migration (DM)</a>
+                    </div>
+                </li>
+
+                <li {{ if eq $nav_active "cases"}}class="sel" {{end}}><a class="a-en" href="https://pingcap.com/case-studies/">Success
+                    Stories</a></li>
+                <li {{ if eq $nav_active "blog"}}class="sel" {{end}}><a class="a-en" href="https://pingcap.com/blog/">Blog</a></li>
+                <li {{ if eq $nav_active "free-download"}}class="sel" {{end}}><a class="link-download link-download-en" href="https://pingcap.com/download/">Free Download</a></li>
+                </ul>
+            </div>
+            <div class="global-search">
+                {{ $search_doc_version := index (findRE "(v\\d+\\.\\d+|dev|stable)" .RelPermalink) 0 }}
+                {{ $docs_type := index (findRE "(/tidb-in-kubernetes/|/tidb-data-migration/)" .RelPermalink) 0 }}
+                {{ $search_doc_version := default "stable" $search_doc_version }}
+                {{ partial "layout/search.html" (dict "global" . "search_doc_version" $search_doc_version "lang" "en" "docs_type" $docs_type) }}
+            </div>
+        </div>
+        <div class="nav-btn nav-slider">
+            <i class="material-icons">{{ partial "svgs/icon-menu.svg" (dict "width" 16 "height" 16 ) }}</i>
+        </div>
+    </div>
+</header>

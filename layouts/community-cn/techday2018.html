@@ -1,0 +1,68 @@
+{{- define "title" -}}
+    {{ $.Scratch.Set "metaTitle" "TechDay 2018" }}
+    TechDay 2018
+{{- end -}}
+
+{{- define "headTpl" -}}
+    {{ $.Scratch.Set "data_i18_cn" true }}
+    {{ $.Scratch.Set "nav_active" "community" }}
+    {{- partial "head/preload-css" (dict "href" "/css/community/techday.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/community/agenda.css") -}}
+    {{ $.Scratch.Set "data_i18_link" "/community/organization" }}
+    <!-- {{- partial "head/preload-css" (dict "href" "/css/tidb-planet/modal.css") -}} -->
+    {{- partial "head/preload-css" (dict "href" "/css/vendor/swiper.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="techday2018">
+    <section class="banner__section techday2018-banner"></section>
+    <section>
+        <div class="section-container">
+            <h1 class="section-title">实录分享</h1>
+            {{- partial "layout/recording-share.html" (dict "recordings" .Site.Data.techday.recording_share_2018) -}}
+        </div>
+    </section>
+    <section class="instructors__section section-dark-bg">
+      <div class="instructors section-container">
+        <h1 class="section-title">大咖讲师</h1>
+        {{- partial "community-cn/instructors.html" (dict "instructors" .Site.Data.techday.instructors_2018 "type" "techday") -}}
+      </div>
+    </section>
+
+    <section class="agenda__section">
+        <h1 class="section-title">会议日程</h1>
+        {{- partial "community-cn/schedule-table.html" (dict "schedule" .Site.Data.techday.schedule_2018 "global" .) -}}
+    </section>
+
+    <section class="section-dark-bg">
+      <div class="section-container">
+        <div class="container">
+            <h2 class="section-title">精彩瞬间</h2>
+            {{- partial "layout/multi_slides_carousel.html" (dict "moments_images" .Site.Data.techday.moments_2018) -}}
+        </div>
+      </div>
+    </section>
+
+    <section class="hackathon-review">
+        <div class="section-container">
+            <h2 class="section-title">往期回顾</h2>
+            {{- partial "community-cn/review-card.html" (dict "reviews" .Site.Data.techday.reviews_2017) -}}
+        </div>
+    </section>
+
+    <section class="back-to-community-section">
+        <a href="/community-cn/#activities">
+            <button class="back-to-community">
+              更多社区活动
+            </button>
+        </a>
+    </section>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/multi_slides_carousel.js"></script>
+    <script type="text/javascript" src="/js/video_on_modal.js"></script>
+    <script type="text/javascript" src="/js/devcon.js"></script>
+{{- end -}}

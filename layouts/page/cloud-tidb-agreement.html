@@ -1,0 +1,13 @@
+{{- define "headTpl" -}}
+    {{$.Scratch.Set "data_i18_cn" true }}
+    <meta name="robots" content="noindex,nofollow,nosnippet">
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="blog">
+    <div class="container">
+        <div class="archive" style="margin: 0 auto;"><div class="content markdown-body">{{- .Content -}}</div></div>
+    </div>
+</div>
+{{- end -}}

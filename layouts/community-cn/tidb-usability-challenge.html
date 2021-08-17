@@ -1,0 +1,268 @@
+{{ define "title" }}
+  TiDB Usability Challenge
+{{ end }}
+
+{{ define "headTpl" }}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "data_i18_link" "/community/tidb-usability-challenge" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@5.3.1/css/swiper.min.css">
+{{ partial "head/preload-css" (dict "href" "/css/community/tidb-usability-challenge.css") }}
+{{ end }}
+
+{{ define "main" }}
+<section class="hero is-medium tuc-hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        TiDB 易用性挑战赛
+      </h1>
+      <h2 class="subtitle is-4">
+        2020.03.02 - 2020.05.30
+      </h2>
+      <div class="banner-buttons">
+        <a class="button button-receive" style="cursor: not-allowed;">活动已结束</a>
+        <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/challenge-programs/challenge-program-season-2-cn.md">挑战赛细则</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-timeline">
+  <div class="timeline-wrapper">
+    <div class="timeline">
+      <span class="bullet"></span>
+      <span class="bullet"></span>
+      <span class="bullet active"></span>
+    </div>
+    <div class="explains">
+      <div class="text text1">
+        <div>2019.12.17 - 2020.01.12</div>
+        <div class="desc">
+          <a target="_blank" href="https://asktug.com/t/topic/2156">收集需求</a>
+        </div>
+      </div>
+      <div class="text text2">
+        <div>2020.02.11 - 2020.02.20</div>
+        <div class="desc">
+          <a target="_blank" href="https://asktug.com/t/topic/2684">票选需求，查看排行榜</a>
+        </div>
+      </div>
+      <div class="text text3 active">
+        <div>2020.03.02 - 2020.05.30</div>
+        <div class="desc">
+          <a href="#get-started">需求实现，等你来挑战</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section has-text-centered tuc-readme">
+  <h2 class="desc" id="get-started">TiDB 挑战赛第二季火热开启！</h2>
+  <p class="desc">本次大赛在延续了第一季挑战赛规则的同时也加入了更新颖的玩法，</p>
+  <p class="desc">目前绝大多数任务都由用户在 “我的 TiDB 听我的” 活动中票选产生，也还会持续加入更多产品易用性改进相关任务。</p>
+  <h3 class="subtitle primary decision">挑战什么任务，你们说了算。</h3>
+</section>
+
+<section class="section has-text-centered tuc-highlights">
+  <div class="container">
+    <h2 class="subtitle is-6 primary tab">大赛亮点</h2>
+    <div class="main">
+      <div class="placeholder">
+        <img src="https://download.pingcap.com/images/tidb-usability-challenge/placeholder-highlights.svg" alt="placeholder" />
+      </div>
+      <div class="content">
+        <ul class="highlights">
+          <li>
+            <h3 class="title primary">我的 TiDB 我做主</h3>
+            <p>大多数任务都由用户在 “我的 TiDB 听我的” 活动中投票产生，每一个需求都是社区用户的心声，任务积分设置参考了活动投票排名，投票越多的需求权重越大！</p>
+          </li>
+          <li>
+            <h3 class="title primary">分级赛制更友好</h3>
+            <p>如果你是第一次参与挑战赛的新人，easy 的任务可以直接上手，对应 repo 历史积分在 200 分以上的老玩家则可直接挑战 medium 及以上难度的任务！</p>
+          </li>
+          <li>
+            <h3 class="title primary">周边升级</h3>
+            <p>除了第二季新增的周边之外，对所有完成一题及以上的参赛者，我们都会赠送完赛纪念徽章，感谢你们的参与！</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/challenge-programs/challenge-program-season-2-cn.md">挑战赛细则</a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-demands">
+  <h2 class="subtitle is-6 primary tab">需求排行榜</h2>
+  <div class="container columns is-multiline">
+
+  </div>
+  <button class="button button-details">
+    <a target="_blank" href="https://github.com/pingcap/community/tree/master/challenge-programs">查看所有任务</a>
+  </button>
+</section>
+
+<section class="section has-text-centered tuc-prizes">
+  <h2 class="subtitle is-6 primary tab">奖项设置</h2>
+  <div class="container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score no-suffix is-text">完成一题即可获得</div>
+              <div class="text">完赛纪念徽章</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/badge.svg" alt="badge" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">4000 - 30000</div>
+              <div class="text">我们包机酒，带你去体验最地道的硅谷范儿！（根据参赛者所在地调整）</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/Meetup.svg" alt="Meetup" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">4000 - 30000</div>
+              <div class="text">PingCAP 年度大会荣誉席（根据参赛者所在地调整）</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/DevCon-Techday.svg" alt="DevCon/Techday" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">1800</div>
+              <div class="text">THE NORTH FACE 双肩包</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/bag.svg" alt="bag" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">1500</div>
+              <div class="text">JetBrains Toolbox 任选一个（1 年 license）</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/jetbrians.svg" alt="jetbrains" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">500</div>
+              <div class="text">办公五件套</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/suits.svg" alt="suits" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">300</div>
+              <div class="text">TiDB 帽衫/魔术贴帽衫</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/TiDB-jacket.svg" alt="TiDB jacket" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">150</div>
+              <div class="text">纪念书签套装/ TiDB 内胆包</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/handbag.svg" alt="handbag" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">100</div>
+              <div class="text">TiDB 黑/白 T恤</div>
+              <img src="https://download.pingcap.com/images/tidb-usability-challenge/TiDB-tshirt.svg" alt="TiDB tshirt" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="text">更多神秘大奖解锁中...</div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="swiper-button-next"></div>
+</div>
+</section>
+
+<section class="section has-text-centered tuc-studies">
+  <h2 class="subtitle is-6 primary tab">学习资料</h2>
+  <div class="container columns">
+    <div class="column">
+      <a class="card" target="_blank" href="https://github.com/pingcap/presentations/blob/master/hackathon-2019/reference-document-of-hackathon-2019.md">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-1.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">专项学习文档</h3>
+          <div class="text">
+            这里汇总了 TiDB 核心团队出品的数十篇精选技术详解文章，
+            轻松掌握 TiDB 各核心组件的原理及功能。
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="card" target="_blank" href="https://github.com/pingcap/awesome-database-learning">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-2.svg" />
+          <img class="pu" src="https://download.pingcap.com/images/tidb-usability-challenge/pu.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">数据库小课堂</h3>
+          <div class="text">
+            我们收集了一些关于数据库学习的资料放送给大家，
+            在这里你可以跟着大牛阅读 paper 和博客、听讲座，充实自己的数据库知识。
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-leaderboard">
+  <h2 class="subtitle is-6 primary tab">积分排行榜</h2>
+  <div class="container">
+    <div id="ranking-switch">
+      <div class="first">赛季积分</div>
+      <div class="second">历史积分</div>
+      <div class="slider" data-lang="cn"></div>
+    </div>
+    <div id="ranking-list"></div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-support">
+  <h2 class="subtitle is-6 primary tab">社区合作</h2>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-2">
+        <img src="https://download.pingcap.com/images/tidb-usability-challenge/go-china.svg" alt="go-china" />
+        <div class="text">Go 中国</div>
+      </div>
+      <div class="column is-2">
+        <img src="https://download.pingcap.com/images/tidb-usability-challenge/oschina.svg" alt="oschina" />
+        <div class="text">开源中国</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-review">
+  <h2 class="subtitle is-6 primary tab">往期回顾</h2>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <a class="card" target="_blank" href="/community-cn/tidb-performance-challenge">
+          <img src="https://download.pingcap.com/images/community/activities/performance-challenge-banner-pc.jpg" alt="TiDB Performance Challenge" /> 
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "footJS" }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@5.3.1/js/swiper.min.js"></script>
+<script src="/js/tidb_usability_challenge.js"></script>
+{{ end }}

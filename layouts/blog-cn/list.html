@@ -1,0 +1,28 @@
+{{- define "title" -}}
+    博客
+{{- end -}}
+
+{{- define "headTpl" -}}
+    {{$.Scratch.Set "nav_active" "blog"}}
+    {{$.Scratch.Set "data_i18_cn" true }}
+    {{$.Scratch.Set "data_i18_link" "/blog" }}
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/list.css") -}}
+    {{ $.Scratch.Set "summary" "为了帮助大家更好的理解 TiDB 的技术细节并参与到项目贡献中来，我们准备了包含「 TiDB 源码阅读」、「TiKV 源码解析」、「十分钟成为 contributor」等一系列技术详解文章，enjoy~" }}
+{{- end -}}
+
+{{- define "main" -}}
+    <div class="blog">
+        <div class="container">
+        {{- $posts := where (where (where (where (where .Site.Pages "Section" "blog-cn") ".Params.title" "!=" nil) ".Params.category" "!=" "case") ".Params.category" "!=" "community reading") ".Params.category" "!=" "devcon" -}}
+        {{- partial "navs/tags-nav.html" (dict "type" "list" "title" "热门标签" "posts" $posts "rss" "/blog-cn/index.xml" "global" . "prefixHref" "/blog-cn/") -}}
+        {{- partial "archives/list.html" (dict "posts" $posts.ByDate.Reverse "hasMetaData" "true" "hasBrief" "true"  "listType" "blog-cn" "global" .) -}}
+        </div>
+    </div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript" src="/js/doc.js"></script>
+    <script type="text/javascript" src="/js/anchor.js"></script>
+{{- end -}}

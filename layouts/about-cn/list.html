@@ -1,0 +1,278 @@
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "about"}}
+{{$.Scratch.Set "data_i18_cn" true }}
+{{$.Scratch.Set "data_i18_link" "/about" }}
+{{- partial "head/preload-css" (dict "href" "/css/about.css") -}}
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="https://download.pingcap.com/js/particles.js"></script>
+<script type="text/javascript" src="/js/about.js"></script>
+
+<!-- Begin bai_du map -->
+<!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=5943f0161bc8beb9f40b4f652faf648f&callback=init"></script>
+    <script type="text/javascript">
+        function init() {
+            var map = new AMap.Map('map', {
+                zoomEnable: false,
+                zoom: 15,
+                center: [116.357273, 40.042345],
+                mapStyle: 'amap://styles/light' //样式URL
+            })
+            //添加点标记，并使用自己的icon
+            new AMap.Marker({
+                map: map,
+                position: [116.357273, 40.042345],
+                icon: new AMap.Icon({
+                    size: new AMap.Size(32, 32), //图标大小
+                    image: '/images/svgs/location.svg'
+                })
+            })
+        }
+    </script> -->
+<!-- End bai_du map -->
+{{- end -}}
+
+{{- define "main" -}}
+<section class="banner-bg">
+    <div class="banner-img">
+        <img src="https://download.pingcap.com/images/about-banner.png" alt="About banner" />
+    </div>
+</section>
+
+<section class="navbar-sticky">
+    <div class="container">
+        <a href="#contact-us"></a>
+    </div>
+</section>
+
+<section class="about-company">
+    <div class="container">
+        <div class="desc">
+            <p>PingCAP 成立于 2015
+                年，是一家企业级开源分布式数据库厂商，提供包括开源分布式数据库产品、解决方案与咨询、技术支持与培训认证服务，致力于为全球行业用户提供稳定高效、安全可靠、开放兼容的新型数据基础设施，解放企业生产力，加速企业数字化转型升级。
+            </p>
+
+            <p>由 PingCAP 创立的分布式关系型数据库
+                TiDB，为企业关键业务打造，具备「分布式强一致性事务、在线弹性水平扩展、故障自恢复的高可用、跨数据中心多活」等企业级核心特性，帮助企业最大化发挥数据价值，充分释放企业增长空间。</p>
+
+            <p>目前，PingCAP 已经向包括中国、美国、欧洲、日本、东南亚等国家和地区，超过 1500 家企业提供服务，涉及金融、运营商、制造、零售、互联网、政府等多个行业。</p>
+        </div>
+        <a class="link" href="https://careers.pingcap.com" target="_blank"
+            onclick="trackViews('about-cn-join-us-top', 'recruit_view')">
+            <button class="round-corner-btn">
+                <span
+                    class="arrow">{{ partial "svgs/icon-right-arrow.svg" (dict "fill" "white" "width" 16 "height" 16 ) }}</span>
+                <span class="text">加入我们</span></button>
+        </a>
+    </div>
+</section>
+<section class="about-timeline">
+    <div class="container">
+        <h2 class="title">发展历程</h2>
+        <img class="pc-timeline" src="/images/about-timeline.svg" alt="timeline" />
+        <img class="mobile-timeline" src="/images/about-mobile-timeline.svg" alt="timeline" />
+    </div>
+</section>
+<section class="intro-video">
+    <div id="particles-js"></div>
+    <div class="video-wrapper f-vhc">
+        <video id="video" preload="auto" controls poster="https://download.pingcap.com/images/video-poster.jpg">
+            <source src="https://download.pingcap.com/videos/pingcap-intro-v4.mp4"
+                type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' /> Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+<section class="about-culture">
+    <div class="container">
+        <h2 class="title">企业文化</h2>
+        <div class="desc">
+            PingCAP 是一个年轻开放、崇尚自由的团队，集合了一群充满好奇心、有追求、技艺高超、梦想用科技改变世界的小伙伴。他们每个人都是这个行业的佼佼者，也是 PingCAP
+            团队最核心的价值。为了更好的追求梦想，我们为每一位小伙伴提供了最自由且舒适的工作环境。
+        </div>
+
+        <div class="details">
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-pc.svg" alt="Office Equipment">
+                </div>
+                <h3>办公设备</h3>
+                <p class="desc">优雅的代码背后，是优秀的开发者+顶配的办公设备</p>
+            </div>
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-gym.svg" alt="Gym">
+                </div>
+                <h3>健身房</h3>
+                <p class="desc">写不出代码的下午四点，跑步可以让我的大脑更清醒</p>
+            </div>
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-tb.svg" alt="Team Building">
+                </div>
+                <h3>Team Building</h3>
+                <p class="desc">我不知道别人家的 Team Building 什么样，反正我们是去高尔夫了......</p>
+            </div>
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-food.svg" alt="Food & Beverage">
+                </div>
+                <h3>零食+餐</h3>
+                <p class="desc">吃吃喝喝这种小事请直接准备好，不要问我，我只爱 coding</p>
+            </div>
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-tgif.svg" alt="TGIF">
+                </div>
+                <h3>TGIF</h3>
+                <p class="desc">Thank God It's Friday！让我们来一场无话不谈的聚会</p>
+            </div>
+            <div class="item">
+                <div class="image-wrap">
+                    <img class="icon" src="/images/svgs/icon-hour.svg" alt="Flexible Work Schedule">
+                </div>
+                <h3>弹性工作</h3>
+                <p class="desc">适配我最离谱的生物钟，给我最高创造力的自由</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-contact" id="contact-us">
+    <div class="container">
+        <a href="#contact-us"></a>
+        <h2 class="title">联系我们</h2>
+        <div class="info-2">
+            <div class="item">
+                <span class="office-name">商务咨询：</span>
+                <span>4006790886，</span>
+                <span>010-58400041</span>
+                <span>info@pingcap.com</span>
+            </div>
+            <div class="item">
+                <span class="office-name">前台总机：</span>
+                <span>010-53326356</span>
+            </div>
+            <div class="item">
+                <span class="office-name">媒体合作：</span>
+                <span>pr@pingcap.com</span>
+            </div>
+            <div class="item">
+                <a href="https://page.ma.scrmtech.com/form/index?pf_uid=19697_1864&id=4240&channel=9034" style="color: #788eff;" target="_blank">
+                    <p class="office-name">或让我们与您联系</p>
+                </a>
+            </div>
+        </div>
+        <div class="info">
+            <div class="col-1">
+                <div class="office-info">
+                    <span class="office-name">北京 Office：</span>
+                    <span class="office-addr">北京市海淀区西小口路 66 号东升科技园 C-1 楼 2 层</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">上海 Office：</span>
+                    <span class="office-addr">上海市黄浦区大沽路 288 号大沽庭映像 5 号楼 2 楼 B/C</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">杭州 Office：</span>
+                    <span class="office-addr">杭州市文一西路 588 号 “中节能·西溪首座” 5 号楼 A2-1 7 层 722 室</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">成都 Office：</span>
+                    <span class="office-addr">成都市天府大道中段 666 号希顿国际 B 座 2806</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">深圳 Office：</span>
+                    <span class="office-addr">深圳市宝安区新安街道壹方中心 B 塔 2908、2909、2910</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">广州 Office：</span>
+                    <span class="office-addr">广州市海珠区暄悦东街 23 号保利中悦广场 3702</span>
+                </div>
+                <div class="office-info">
+                    <span class="office-name">硅谷 Office：</span>
+                    <span class="office-addr">2955 Campus Drive # 100, San Mateo, CA 94403</span>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="item">
+                    <p class="office-name">商务咨询</p>
+                    <p>4006790886</p>
+                    <p>010-58400041</p>
+                    <p>info@pingcap.com</p>
+                </div>
+                <div class="item">
+                    <p class="office-name">前台总机</p>
+                    <p>010-53326356</p>
+                </div>
+                <div class="item">
+                    <p class="office-name">媒体合作</p>
+                    <p>pr@pingcap.com</p>
+                </div>
+                <div class="item">
+                    <a href="https://page.ma.scrmtech.com/form/index?pf_uid=19697_1864&id=4240&channel=9034" style="color: #788eff;" target="_blank">
+                        <p class="office-name">或让我们与您联系</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pc-map">
+            <img src="https://download.pingcap.com/images/about-map.png" alt="Office map" />
+            <div class="m-office m-beijing">
+                <div class='line'></div>
+                <button>北京 Office</button>
+            </div>
+            <div class="m-office m-shanghai">
+                <div class='line'></div>
+                <button>上海 Office</button>
+            </div>
+            <div class="m-office m-hangzhou">
+                <div class='line'></div>
+                <button>杭州 Office</button>
+            </div>
+            <div class="m-office m-chengdu">
+                <div class='line'></div>
+                <button>成都 Office</button>
+            </div>
+            <div class="m-office m-shenzhen">
+                <div class='line'></div>
+                <button>深圳 Office</button>
+            </div>
+            <div class="m-office m-guangzhou">
+                <div class='line'></div>
+                <button>广州 Office</button>
+            </div>
+            <div class="m-office m-silicon">
+                <div class='line'></div>
+                <button>硅谷 Office</button>
+            </div>
+        </div>
+        <div class="mobile-map">
+            <img src="https://download.pingcap.com/images/about-mobile-map.png" alt="Office map" />
+        </div>
+    </div>
+</section>
+
+<section class="about-position">
+    <div class="container">
+        <h2 class="title">更多职位正虚位以待！</h2>
+        <div class="floating-ele">
+            <a class="link" href="https://careers.pingcap.com" target="_blank"
+                onclick="trackViews('about-cn-join-us-bottom', 'recruit_view')">
+                <button class="round-corner-btn">
+                    <span class="arrow">{{ partial "svgs/icon-right-arrow.svg" (dict "fill" "white" "width" 16 "height" 16 ) }}</span>
+                    <span class="text">加入我们</span>
+                </button>
+            </a>
+            <img class="ele1" src="/images/svgs/ele1.svg" alt="Background decoration" />
+            <img class="ele2" src="/images/svgs/ele2.svg" alt="Background decoration" />
+            <img class="ele3" src="/images/svgs/ele3.svg" alt="Background decoration" />
+            <img class="ele4" src="/images/svgs/ele4.svg" alt="Background decoration" />
+            <img class="ele5" src="/images/svgs/ele5.svg" alt="Background decoration" />
+            <img class="ele6" src="/images/svgs/ele2.svg" alt="Background decoration" />
+            <img class="ele7" src="/images/svgs/ele2.svg" alt="Background decoration" />
+            <img class="ele8" src="/images/svgs/ele3.svg" alt="Background decoration" />
+        </div>
+    </div>
+</section>
+{{- end -}}

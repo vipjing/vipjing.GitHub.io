@@ -1,0 +1,42 @@
+{
+  "name": "pingcap-website",
+  "version": "1.0.0",
+  "description": "PingCAP is focused on developing distributed NewSQL and is the team that building TiDB, an open-source distributed NewSQL database.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pingcap/pingcap.github.io"
+  },
+  "scripts": {
+    "build": "git submodule sync; git submodule update --init --remote --recursive; npm run gen-content; export NODE_ENV=production; ./scripts/build-check-err.sh",
+    "clean": "rimraf dist",
+    "gen-content": "bash ./scripts/gen-sub-gitinfo.sh; bash ./scripts/gen-content.sh",
+    "lint": "eslint src",
+    "prestart": "npm run clean && export NODE_ENV=development; gulp build",
+    "start": "gulp server"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.12",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-less": "^3.5.0",
+    "html-webpack-plugin": "^4.0.0-beta.14",
+    "hugo-bin": "0.49.0",
+    "less-plugin-autoprefix": "^2.0.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^2.7.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.42.0"
+  }
+}

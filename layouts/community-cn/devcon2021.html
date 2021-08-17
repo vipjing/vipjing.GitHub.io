@@ -1,0 +1,383 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "DevCon 2021" }}
+DevCon 2021
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_link" "/community/" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/devcon2021.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/tidb-planet/modal.css") -}}
+<style type="text/css">
+    .amap-logo,
+    .amap-copyright {
+        display: none !important;
+    }
+
+    .amap-icon img {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+</style>
+{{- end -}}
+
+{{- define "main" -}}
+<div class="devcon2021">
+    <section class="devcon2021-hero">
+        <div class="container">
+            <div class="bg-el-1"></div>
+            <div class="bg-el-2"></div>
+            <div class="bg-el-3"></div>
+            <div class="bg-el-4"></div>
+            <div class="hero-pc">
+                <div class="column">
+                    <img class="logo" src="/images/community/devcon2021/pingcap-tidb-logo.png" />
+                    <img class="slogan" src="/images/community/devcon2021/slogan.svg" />
+                    <a href="http://www.huodongxing.com/event/3601574266800?qd=website" target="_blank">
+                        <div class="button signup-btn">立即报名</div>
+                    </a>
+                    <p>2021.7.23 - 24 | 北京望京凯悦酒店</p>
+                </div>
+                <div class="column">
+                    <img src="/images/community/devcon2021/hero-bg.svg" />
+                </div>
+            </div>
+            <div class="hero-mobile">
+                <img src="/images/community/devcon2021/hero-bg.svg" />
+                <img class="slogan" src="/images/community/devcon2021/slogan.svg" />
+                <a href="http://www.huodongxing.com/event/3601574266800?qd=website" target="_blank">
+                    <div class="button signup-btn">立即报名</div>
+                </a>
+                <p>2021.7.23 - 24 | 北京望京凯悦酒店</p>
+                <img class="logo" src="/images/community/devcon2021/pingcap-tidb-logo.png" />
+            </div>
+        </div>
+    </section>
+
+    <section class="devcon2021-navbar navbar-sticky">
+        <div class="container">
+            <ul class="navbar">
+                <li class="navbar-item">
+                    <a href="#agenda">会议议程</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#speaker">嘉宾介绍</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#sponsors">赞助合作</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#notice">参会须知</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="devcon2021-intro has-grey-bg">
+        <div class="container">
+            <div class="intro">
+                <img class="img1" src="/images/community/devcon2021/bg-el-3.svg" />
+                <p>“PingCAP DevCon” 是由 PingCAP
+                    举办的年度顶级数据技术盛会，大会已连续举办三年，成为观测开源产业、数据库前瞻趋势的风向标。本次大会旨在探讨前沿科技与数字化趋势的融合，解读行业领袖观点，分享技术大咖实战经验，展示用户场景的多元化创新，并展现多元化数据技术生态。
+                </p>
+                <img class="img2" src="/images/community/devcon2021/bg-el-1.svg" />
+            </div>
+        </div>
+    </section>
+
+    <section class="devcon2021-schedule">
+        <div class="container">
+            <h2 id="agenda" class="section-title">会议议程</h2>
+            <div class="dates">
+                <div class="date date1 is-active">大会日 - 2021. 07. 24</div>
+                <div class="date date2">开发者嘉年华 - 2021. 07. 23</div>
+            </div>
+            <div class="venues">
+                <div class="day1">
+                    {{- range $idx, $i := .Site.Data.devcon.venues_2021.day1 -}}
+                    <div class="venue-detail">
+                        <div class="time">{{ $i.time }}</div>
+                        <div class="venue-list">
+                            {{- range $j := $i.venues -}}
+                            <a class="venue" href="#{{ replace (replace $j.name " /" "-" ) " " "-" }}">
+                                <img src="{{ $j.icon }}" alt="{{ $j.name }}">
+                                <p>{{ $j.name }}</p>
+                            </a>
+                            {{- end -}}
+                        </div>
+                    </div>
+                    {{- end -}}
+                </div>
+                <div class="day2 hide-schedule">
+                    <p>大会前一天我们将举办为期半天的开发者嘉年华，活动将包括 TiDB 调优竞赛、Coding 动手实验、PingCAP Education
+                        课程体验等丰富活动，现场更有吐槽大会与精美晚宴，大家千万不要错过！</p>
+                </div>
+            </div>
+
+            {{- partial "community-cn/devcon2020-schedule-table.html" (dict "schedule" .Site.Data.devcon.devcon2021_day1_schedule "global" . "date" "day1" "isCn" "true" "devcon2021" "true") -}}
+
+            {{- partial "community-cn/devcon2020-schedule-table.html" (dict "schedule" .Site.Data.devcon.devcon2021_day2_schedule "global" . "date" "day2" "isCn" "true" "isPreDay" "true") -}}
+        </div>
+    </section>
+
+    <section class="devcon2021-speakers">
+        <div class="container">
+            <h2 id="speaker" class="section-title">嘉宾介绍</h2>
+            <div class="tutor-list">
+                {{- range $idx, $i := .Site.Data.devcon.instructors_2021 -}}
+                {{- if not $i.noAvatar -}}
+                <div class="tutor">
+                    <div class="tutor-avatar">
+                        <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.avatar }}"
+                            alt="Tutor avator" />
+                    </div>
+                    <div class="name">{{ $i.name }}</div>
+                    <div class="title">{{ $i.company }} {{ if $i.title }}| {{ $i.title }}{{ end }}</div>
+                </div>
+                {{- end -}}
+                {{- end -}}
+            </div>
+        </div>
+    </section>
+
+    <section class="devcon2021-sponsors">
+        <div class="container">
+            <h2 id="sponsors" class="section-title">赞助合作</h2>
+            <h3>铂金赞助</h3>
+            <div class="medias">
+                {{- range $idx, $i := .Site.Data.devcon.support_meida2021_platinum -}}
+                <div class="media">
+                    <a href="{{ $i.link }}" target="_blank"><img class="lazy" src="/images/svgs/loader-spinner.svg"
+                            data-original="{{ $i.img }}" /> </a>
+                    <div class="desc">
+                        <p>{{ $i.desc }}</p>
+                        <a href="{{ $i.link }}" target="_blank">{{ $i.link }}</a>
+                    </div>
+                </div>
+
+
+                {{- end -}}
+            </div>
+            <h3>黄金赞助</h3>
+            <div class="medias">
+                {{- range $idx, $i := .Site.Data.devcon.support_meida2021_gold -}}
+                <div class="media">
+                    <a href="{{ $i.link }}" target="_blank"><img class="lazy" src="/images/svgs/loader-spinner.svg"
+                            data-original="{{ $i.img }}" />
+                    </a>
+                    <div class="desc">
+                        <p>{{ $i.desc }}</p>
+                        <a href="{{ $i.link }}" target="_blank">{{ $i.link }}</a>
+                    </div>
+                </div>
+                {{- end -}}
+            </div>
+            <h3>白银赞助</h3>
+            <div class="medias">
+                {{- range $idx, $i := .Site.Data.devcon.support_meida2021_silver -}}
+                {{- if $i.link -}}
+                <div class="media">
+                    <a href="{{ $i.link }}" target="_blank"><img class="lazy" src="/images/svgs/loader-spinner.svg"
+                            data-original="{{ $i.img }}" />
+                    </a>
+                    <div class="desc">
+                        <p>{{ $i.desc }}</p>
+                        <a href="{{ $i.link }}" target="_blank">{{ $i.link }}</a>
+                    </div>
+                </div>
+                {{- else -}}
+                <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.img }}" />
+                {{- end -}}
+                {{- end -}}
+            </div>
+            <h3>独家报名渠道</h3>
+            <div class="medias">
+                {{- range $idx, $i := .Site.Data.devcon.support_meida2021_special -}}
+                <a href="{{ $i.link }}" target="_blank"><img class="lazy" src="/images/svgs/loader-spinner.svg"
+                        data-original="{{ $i.img }}" />
+                </a>
+                {{- end -}}
+            </div>
+        </div>
+    </section>
+
+    <section class="devcon2021-sponsors">
+        <div class="container">
+            <h2 id="sponsors" class="section-title">支持媒体及社区</h2>
+            <div class="medias">
+                {{- range $idx, $i := .Site.Data.devcon.support_meida2021 -}}
+                {{- if $i.link -}}
+                <a href="{{ $i.link }}" target="_blank"><img class="lazy {{if $i.bigImg }}big-img{{end}}" src="/images/svgs/loader-spinner.svg"
+                        data-original="{{ $i.img }}" /></a>
+                {{- else -}}
+                <img class="lazy" src="/images/svgs/loader-spinner.svg" data-original="{{ $i.img }}" />
+                {{- end -}}
+                {{- end -}}
+            </div>
+        </div>
+
+        <div class="content">
+            <p>更多合作伙伴敬请期待</p>
+            <p>如有意向赞助，欢迎联系 <a href="mailto:devcon2021@pingcap.com">devcon2021@pingcap.com</a></p>
+        </div>
+    </section>
+
+    <section class="devcon2021-notice">
+        <div class="container">
+            <h2 id="notice" class="section-title">参会须知</h2>
+            <div class="notice-navbar">
+                <div class="notice-tab is-active">
+                    会场分布
+                </div>
+                <div class="notice-tab">
+                    交通路线
+                </div>
+                <div class="notice-tab">
+                    住宿推荐
+                </div>
+            </div>
+            <div class="content-list">
+                <div id="content-address" class="tabContent is-active">
+                    <div class="image">
+                        <img src="/images/community/devcon2021/map.svg" />
+                        <span class="j-open-map-modal">点击查看大图</span>
+                        <div class="modal-overlay j-map-overlay" style="display: none;">
+                            <img class="modal" src="/images/community/devcon2021/map.svg" />
+                        </div>
+                    </div>
+                </div>
+                <div id="content-traffic" class="tabContent">
+                    <div class="image">
+                        <img src="/images/community/devcon2021/hotel-1.png" />
+                        <span class="j-open-hotel-modal">点击查看大图</span>
+                        <div class="modal-overlay j-hotel-overlay" style="display: none;">
+                            <img class="modal" src="/images/community/devcon2021/hotel-1.png" />
+                        </div>
+                    </div>
+                    <p>地址：北京，广顺南大街 8 号院 2 号楼</p>
+                    <p>总机：+86-10-86301234 （联系电话）</p>
+                    <p>
+                        作为凯悦酒店集团在京的一家核心品牌酒店，北京望京凯悦酒店坐落于京城富活力的望京中心商务区，北临望京中央公园，南接自然花园，将望京中心区域连接成一片“可呼吸的都市绿洲”，现代时尚简约设计与温馨舒适住宿体验在此完美融合，与望京动感迷人的城市风景相得益彰。
+                    </p>
+
+                    <div class="divider">前往路线</div>
+                    <p>一、自驾路线：</p>
+                    <p>导航屏会显示“北京望京凯悦酒店”</p>
+                    <p>二、首都机场到达：</p>
+                    <p>地铁：2 号航站楼乘首都机场线，到三元桥站 B 东北口出，步行 267 米到达三元桥公交站乘坐 404 路公交车（来广营西桥东方向），阜通东大街下车。步行 750 米至北京望京凯悦酒店。</p>
+                    <p>打车：从首都机场直接打车至北京望京凯悦酒店，30 分钟车程，费用约 45 元。</p>
+                    <p>三、大兴机场到达：</p>
+                    <p>地铁：北京大兴机场线，在草桥地铁站换成 10 号线外环（角门西方向），十里河地铁站换成 14 号线（善各庄方向），阜通地铁站 C 东南口出，步行 694 米至北京望京凯悦酒店。</p>
+                    <p>打车：从大兴机场直接打车至北京望京凯悦酒店，1 小时 15 分钟车程，费用约 190 元。</p>
+                    <p>四、北京南站：</p>
+                    <p>地铁：14 号线东段（善各庄方向）至阜通地铁站 C 东南口出，步行 694 米至北京望京凯悦酒店。</p>
+                    <p>打车：北京南站打车至北京望京凯悦酒店，45 分钟车程，费用约 70 元。</p>
+                    <p>五、北京西站：</p>
+                    <p>地铁：7 号线（花庄方向）至九龙山地铁站，换乘地铁 14 号线（善各庄方向）至阜通地铁站 C 东南口出，步行 694 米至北京望京凯悦酒店。</p>
+                    <p>打车：北京西站至北京望京凯悦酒店，40 分钟车程，费用约 60 元。</p>
+                    <p>六、北京站：</p>
+                    <p>地铁：2 号线（建国门方向）至朝阳门地铁站，换乘地铁 6 号线（潞城方向）至金台路地铁站，换乘地铁 14 号线（善各庄方向）至阜通地铁站 C 东南口出，步行 694 米至北京望京凯悦酒店。
+                    </p>
+                    <p>打车：北京站至北京望京凯悦酒店，30 分钟路程，费用约 40 元。</p>
+
+                </div>
+                <div id="content-hotel" class="tabContent">
+                    <p class="hotel-intro">以下酒店为本次大会推荐酒店，参会者可根据自身情况选择预定。</p>
+                    <div class="hotel-list">
+                        <div class="hotel">
+                            <img src="/images/community/devcon2021/hotel-1.png" />
+                            <div class="content">
+                                <p>1. 北京望京凯悦酒店（五星级)</p>
+                                <p>北京市朝阳区广顺南大街 8 号院 2 号楼</p>
+                                <p>参考房型：标准间/大床房等</p>
+                                <p>参考房价： 980 含单早，1130 含双早</p>
+                                <p>酒店电话： 010-86301234</p>
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <img src="/images/community/devcon2021/hotel-2.png" />
+                            <div class="content">
+                                <p>2. 七天优品酒店（北京望京 SOHO 阜通地铁站店）</p>
+                                <p>北京市朝阳区望京西园 428 号</p>
+                                <p>参考房型：标准间/大床房</p>
+                                <p>酒店电话： 010-64718688 </p>
+                                <p>距离会议酒店：步行 621 米，约 9 分钟</p>
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <img src="/images/community/devcon2021/hotel-3.png" />
+                            <div class="content">
+                                <p>3. 北京望京智选假日酒店</p>
+                                <p>北京市朝阳区望京阜通大街 6 号院 6 号楼</p>
+                                <p>参考房型：标准间/大床房等</p>
+                                <p>酒店电话： 010-59269688</p>
+                                <p>距离会议酒店：步行 705 米，约 5 分钟</p>
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <img src="/images/community/devcon2021/hotel-4.png" />
+                            <div class="content">
+                                <p>4. 全季酒店（北京望京店）</p>
+                                <p>北京市朝阳区湖光中街 8 号 1 栋</p>
+                                <p>参考房型：标准间/大床房等</p>
+                                <p>酒店电话： 010-64776877</p>
+                                <p>距离会议酒店：车程 1.9 公里，约 8 分钟</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="devcon2021-signup">
+        <div class="sign-up">
+            <div class="btn-wrap">
+                <p>立即报名参与 PingCAP DevCon 2021</p>
+                <a href="http://www.huodongxing.com/event/3601574266800?qd=website" target="_blank">
+                    <div class="button signup-btn">立即报名</div>
+                </a>
+            </div>
+            <img class="el1" src="/images/community/devcon2021/bg-el-2.svg" />
+            <img class="el2" src="/images/community/devcon2021/bg-el-3.svg" />
+        </div>
+
+    </section>
+
+    <section class="devcon2021-reviews">
+        <div class="container">
+            <h2 id="notice" class="section-title">往期回顾</h2>
+            <div class="review-list">
+                <a href="/community-cn/devcon2020/" class="item"><img
+                        src="/images/community/devcon2021/review-devcon2020.png" /></a>
+                <a href="/community-cn/devcon2019/" class="item"><img
+                        src="/images/community/devcon2021/review-devcon2019.png" /></a>
+                <a href="/community-cn/devcon2018/" class="item"><img
+                        src="/images/community/devcon2021/review-devcon2018.png" /></a>
+            </div>
+        </div>
+    </section>
+
+    <a href="http://www.huodongxing.com/event/3601574266800?qd=website" target="_blank
+    ">
+        <div class="signup-code pc"></div>
+    </a>
+    <div class="signup-code mobile">
+        <a href="http://www.huodongxing.com/event/3601574266800?qd=website" target="_blank">立即报名</a>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200
+    })
+</script>
+<script type="text/javascript" src="/js/devcon2021.js"></script>
+<script type="text/javascript" src="/js/community.js"></script>
+{{- end -}}

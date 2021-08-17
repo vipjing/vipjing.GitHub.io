@@ -1,0 +1,80 @@
+{{- define "headTpl" -}}
+<style type="text/css" media="screen">
+    .st_tree {
+        display: none;
+    }
+</style>
+{{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/github-markdown.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+{{$.Scratch.Set "nav_active" "docs"}}
+{{$.Scratch.Set "data_i18_cn" true }}
+{{$.Scratch.Set "data_i18_link" "/docs/" }}
+{{$.Scratch.Set "metaTitle" "TiDB 官方用户文档"}}
+{{- end -}}
+
+{{- define "main" -}}
+{{ $docs_stable_version := "" }}
+{{ $docs_type := "" }}
+{{ $docs_repo := "" }}
+{{ $title_prefix := "" }}
+{{$docs_total_versions := slice ""}}
+
+<!-- set total versions and stable version according to the docs type -->
+{{ if hasPrefix .RelPermalink "/docs-cn/tidb-data-migration/" }}
+<!-- docs dm -->
+{{ $docs_type = "tidb_data_migration" }}
+{{ $docs_stable_version = $.Scratch.Get "dm_stable_version" }}
+{{ $docs_repo = "docs-dm"}}
+{{ $title_prefix = "TiDB Data Migration" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "dm_total_versions") }}
+{{ else if hasPrefix .RelPermalink "/docs-cn/tidb-in-kubernetes/" }}
+<!-- docs operator -->
+{{ $docs_type = "tidb_in_kubernetes"}}
+{{ $docs_stable_version = $.Scratch.Get "operator_stable_version" }}
+{{ $docs_repo = "docs-tidb-operator"}}
+{{ $title_prefix = "TiDB in Kubernetes" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "operator_total_versions") }}
+{{ else }}
+<!-- docs tidb -->
+{{ $docs_type = "tidb" }}
+{{ $docs_stable_version = $.Scratch.Get "tidb_stable_version" }}
+{{ $docs_repo = "docs"}}
+{{ $title_prefix = "TiDB" }}
+{{ $docs_total_versions = $docs_total_versions | append ($.Scratch.Get "tidb_total_versions") }}
+{{ end }}
+
+{{ $current_version := default "stable" (index (findRE "(v\\d+\\.\\d+|dev|stable)" .RelPermalink) 0) }}
+<div class="doc">
+    <div class="container">
+        {{ if eq $docs_repo "docs" }}
+        {{ $.Scratch.Add "data_i18_link" (trim $current_version "/") }}
+        {{ else }}
+        {{ $.Scratch.Add "data_i18_link" (print (replace $docs_type "_" "-") "/" $current_version )}}
+        {{ end }}
+        {{ $multi_level_url := cond (isset .Params "multi_level_url") .Params.multi_level_url ""}}
+        {{ partial "navs/docs-nav.html" (dict "global" . "lang_prefix" "docs_cn_" "cv" $current_version "sv" $docs_stable_version "tv" $docs_total_versions "docs_type" $docs_type "title_prefix" $title_prefix) }}
+
+        <div class="archive">
+            <div class="content markdown-body">
+                {{ .Content }}
+            </div>
+            <div class="article-toc"></div>
+            {{ $file_prefix := print (cond (eq $docs_type "tidb") "" (print $docs_type "/")) $current_version }}
+            {{- partial "archives/git-info.html" (dict "file_prefix" $file_prefix "repo" $docs_repo "docs_type" $docs_type "global" . "sv" $docs_stable_version "isCn" true "multi_level_url" $multi_level_url) -}}
+        </div>
+
+        <div class="sidebar-page sticky-sidebar">
+            {{- partial "archives/improve-doc.html" (dict "global" . "repo" $docs_repo "isCn" true "docs_type" $docs_type "sv" $docs_stable_version "multi_level_url" $multi_level_url) }}
+            {{- partial "archives/request-docs-changes.html" (dict "global" . "repo" $docs_repo "isCn" true "link" .Permalink "docs_type" $docs_type "sv" $docs_stable_version "multi_level_url" $multi_level_url "isCn" true) -}}
+            <p class="toc-title">本页导航</p>
+            <div id="smart_toc_wrapper"></div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript" src="/js/doc.js"></script>
+<script type="text/javascript" src="/js/anchor.js"></script>
+{{- end -}}

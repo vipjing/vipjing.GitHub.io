@@ -1,0 +1,39 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "Developer" }}
+Community Developer
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "community"}}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "data_i18_link" "/community/organization" }}
+{{- partial "head/preload-css" (dict "href" "/css/community/organization-cn.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="community-organization">
+
+    <div class="community-members">
+        <div class="container">
+            <div class="developer-group-members developer-sig">
+                <div class="back-to-sigs">
+                    <a href="/community-cn/organization#sigs">返回 SIGs</a></div>
+                <div class="loader-spinner">
+                    <img class="lazy" src="/images/svgs/loader-spinner.svg" alt="loader spinner" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/developer_sig.js"></script>
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $(".lazy").lazyload({
+        effect: "fadeIn",
+        threshold: 200
+    });
+</script>
+{{- end -}}

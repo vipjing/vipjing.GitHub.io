@@ -1,0 +1,22 @@
+{{ $file_path := cond (in .global.File.Path "stable") (replace .global.File.Path "stable" .sv) .global.File.Path }}
+
+{{ $relative_path := slice "" }}
+{{ $lang := cond .isCn "/zh" "/en" }}
+{{ $docs_repo := cond (eq .repo "docs") (cond .isCn (print .repo "-cn") .repo) .repo}}
+{{ $repo_prefix := cond (eq .repo "docs") (cond .isCn (print .repo "-cn") .repo) (print (cond .isCn "docs-cn/" "docs/") (replace .docs_type "_" "-")) }}
+
+{{ $branch := strings.TrimPrefix "/v" (index (findRE "(\\/v\\d+\\.\\d+)" $file_path) 0) }}
+{{ $relative_path_temp := strings.TrimPrefix (index (findRE "(\\/v\\d+\\.\\d+|\\/dev)" $file_path) 0) (strings.TrimPrefix $repo_prefix $file_path) }}
+
+{{ if eq .repo "docs" }}
+    {{ $relative_path = $relative_path | append (print "" $relative_path_temp) }}
+{{ else if .multi_level_url }}
+    {{ $relative_path = $relative_path | append (print $lang "/" .multi_level_url ".md") }}
+{{ else }}
+    {{ $relative_path = $relative_path | append (print $lang $relative_path_temp) }}
+{{ end }}
+
+<a href="https://github.com/pingcap/{{$docs_repo}}/edit/{{ if $branch }}release-{{$branch}}{{else}}master{{end}}{{index $relative_path 1}}" class="improve-doc" target="_blank">
+    {{ partial "svgs/icon-edit.svg" (dict "fill" "#142848" "width" 14 "height" 14 ) }}
+    {{ if .isCn }}修改本文{{else}}Edit this page{{end}}
+</a>

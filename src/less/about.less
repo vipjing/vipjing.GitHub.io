@@ -1,0 +1,807 @@
+/* about page */
+
+// import global variables
+@import "./variables.less";
+
+@videoWidth: 1124px;
+@videoHeight: calc(~"@{videoWidth}* 9/16");
+@lineWidth: 1.9rem;
+@mapWidth: 660px;
+
+section[class^="about-"],
+section[class^="meetup-landing-page-"] {
+  padding: @verticalPadding @horizontalPadding;
+  min-height: 20rem;
+  text-align: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: @videoWidth;
+  }
+
+  .title {
+    color: #172D72;
+    font-size: 26px;
+  }
+
+  // h2 {
+  //   display: inline-block;
+  //   position: relative;
+  //   margin: 0.4rem auto 1.6rem;
+  //   font-size: 1.1rem;
+
+  //   &::before {
+  //     content: " ";
+  //     position: absolute;
+  //     right: -2.5rem;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //     width: @lineWidth;
+  //     height: 1px;
+  //     background: black;
+  //   }
+
+  //   &::after {
+  //     content: " ";
+  //     position: absolute;
+  //     left: -2.5rem;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //     width: @lineWidth;
+  //     height: 1px;
+  //     background: black;
+  //   }
+  // }
+
+  .desc {
+    max-width: 33rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+}
+
+section[class^="about-"] {
+
+  .desc,
+  .desc-en {
+    max-width: 1124px;
+    font-size: 0.8rem;
+    margin: 3rem auto;
+    line-height: 1.7;
+
+    a {
+      color: @themeBlue;
+    }
+
+    .desc-en {
+      text-align: center;
+    }
+  }
+
+  .round-corner-btn {
+    width: 220px;
+    height: 60px;
+    background: #3351FF;
+    padding: 18px;
+    color: white;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 30px;
+    margin-top: 3.5rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 8px #487ECB;
+
+    .arrow {
+      visibility: hidden;
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      transform: translateY(-40%);
+      transition: left 0.5s ease;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: left 0.5s ease;
+    }
+
+    &:hover {
+      background: #172D72;
+      box-shadow: none;
+
+      .arrow {
+        visibility: visible;
+        left: 30%;
+      }
+
+      .text {
+        left: 60%;
+      }
+    }
+  }
+}
+
+.banner-bg {
+  background-color: #202884;
+  height: auto;
+  width: 100%;
+
+  .banner-img {
+    max-width: 700px;
+    padding: calc(~'@{headerHeight} + 2.3rem') 0 3rem;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.about-timeline {
+  height: 1800px;
+
+  img {
+    height: 1700px;
+    padding: 2rem;
+  }
+
+  .mobile-timeline {
+    display: none;
+  }
+
+  background: @grayWhite;
+}
+
+.intro-video {
+  position: relative;
+  width: 100%;
+  height: calc(~"100vh - @{headerHeight}");
+  padding: 0;
+
+  .video-wrapper {
+    position: relative;
+    margin-top: 30px;
+    width: @videoWidth;
+    height: @videoHeight;
+    box-shadow: 2px 2px 22px rgba(255, 255, 255, 0.5);
+    background:
+      transparent url("https://download.pingcap.com/images/video-poster.jpg") no-repeat 0 0;
+    background-size: cover;
+    z-index: auto;
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #video-control {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+}
+
+.about-company {
+  .desc {
+    margin: 0 auto !important;
+    text-align: justify;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.about-company-en {
+  background: @grayWhite;
+}
+
+.about-founders {
+  background: white;
+
+  .image-wrap {
+    max-width: 26rem;
+    margin: 4.5rem auto 0;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.about-culture {
+  background: @grayWhite;
+
+  .desc {
+    text-align: justify;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .desc {
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 8px 0;
+      color: @purpleBlue;
+    }
+
+    p {
+      max-width: 10.5rem;
+      margin: 2px auto;
+      font-weight: 400;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 3rem;
+      width: 33%;
+    }
+
+    .item-short {
+      p {
+        max-width: 7.5rem;
+      }
+    }
+
+    .image-wrap {
+      .icon {
+        height: 100px;
+        vertical-align: middle;
+      }
+
+      .icon-m {
+        height: 40px;
+      }
+
+      .icon-s {
+        height: 36px;
+      }
+    }
+  }
+}
+
+.about-contact {
+  background: white;
+  position: relative;
+
+  .info {
+    padding: 3rem 0;
+    font-size: 0.8rem;
+    display: flex;
+    width: 100%;
+    line-height: 1.7;
+    position: relative;
+    justify-content: space-around;
+
+    .col-1 {
+      width: 55%;
+      text-align: left;
+      position: relative;
+      padding: 0 0 20px 0;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        padding: 5rem 0;
+        background: #BFBFBF;
+        margin-left: 125px;
+        height: 30%;
+      }
+    }
+
+    .office-info {
+      padding: 4px 0;
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .col-2 {
+      text-align: left;
+      line-height: 1.7;
+      height: 100%;
+    }
+
+    .office-name {
+      font-weight: 600;
+    }
+
+    .item {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding: 0 2rem 0 0;
+    }
+  }
+
+  .info-2 {
+    display: none;
+  }
+
+  .info-en {
+    font-size: 0.7rem;
+    width: auto;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    .item {
+      padding-right: 2.4rem;
+
+      h3 {
+        margin: 0 0 6px;
+        font-size: .7rem;
+        font-weight: 600;
+      }
+
+      &::before {
+        content: " ";
+        position: absolute;
+        top: 2px;
+        left: -12px;
+        width: 2px;
+        height: 40px;
+        background: #202884;
+      }
+    }
+
+    .item-long {
+      padding-right: 0;
+    }
+  }
+}
+
+.pc-map,
+.mobile-map {
+  width: 100%;
+  margin: 2rem;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .m-office {
+    position: absolute;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    background: #3351FF;
+
+    button {
+      position: absolute;
+      width: 88px;
+      background: #3355ff;
+      border: none;
+      color: white;
+      padding: 10px 10px;
+      border-radius: 4px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .line {
+      position: absolute;
+      border: 1px solid #35f;
+    }
+  }
+
+  .m-office-hovered {
+    // background: #E30C34;
+
+    button {
+      transform: scale(1.2);
+      // background: #E30C34;
+      box-shadow: 1px 1px 10px #BFBFBF;
+    }
+
+    // .line {
+    //   border-color: #E30C34;
+    //   animation: stretchLine 0.5s ease-in-out alternate;
+    // }
+  }
+
+  .m-silicon {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 100px;
+      transform: rotate(125deg);
+    }
+
+    button {
+      left: -131px;
+      top: 75px;
+    }
+  }
+
+  .m-beijing {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 160px;
+      transform: rotate(315deg);
+    }
+
+    button {
+      left: 115px;
+      top: -115px;
+    }
+  }
+
+  .m-shanghai {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 120px;
+    }
+
+    button {
+      left: 120px;
+      top: -10px;
+    }
+  }
+
+  .m-hangzhou {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 170px;
+      transform: rotate(45deg);
+    }
+
+    button {
+      left: 120px;
+      top: 100px;
+    }
+  }
+
+  .m-chengdu {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 90px;
+      transform: rotate(145deg);
+    }
+
+    button {
+      left: -130px;
+      top: 55px;
+    }
+  }
+
+  .m-guangzhou {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 120px;
+      transform: rotate(125deg);
+    }
+
+    button {
+      left: -100px;
+      top: 100px;
+    }
+  }
+
+  .m-shenzhen {
+    .line {
+      transform-origin: left;
+      top: 6px;
+      left: 6px;
+      width: 170px;
+      transform: rotate(60deg);
+    }
+
+    button {
+      left: 90px;
+      top: 140px;
+    }
+  }
+}
+
+.mobile-map {
+  display: none;
+}
+
+.underline {
+  color: #3355ff;
+
+  .office-addr {
+    text-decoration: underline;
+  }
+}
+
+.floating-ele {
+  width: 100%;
+  position: relative;
+  min-height: 14rem;
+
+  img {
+    position: absolute;
+  }
+
+  .ele1 {
+    top: 2rem;
+    left: 10%;
+    width: 16px;
+    animation: angleMove1 3s infinite 0.5s alternate;
+  }
+
+  .ele2 {
+    top: 10rem;
+    left: 15%;
+    animation: angleMove2 2s infinite alternate;
+  }
+
+  .ele3 {
+    top: 6rem;
+    left: 30%;
+    width: 10px;
+    animation: angleMove1 2s infinite 1s alternate;
+  }
+
+  .ele4 {
+    top: 9.5rem;
+    right: 50%;
+    width: 25px;
+    animation: angleMove2 3s infinite 1.5s alternate;
+    animation: eleScale 3s infinite alternate;
+  }
+
+  .ele5 {
+    top: 8rem;
+    right: 10%;
+    animation: angleMove1 2.5s infinite alternate;
+  }
+
+  .ele6 {
+    top: 12rem;
+    left: 70%;
+    width: 13px;
+    animation: angleMove1 3s infinite 1s alternate;
+  }
+
+  .ele7 {
+    top: 2rem;
+    left: 75%;
+    animation: angleMove2 2s infinite alternate;
+  }
+
+  .ele8 {
+    top: 7rem;
+    right: 35%;
+    width: 14px;
+    animation: angleMove1 2s infinite alternate;
+  }
+
+  .ele9 {
+    top: 8rem;
+    right: 30%;
+    animation: angleMove1 2s infinite alternate;
+  }
+}
+
+@keyframes stretchLine {
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes angleMove1 {
+  from {
+    transform: translate(20px, 20px);
+  }
+
+  to {
+    transform: translate(30px, 10px);
+  }
+}
+
+@keyframes angleMove2 {
+  from {
+    transform: translate(-5px, -5px);
+  }
+
+  to {
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes eleScale {
+  from {
+    transform: scale(0.7);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.map-shotcut {
+  width: 100%;
+  height: 340px;
+  background: url("https://download.pingcap.com/images/map-office-2955-campus.png");
+  background-size: cover;
+}
+
+// .map-wrapper {
+//   width: 100%;
+//   max-width: @mapWidth;
+//   margin: 2em auto 1em;
+//   text-align: left;
+
+//   text[href="http://simplemaps.com"] {
+//     font: 300 10px arial, sans-serif !important;
+//   }
+// }
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+
+@media (min-width: 1700px) {
+  .banner-bg {
+    .banner-img {
+      max-width: 1000px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .about-timeline {
+    .pc-timeline {
+      display: none;
+    }
+
+    .mobile-timeline {
+      display: block;
+    }
+  }
+
+  .intro-video {
+    height: 300px;
+
+    .video-wrapper {
+      width: 100%;
+      height: auto;
+      margin-top: 0;
+
+      #video {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .about-culture .details {
+    .item {
+      width: 45%;
+    }
+
+    .image-wrap .icon {
+      height: 60px;
+    }
+  }
+
+  .about-contact {
+    .info {
+      padding: 3rem 1rem;
+
+      .col-1 {
+        width: 100%;
+
+        &::after {
+          display: none;
+        }
+
+        .office-info {
+          display: flex;
+          flex: row wrap;
+          justify-content: flex-start;
+          width: 100%;
+
+          .office-name {
+            width: 27%;
+          }
+
+          .office-addr {
+            width: 70%;
+          }
+        }
+      }
+
+      .col-2 {
+        display: none;
+      }
+    }
+
+    .pc-map {
+      display: none;
+    }
+
+    .mobile-map {
+      display: block;
+    }
+
+    .info-2 {
+      margin-top: 2rem;
+      display: block;
+      line-height: 1.7;
+      font-size: 0.8rem;
+    }
+  }
+
+  .about-contact-en .container {
+    align-items: flex-start !important;
+  }
+
+  .about-contact-en .info .item {
+    left: 1rem;
+  }
+
+  section[class^="about-"] {
+    .desc {
+      padding: 0 1rem !important;
+    }
+
+    .title {
+      font-size: 1.1rem;
+    }
+
+    .round-corner-btn {
+      width: 160px;
+      height: 50px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .about-contact .info .col-1 .office-info .office-name {
+    width: 29%;
+  }
+}

@@ -1,0 +1,56 @@
+{{ $docs_stable_version := .sv }}
+{{ $docs_total_versions := .tv }}
+{{ $docs_type := .docs_type }}
+{{ $current_version := .cv }}
+{{ $permalink := .permalink }}
+{{ $content_file_path := .content_file_path }}
+{{ $doesnot_exist_ver := slice ""}}
+
+{{- range $idx, $i := $docs_total_versions -}}
+
+{{ $file_path := print "./content/" (replaceRE "(/v\\d+\\.\\d+|\\/dev|\\/stable)" (print "/" $i) $content_file_path)}}
+
+{{- if not (fileExists $file_path) -}}
+{{ $doesnot_exist_ver = $doesnot_exist_ver | append $i }}
+{{- end -}}
+
+{{- end -}}
+
+<div class="version-switcher">
+    <button type="button" id="dropdownMenuButton">
+        {{- if and (eq $current_version "stable") (ne $docs_type "tidb_data_migration") -}}
+        {{ $docs_stable_version }}
+        {{- else if eq $current_version "v1.1" -}}
+        v1.1 (stable)
+        {{- else if and (eq $current_version "stable") (eq $docs_type "tidb_data_migration") -}}
+        v1.0
+        {{- else -}}
+        {{ $current_version }}
+        {{- end -}}
+    </button>
+    <div class="dropdown-menu visibility-hide" id="dropdown-menu-items">
+        {{- range $idx, $i := $docs_total_versions -}}
+        {{- if not (eq $idx 0) -}}
+        {{ $docs_index_page := findRE "(/v\\d+\\.\\d+|\\/dev|\\/stable)" $permalink }}
+        {{ $exist_url := replaceRE "(/v\\d+\\.\\d+|\\/dev|\\/stable)" (print "/" $i) $permalink}}
+        {{ $relative_url := replaceRE "(/search)" "" $exist_url }}
+        <a class="dropdown-item {{ if in $doesnot_exist_ver $i }}unclickable-btn{{ end }}"
+            href="
+                {{ if in $doesnot_exist_ver $i }}#{{ else }}{{ if $docs_index_page }}{{ $relative_url }}{{ else }}{{ print $permalink $i }}{{ end }}{{ end }}">
+            {{- if and (eq $i "stable") (ne $docs_type "tidb_data_migration") -}}
+            {{ $docs_stable_version }} (stable)
+            {{- else if eq $i "v1.1" -}}
+            v1.1 (stable)
+            {{- else if and (eq $i "stable") (eq $docs_type "tidb_data_migration") -}}
+            v1.0 (stable)
+            {{- else -}}
+            {{ $i }}
+            {{- end -}}
+            {{- if in $doesnot_exist_ver $i -}}
+            <span class="tooltiptext">This doc does not exist in {{ $i }}</span>
+            {{- end -}}
+        </a>
+        {{- end -}}
+        {{- end -}}
+    </div>
+</div>

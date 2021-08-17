@@ -1,0 +1,86 @@
+{{- define "title" -}}
+    {{ $.Scratch.Set "metaTitle" "TiDB" }}
+    Community
+{{- end -}}
+
+{{- define "headTpl" -}}
+    {{- partial "head/preload-css" (dict "href" "/css/community/list.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/article-reading-card.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/vendor/calendar.css") -}}
+    {{ $.Scratch.Set "data_i18_link" "/community-cn" }}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="community-homepage">
+    <div class="banner__section homepage__banner">
+        <div class="banner__content-container">
+            <a href="https://github.com/pingcap"><button class="gitHub">GitHub</button></a>
+            <div class="content">
+                <div class="title-image">
+                    <img src="/images/community/banners/TiDB+Community.svg" alt="Community banner" />
+                </div>
+                <div class="intro">
+                    “If you have the right attitude, interesting problems will find you.”
+                    We believe that the pursuit of technology and love of open source have brought you here.
+                    Welcome to join the TiDB community and embark with us on a wonderful journey.
+                </div>
+                <div class="btns" style="justify-content: unset;">
+                  <a class="btn" href="/community/organization/">
+                    Learn about Community
+                  </a>
+                  <a class="btn" href="/community/developer-group/#contributor">
+                    Become a Contributor
+                  </a>
+                </div>
+                <div class="relationship">
+                    <img src="/images/community/banners/community-banner-side-img.svg" alt="Banner background" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity__section">
+        <div class="section-container">
+            <h1 class="section-title">Community activities</h1>
+            <div class="current-activity">
+                <div class="signable" style="background: #4d59eb;">
+                    <a href="/community/tidb-usability-challenge">
+                        <div class="picture">
+                            <img class="active_image_pc" src="/images/tidb-usability-challenge/banner-pc-en.svg" alt="Community activity" />
+                            <img class="active_image_mobile" src="/images/tidb-usability-challenge/banner-mobile-en.svg" alt="Community activity" />
+                        </div>
+                        <div class="current-activity-content">
+                            <div class="current-activity-summary">The TiDB Challenge Program is initiated by PingCAP to stimulate creativity in the community. This season focuses on usability.</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div id="calendar">
+                    <div class="event-list">
+                        <div class="event-banner">Events</div>
+                        <a class="close-icon">
+                            <svg viewBox="0 0 20 20">
+                                <path
+                                    d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/community.js"></script>
+<script type="text/javascript" src="/js/vendor/calendar.js"></script>
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200
+    })
+</script>
+{{- end -}}

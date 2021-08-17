@@ -1,0 +1,210 @@
+{
+  "judges": [
+    {
+      "name": "熊飞",
+      "team_name": "经纬中国合伙人",
+      "avatar": "https://download.pingcap.com/images/community/hacking-camp-2021-s1/xiongfei.png",
+      "word": "风起于青萍之末。星星之火可以燎原。祝各个项目在 Hacking Camp 中快速迭代升级，成为社区乃至所有开发者的必备产品。"
+    },
+    {
+      "name": "于真真",
+      "team_name": "初心资本合伙人",
+      "avatar": "https://download.pingcap.com/images/community/hacking-camp-2021-s1/yuzhenzhen.png",
+      "word": "我们感知到了开源的魅力，并无比期待开源的世界，希望在 Hacking Camp 中找到中国开源的新生力量。"
+    },
+    {
+      "name": "黄明明",
+      "team_name": "明势资本创始合伙人",
+      "avatar": "https://download.pingcap.com/images/community/hacking-camp-2021-s1/huangmingming.png",
+      "word": "开源改变世界，开发者定义开源，我们一起开玩。"
+    },
+    {
+      "name": "吴陈尧",
+      "team_name": "GGV 纪源资本合伙人",
+      "avatar": "https://download.pingcap.com/images/community/hacking-camp-2021-s1/wuchenxiao.png",
+      "word": "中国开源创业者要注重社区的搭建，以技术作为立身之本；从创办之初就要注重国际化，鼓励中外工程师共同参与；商业化进程视具体服务的客户群来决定，在社区形成一定的规模后就可以商业化。"
+    },
+    {
+      "name": "刘洋",
+      "team_name": "Flomesh CTO/联合创始人",
+      "avatar": "https://download.pingcap.com/images/community/hacking-camp-2021-s1/liuyang.png",
+      "word": "作为 PingCAP 的老朋友，一直认为 TiDB 是中国最好的开源社区之一。希望与大家一起，将 TiDB/TiKV 发展为产品的基础设施。Open Source Rocks!"
+    },
+    {
+      "name": "王聪",
+      "team_name": "Tech Leader of TiDB Team",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/wangcong.png",
+      "word": "祝大家早日从 Hacking Camp 毕业。"
+    },
+    {
+      "name": "张建",
+      "team_name": "PingCAP 研发主管",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/zhangjian.png",
+      "word": "期望 Hacking Camp 诞生越来越多优秀的开源项目，推动应用生态发展，促进数据库技术演进，让 TiDB 的数据库生态生机勃勃！"
+    },
+    {
+      "name": "顾亮亮",
+      "team_name": "PingCAP Database R&D Engineer",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/guliangliang.png",
+      "word": "HugeGraph + TiKV 是一个 1+1 远远大于 2 的项目，不仅仅是两个产品简单的整合，更是两个开源社区的强强联合。"
+    },
+    {
+      "name": "徐成选",
+      "team_name": "TiDB 社区 TOC 成员",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/xuchengxuan.png",
+      "word": "JuiceFS 作为一款云原生分布式文件系统，为大数据、AI、应用上云带来了出色的存储体验，期待JuiceFS 能成为各个企业最理想的数据湖。"
+    },
+    {
+      "name": "孙晓光",
+      "team_name": "TiDB 社区 TOC 主席",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/sunshuguang.png",
+      "word": "让 TiBigData 成为 TiDB 大数据生态的瑞士军刀。"
+    },
+    {
+      "name": "李建俊",
+      "team_name": "TiKV Maintainer",
+      "avatar": "/images/community/hacking-camp-2021-s2/avatars/lijianjun.png",
+      "word": "Never stop hacking."
+    }
+  ],
+  "winners": [
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "JuiceFS",
+      "project_intro": "JuiceFS 是一个开源的分布式 POSIX 文件系统，针对云原生环境进行了设计和优化。在 JuiceFS 中，数据被持久化在对象存储（如 Amazon S3）中，而元数据可以存储在各种数据库中，如 Redis、MySQL 或 TiDB。TiKV 是一个分布式键值数据库，提供高性能和事务的 API，符合 ACID 标准。在这个项目中，我们希望使用 TiKV 作为 JuiceFS 的一个新的元数据引擎来提高性能。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/juicedata/juicefs",
+      "btn_link": "https://internals.tidb.io/t/topic/211"
+    },
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "HugeGraph",
+      "project_intro": "将 TiKV 作为 HugeGraph 的后端存储，构建一套具有高水平扩展能力，高性能，高稳定性的图引擎，同时也可以基于 TiKV + HugeGraph 的基础底座，融合 TiDB 在金融等市场的丰富经验，打造有价值的应用解决方案。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/hugegraph/hugegraph",
+      "btn_link": ""
+    },
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "TiBigData",
+      "project_intro": "由知乎发起的 TiDB Incubator 项目 TiBigData，旨在解决企业大数据场景中各项技术栈对接 TiDB 的整合问题。目前已提供 TiDB 与 Flink 和 Presto 的整合能力，并已应用在知乎的数据集成平台和 OLAP 分析场景中。TiBigData 项目属于整个 TiDB 社区，一方面希望能够惠及社区内有类似需求的用户，另一方面也希望发动社区的力量补全 TiDB 在大数据各项技术栈的支持能力，将 TiBigData 打造为 TiDB 在大数据领域的一站式解决方案。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/tidb-incubator/TiBigData",
+      "btn_link": "https://internals.tidb.io/t/topic/214"
+    },
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "Doris",
+      "project_intro": "TiDB 和 Doris 都是优秀的开源关系型数据数据库。TiDB 是一款 HTAP 分布式数据库产品，Doris 更专注于 OLAP 领域，本项目将部分 OLAP 分析任务交由 Doris 来做，能够借助 Doris 的物化视图，聚合模型等优势实现高效的大规模 OLAP 分析。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/tidb-incubator/Doris",
+      "btn_link": ""
+    },
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "TiDB for PostgreSQL",
+      "project_intro": "TiDB for PostgreSQL 是神州数码发起的，开源的云原生数据库系统。旨在提供 PostgreSQL 的兼容性，同时保留了 TiDB 的高可用性、弹性和可扩展性。我们希望它允许用户将现有的 PostgreSQL 客户端连接到 TiDB，并使用 PostgreSQL 特有的语法。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/DigitalChinaOpenSource/TiDB-for-PostgreSQL",
+      "btn_link": "https://internals.tidb.io/t/topic/212"
+    },
+    {
+      "thumbnail": "/images/community/hacking-camp-2021-s2/project-cover.svg",
+      "project_name": "Serverlessdb for HTAP",
+      "project_intro": "Serverlessdb for HTAP 主要介绍在云上如何基于 TiDB 实现提供 Serverlessdb 服务 ，重点关注如何基于业务负载变化动态扩缩容计算存储节点，做到用户零感知。保证数据库服务过程中，始终保持业务负载和后台资源的最佳匹配，从而帮助用户最大化节省成本。",
+      "btn_name": "讨论区",
+      "project_addr": "https://github.com/tidb-incubator/Serverlessdb-for-HTAP",
+      "btn_link": "https://internals.tidb.io/t/topic/210"
+    }
+  ],
+  "moments": [
+    {
+      "date": "2021.07.02",
+      "name": "活动开启，招募社区成员参加"
+    },
+    {
+      "date": "2021.08.1-8.15",
+      "name": "公布项目阶段性成果"
+    },
+    {
+      "date": "2021.09.1-09.15",
+      "name": "公布项目阶段性成果&用户招募"
+    },
+    {
+      "date": "2021.10.1-10.15",
+      "name": "Hacking Camp 毕业典礼"
+    }
+  ],
+  "awards": [
+    {
+      "title": "优秀毕业生（团队）",
+      "prize": "MacBook Pro M1 一台"
+    },
+    {
+      "title": "最佳应用奖（团队）",
+      "prize": "微软人体工程学键盘"
+    },
+    {
+      "title": "最佳人气奖（团队）",
+      "prize": "JBL 蓝牙耳机"
+    },
+    {
+      "title": "最佳社区贡献（个人）",
+      "prize": "Garmin 马拉松手表"
+    },
+    {
+      "title": "毕业团队导师奖（个人）",
+      "prize": "乐高头脑风暴机器人"
+    }
+  ],
+  "exclusive": [
+    {
+      "name": "matrix",
+      "link": "https://www.matrixpartners.com.cn/index.php/zh/"
+    }
+  ],
+  "sponsors1": [
+    {
+      "name": "feature-capital",
+      "link": "https://www.future-cap.com/china/"
+    },
+    {
+      "name": "ggv-capital",
+      "link": "https://www.ggvchina.com/"
+    },
+    {
+      "name": "juice-fs",
+      "link": "https://juicefs.com/"
+    },
+    {
+      "name": "chuxin-capital",
+      "link": "http://www.chuxincapital.com/"
+    },
+    {
+      "name": "10fund",
+      "link": "http://www.10fund.com/"
+    }
+  ],
+  "sponsors2": [
+    {
+      "name": "palfish",
+      "link": "https://www.ipalfish.com/"
+    },
+    {
+      "name": "zhihu",
+      "link": "https://www.zhihu.com/"
+    },
+    {
+      "name": "chaos-mesh",
+      "link": "https://chaos-mesh.org/"
+    },
+    {
+      "name": "gitee",
+      "link": "https://gitee.com"
+    },
+    {
+      "name": "tikv",
+      "link": "https://tikv.org/"
+    }
+  ]
+}

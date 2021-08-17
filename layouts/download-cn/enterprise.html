@@ -1,0 +1,169 @@
+{{- define "title" -}}
+{{ $.Scratch.Set "metaTitle" "下载试用" }}
+下载试用
+{{- end -}}
+
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "download"}}
+{{$.Scratch.Set "data_i18_link" "/download"}}
+{{$.Scratch.Set "data_i18_cn" true }}
+{{- partial "head/preload-css" (dict "href" "/css/download-cn.css") -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+{{- end -}}
+
+{{- define "main" -}}
+<div class="download-cn">
+    <div class="enterprise-wrapper">
+        <div class="tidb-logo">
+            <img class="lazy" src="/images/download-cn/tidb-logo.png" />
+        </div>
+        <div class="card enterprise-card">
+            <div class="header">
+                <div class="rocket-icon"><img class="lazy" src="/images/download-cn/rocket-icon.svg" /></div>
+                <h1>开始体验 TiDB</h1>
+            </div>
+            <div class="form-wrapper">
+                <div class="subtitle">
+                    企业版，申请 30 天免费评估！
+                </div>
+                <form class="form-field" id="enterprise-form" action="" method="post">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" id="name" name="name" type="text" placeholder="姓名" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" id="phone" name="phone" type="text" placeholder="手机号码"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" id="email" name="email" type="text" placeholder="公司邮箱"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" id="company" name="company" type="text" placeholder="公司名称"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+                <div class="control">
+                    <label class="checkbox">
+                        <input type="checkbox" id="protocol-checked">
+                        我同意<a href="/zh/privacy-policy">隐私协议</a>。
+                    </label>
+                </div>
+                <button class="button submit" onclick="submit()">提交</button>
+                <div class="wrong-tips">错误提示：<span class="tips"></span></div>
+            </div>
+
+            <div class="feedback-wrapper">
+                <div class="title-field">
+                    <div class="title center">
+                        <img class="check-icon" src="/images/download-cn/check-circle.svg" alt="check circle icon" />
+                        <p>成功提交！</p>
+                    </div>
+                    <div class="feedback-desc">
+                        您的申请已成功提交，我们的支持团队会在 24 小时内与您联系试用事宜，如需帮助，请联系 <a
+                            href="mailto:tidb-support@pingcap.coim">tidb-support@pingcap.coim</a>
+                    </div>
+                </div>
+                <a href="/"><button class="button submit">返回首页</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $(".lazy").lazyload({
+        threshold: 200,
+        effect: "fadeIn"
+    });
+</script>
+<script type="text/javascript">
+    function validateForm(name, phone, email, company) {
+        $('.tips')[0].innerText = ''
+        let errArr = []
+        const phoneRegx = /^1[3456789]\d{9}$/
+        const re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        // check name validation
+        if (name == '') {
+            errArr.push('姓名为必填选项')
+        } else if (name.length > 64) {
+            errArr.push('名字长度不得超过 64 个字符')
+        }
+
+        // check phone
+        if (phone == '') {
+            errArr.push('手机为必填选项')
+        } else if (!(phoneRegx.test(phone))) {
+            errArr.push('请输入正确手机号')
+        }
+
+        if (email == '') {
+            errArr.push('邮箱为必填选项')
+        } else if (!re.test(String(email).toLowerCase())) {
+            errArr.push('请输入正确邮箱')
+        }
+
+        // check company
+        if (company == '') {
+            errArr.push('公司名称为必填选项')
+        } else if (company.length > 255) {
+            errArr.push('公司名称长度不得超过 255 个字符')
+        }
+
+        // check protocal box
+        if (!$('#protocol-checked').is(':checked')) {
+            errArr.push('必须同意 PingCAP 隐私协议')
+        }
+        return errArr
+    }
+
+    function submit() {
+        $('.wrong-tips').css('display', 'none')
+        const data = { 'name': $('#name').val(), 'phone': $('#phone').val(), 'email': $('#email').val(), 'company': $('#company').val() }
+        const errMsg = validateForm($('#name').val(), $('#phone').val(), $('#email').val(), $('#company').val())
+
+        if (errMsg.length == 0) {
+            $.ajax({
+                url: 'https://accounts.pingcap.com/api/customer-support/business-download-leads',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                    $('.form-wrapper').css('display', 'none')
+                    $('.feedback-wrapper').css('display', 'block')
+                },
+                error: function (err) {
+                    console.log('Submit form failed', err)
+                    if (err.status === 400) {
+                        const parseErr = JSON.parse(err.responseText)
+                        let errArr = []
+                        Object.values(parseErr["errors"]).forEach(e => (errArr.push(e)))
+                        $('.wrong-tips').css('display', 'block')
+                        $('.wrong-tips .tips').append(
+                            errArr.map(e => '<span>' + e + '</span>').join('，')
+                        )
+                    }
+                }
+            })
+        } else {
+            $('.wrong-tips').css('display', 'block')
+
+            $('.wrong-tips .tips').append(
+                errMsg.map(e => '<span>' + e + '</span>').join('，')
+            )
+        }
+    }
+</script>
+{{- end -}}

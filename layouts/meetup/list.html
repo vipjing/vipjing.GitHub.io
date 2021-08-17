@@ -1,0 +1,108 @@
+{{- define "title" -}}
+    {{ $.Scratch.Set "metaTitle" "Meetup" }}
+    Meetup
+{{- end -}}
+
+{{- define "headTpl" -}}
+    {{$.Scratch.Set "nav_active" "community"}}
+    {{$.Scratch.Set "data_i18_cn" true }}
+    {{$.Scratch.Set "data_i18_link" "/weekly" }}
+    {{- partial "head/preload-css" (dict "href" "/css/meetup.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/community/devcon2019.css")}}
+    {{- partial "head/preload-css" (dict "href" "/css/blog.css") -}}
+    {{ $.Scratch.Set "summary" "我们相信对技术的追求和对开源的热爱把你带到了这里。欢迎加入 TiDB 社区，和我们一起开启一段精彩的旅程。" }}
+    {{- partial "head/preload-css" (dict "href" "/css/vendor/swiper.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<section class="meetup-landing-page-banner">
+    <div class="mkdf-elements-holder-item-inner">
+        <h2>PingCAP Infra Meetup</h2>
+        {{- partial "layout/meetup-carousel.html" (dict "type" "meetup" "global" .) -}}
+    </div>
+</section>
+<section class="meetup-landing-page-intro">
+    <div class="container">
+        <h1 class="section-title"> Infra Meetup </h1>
+        <div class="desc">
+            PingCAP 希望能为国内真正关注技术本身的 Hackers 打造一个自由分享的平台。在这里，我们会定期邀请业内大牛与大家深度探讨基础架构领域的前瞻性技术思考与经验。希望通过提供一个高水准的前沿技术讨论空间，让大家在这里能够真正感受到自由的开源精神魅力。
+        </div>
+    </div>
+</section>
+<section class="meetup-landing-page-review">
+    <div class="container">
+        <h2 class="section-title">往期回顾</h2>
+        <div class="details">
+            <div class="row">
+                {{- range first 3 .Data.Pages.ByDate.Reverse -}}
+                <div class="item">
+                    <div class="layout-text-on-hover">
+                        <a href="{{ .RelPermalink }}" class="link-abs"></a>
+                        <div class="image">
+                            <img class="lazy" width="100%" data-original="https://download.pingcap.com{{.Params.image|default .Site.Data.meetup.default_cover}}" src="/images/svgs/loader-spinner.svg" alt="cover">
+                        </div>
+                        <div class="text">
+                            <h3 class="inner-title"> {{.Date.Format "2006-01-02"}} </h3>
+                        </div>
+                    </div>
+                    <h3>{{.Date.Format "2006-01-02"}}</h3>
+                    <p class="meetup-review-title">{{.Title}}</p>
+                </div>
+                {{- end -}}
+            </div>
+        </div>
+        {{- range first 1 (where (where (where .Site.Pages "Section" "meetup") ".Params.meetup_type" "!=" nil) ".Params.meetup_type" "==" "review") -}}
+           <a href="{{ .RelPermalink }}">
+             <button class="readMore-btn">
+               <span class="arrow"><img src="/images/svgs/blue-right-arrow.svg" alt="Arrow" /></span>
+               <span class="btn-text">查看更多</span>
+             </button>
+           </a>
+        {{- end -}}
+        
+    </div>
+</section>
+<section class="meetup-landing-page-memoir reading__section">
+    <div class="container">
+        <h2 class="section-title">分享实录</h2>
+        <div class="reading-list">
+            {{ $meetup_memoir := where (where (where .Site.Pages "Section" "meetup") ".Params.meetup_type" "!=" nil) ".Params.meetup_type" "==" "memoir"}}
+            {{- partial "archives/article-reading-card.html" (dict "posts" (first 1 $meetup_memoir.ByDate.Reverse) "hasMetaData" "true" "hasBrief" "true" "global" . "listType" "memoir") -}}
+        </div>
+    </div>
+
+    {{- partial "archives/readMoreBtn.html" (dict "url" "/meetup/recording" "btnText" "更多文章") }}
+
+</section>
+<section class="meetup-landing-page-lecturer">
+    <div class="instructors section-container">
+      <h1 class="section-title">大咖讲师</h1>
+      {{- partial "community-cn/instructors.html" (dict "instructors" .Site.Data.meetup.featured_speakers "type" "meetup") -}}
+    </div>
+</section>
+
+<section class="back-to-community-section">
+    <a href="/community-cn/#activities">
+        <button class="back-to-community">
+          更多社区活动
+        </button>
+    </a>
+</section>
+
+<section class="meetup-landing-page-banner-footer footer-section">
+    <div class="section-container banner-footer-mobile"></div>
+</section>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/devcon.js"></script>
+    <script type="text/javascript">
+        $(".lazy").lazyload({
+            effect : "fadeIn",
+            threshold: 200
+        });
+    </script>
+{{- end -}}

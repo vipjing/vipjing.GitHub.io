@@ -1,0 +1,223 @@
+[
+  {
+    "name": "Paypay",
+    "children": [
+      {
+        "name": "Database Administrator",
+        "link": "/community-cn/careers/paypay/dba/"
+      }
+    ]
+  },
+  {
+    "name": "Square",
+    "children": [
+      {
+        "name": "Software Engineering Manager, Platform, Cash App",
+        "link": "/community-cn/careers/square/software-engineering-manager/"
+      }
+    ]
+  },
+  {
+    "name": "UCloud",
+    "children": [
+      {
+        "name": "Go 研发工程师",
+        "link": "/community-cn/careers/ucloud/go-engineer-paas/"
+      },
+      {
+        "name": "Go 研发工程师",
+        "link": "/community-cn/careers/ucloud/go-engineer-tidb/"
+      }
+    ]
+  },
+  {
+    "name": "爱奇艺",
+    "children": [
+      {
+        "name": "高级数据库研发运维工程师",
+        "link": "/community-cn/careers/iqiyi/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "伴鱼",
+    "children": [
+      {
+        "name": "实时计算高级研发工程师",
+        "link": "/community-cn/careers/banyu/real-time-computing-senior-engineer/"
+      },
+      {
+        "name": "对象存储高级研发工程师",
+        "link": "/community-cn/careers/banyu/storage-senior-engineer/"
+      }
+    ]
+  },
+  {
+    "name": "Bigo",
+    "children": [
+      {
+        "name": "高级数据库管理员",
+        "link": "/community-cn/careers/bigo/senior-dba/"
+      }
+    ]
+  },
+  {
+    "name": "Bilibili",
+    "children": [
+      {
+        "name": "高级 DBA 工程师",
+        "link": "/community-cn/careers/bilibili/dba/"
+      },
+      {
+        "name": "资深 DBA 工程师",
+        "link": "/community-cn/careers/bilibili/senior-dba/"
+      }
+    ]
+  },
+  {
+    "name": "得物",
+    "children": [
+      {
+        "name": "中高级/资深 DBA 工程师",
+        "link": "/community-cn/careers/dewu/dba/"
+      }
+    ]
+  },
+  {
+    "name": "虎牙",
+    "children": [
+      {
+        "name": "DBA 工程师",
+        "link": "/community-cn/careers/huya/dba/"
+      }
+    ]
+  },
+  {
+    "name": "理想汽车",
+    "children": [
+      {
+        "name": "高级/资深 DBA",
+        "link": "/community-cn/careers/lixiangqiche/dba/"
+      }
+    ]
+  },
+  {
+    "name": "涂鸦智能",
+    "children": [
+      {
+        "name": "golang 资深工程师",
+        "link": "/community-cn/careers/tuyazhineng/senior-golang-engineer/"
+      },
+      {
+        "name": "golang 开发工程师",
+        "link": "/community-cn/careers/tuyazhineng/golang-engineer/"
+      }
+    ]
+  },
+  {
+    "name": "新东方",
+    "children": [
+      {
+        "name": "数据库资深工程师",
+        "link": "/community-cn/careers/edu/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "小嘿科技",
+    "children": [
+      {
+        "name": "数据库工程师",
+        "link": "/community-cn/careers/xiaoheikeji/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "小米",
+    "children": [
+      {
+        "name": "DBA 工程师",
+        "link": "/community-cn/careers/xiaomi/dba/"
+      },
+      {
+        "name": "分布式数据库研发（偏内核）",
+        "link": "/community-cn/careers/xiaomi/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "知乎",
+    "children": [
+      {
+        "name": "微服务平台开发工程师",
+        "link": "/community-cn/careers/zhihu/microservice-engineer/"
+      },
+      {
+        "name": "大数据实时处理平台研发工程师",
+        "link": "/community-cn/careers/zhihu/real-time-engineer/"
+      }
+    ]
+  },
+  {
+    "name": "中国移动云能力中心",
+    "children": [
+      {
+        "name": "数据库内核研发",
+        "link": "/community-cn/careers/chinamobile/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "掌门",
+    "children": [
+      {
+        "name": "DBA - TiDB 专岗",
+        "link": "/community-cn/careers/zhangmen/dba-tidb/"
+      },
+      {
+        "name": "MySQL 运维工程师",
+        "link": "/community-cn/careers/zhangmen/dba-mysql/"
+      }
+    ]
+  },
+  {
+    "name": "易车网",
+    "children": [
+      {
+        "name": "DBA",
+        "link": "/community-cn/careers/yichewang/dba/"
+      }
+    ]
+  },
+  {
+    "name": "建信金科",
+    "children": [
+      {
+        "name": "分布式数据库 DBA 和 SQL 应用分析师",
+        "link": "/community-cn/careers/ccb/dba/"
+      },
+      {
+        "name": "分布式数据库内核和系统研发工程师",
+        "link": "/community-cn/careers/ccb/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "欢聚时代",
+    "children": [
+      {
+        "name": "数据库高级工程师",
+        "link": "/community-cn/careers/yy/engineer/"
+      }
+    ]
+  },
+  {
+    "name": "金山办公软件",
+    "children": [
+      {
+        "name": "DBA 运维开发",
+        "link": "/community-cn/careers/kingsoft/dba/"
+      }
+    ]
+  }
+]

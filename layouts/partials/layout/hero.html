@@ -1,0 +1,15 @@
+<div class="hero">
+    <div class="hero__container">
+        <div class="hero__inner f-tc">
+            {{- if .headingLogo -}}
+                <div class="hero__logo_wrap"><img class="image" src="{{.headingLogo}}" alt="PingCAP" /></div>
+            {{- end -}}
+            {{- if .heading -}}<h1 class="hero__heading">{{ .heading }}</h1>{{- end -}}
+            {{- if .subheading -}}<h2 class="hero__subheading">{{ .subheading }}</h2>{{- end -}}
+            {{- if .actions -}}
+                <button id="topLoginBtn" class="hero__signin_bnt">{{ .actions }}</button>
+                <p class="hero__tips">{{ .tips }}</p>
+            {{- end -}}
+        </div>
+    </div>
+</div>

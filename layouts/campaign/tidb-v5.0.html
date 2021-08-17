@@ -1,0 +1,223 @@
+{{- define "headTpl" -}}
+<meta name="baidu-site-verification" content="hrZ03lmoDB" />
+<meta name="google-site-verification" content="drHXf-Q97rcbwLZryBSFV8eW1pj1ddF4MHzZOfODhQU" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@100&display=swap"
+    rel="stylesheet">
+{{$.Scratch.Set "data_i18_cn" true }}
+{{$.Scratch.Set "data_i18_link" "https://en.pingcap.com/" }}
+{{- partial "head/preload-css" (dict "href" "/css/campaign/tidb-v5.0.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/vendor/swiper.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+<section class="campaign-v5-hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="slogan">
+                <div class="slogan-title">TiDB 5.0 正式发布</div>
+                <div class="slogan-subtitle">
+                    <img class="tidb-logo" src="https://download.pingcap.com/images/campaign/tidb-v5.0/tidb-logo.svg" />
+                    <p>服务核心场景的企业级分布式数据库</p>
+                </div>
+                <a class="book-btn" href="https://app.ma.scrmtech.com/svip/IndexCustomerForm/CustomerIndex?pf_uid=19697_1864&is_follow=yes&pf_type=3&id=5618&channel=9034" target="_blank"><button>抢先试用</button></a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="campaign-v5-intro">
+    <div class="container">
+        <a class="book-btn-mobile" href="https://app.ma.scrmtech.com/svip/IndexCustomerForm/CustomerIndex?pf_uid=19697_1864&is_follow=yes&pf_type=3&id=5618&channel=9034" target="_blank"><button>抢先试用</button></a>
+        <div class="intro">
+            <p>经过近一年紧锣密鼓的开发和打磨，TiDB 5.0 具备金融行业核心业务场景的服务能力，成为真正服务核心场景的企业级分布式数据库。</p>
+            <p>TiDB 5.0 性能与稳定性得到显著提升，从而拥有更强大的 OLTP 金融级核心场景服务能力；在原有 HTAP 引擎 TiFlash 基础上引入 MPP 架构，使得众多企业的实时/交互式 BI
+                成为现实，为高成长企业和数字化创新场景提供了一栈式的数据服务底座，加速带动 HTAP 进入更多大型企业的数字化场景。</p>
+        </div>
+    </div>
+</section>
+
+<section class="campaign-v5-features">
+    <div class="container">
+        <div class="section-title">TiDB 5.0 最新特性</div>
+        <div class="columns reverse">
+            <div class="column align-center"><img src="https://download.pingcap.com/images/campaign/tidb-v5.0/feat-1.svg" /></div>
+            <div class="column">
+                <div class="feat-title">多项性能指标实现突破</div>
+                <div class="feat-subtitle">通过开启聚簇索引、异步提交事务、MPP 架构提升性能</div>
+                <p><span>聚簇索引</span>：开启后，TiDB 在 Sysbench 测试中，Read Write 性能提升达 58.1%;</p>
+                <p><span>异步提交事务</span>：开启后，平均延迟由 12.04 ms 降到 7.01ms ，降幅达 41.7%;</p>
+                <p><span>MPP 引擎</span>：MPP 引擎总体性能是 Greenplum 6.15.0 与 Apache Spark 3.1.1 的 2-3 倍，部分查询可达 8 倍。</p>
+                <div class="read-more"><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0"
+                        target="_blank">探索更多功能</a></div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column align-center"><img src="https://download.pingcap.com/images/campaign/tidb-v5.0/feat-2.svg" /></div>
+            <div class="column">
+                <div>
+                    <div class="feat-title">稳定性大幅提升</div>
+                    <div class="feat-subtitle">在 TPC-C OLTP 基准测试中，衡量 TPC-C tpm-C 抖动标准差的值小于等于 2%</div>
+                    <p><span>优化资源调度</span>：优化 TiDB 调度过程中对 I/O、网络、CPU、内存等资源的占用；</p>
+                    <p><span>优化 SQL 语句</span>：优化 SQL 语句，确保 TiDB 新版本稳定性；</p>
+                    <p><span>优化升级计划</span>：新增自动捕获并绑定查询计划的功能。</p>
+                    <div class="read-more"><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0"
+                            target="_blank">探索更多功能</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="columns reverse">
+            <div class="column align-center"><img src="https://download.pingcap.com/images/campaign/tidb-v5.0/feat-3.svg" /></div>
+            <div class="column">
+                <div>
+                    <div class="feat-title">全方位提升易用性</div>
+                    <div class="feat-subtitle">提供更加简易的运维体验，全方位提升 TiDB 易用性</div>
+                    <p><span>更精准的性能排查</span>：通过 EXPLAIN 可查看日志、监控等详细信息；</p>
+                    <p><span>更高效的集群部署</span>：新版本 TiUP 提供业务无感知的升级体验，升级过程中性能抖动控制在 10~30 秒；</p>
+                    <p><span>更全面的 SQL 调优</span>：支持不可见索引 (Invisible Indexes)。</p>
+                    <div class="read-more"><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0"
+                            target="_blank">探索更多功能</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column align-center"><img src="https://download.pingcap.com/images/campaign/tidb-v5.0/feat-4.svg" /></div>
+            <div class="column">
+                <div>
+                    <div class="feat-title">丰富数据生态</div>
+                    <div class="feat-subtitle">增加多个数据迁移，数据导入，数据共享组件，方便用户在异构环境使用 TiDB</div>
+                    <p><span>数据迁移</span>：支持 S3 存储服务作为数据迁移的中间转存介质，支持将 Aurora 快照数据直接初始化 TiDB 中；</p>
+                    <p><span>数据导入</span>：TiDB Lightning 针对 DBaaS AWS T1.standard 配置（及其等同配置）的 TiDB 集群数据导入进行优化，性能提升
+                        40%；</p>
+                    <p><span>数据共享</span>：TiCDC 集成 Kafka Connect ，并支持在多套 TiDB 集群之间相互复制数据。</p>
+                    <div class="read-more"><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0"
+                            target="_blank">探索更多功能</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="columns reverse">
+            <div class="column align-center"><img src="https://download.pingcap.com/images/campaign/tidb-v5.0/feat-5.svg" /></div>
+            <div class="column">
+                <div>
+                    <div class="feat-title">企业级特性获整体增强</div>
+                    <div class="feat-subtitle">新增多项企业级特性，带动企业用户加速推进数字化转型与升级</div>
+                    <p><span>事务方面</span>：悲观模式下，确保事务提交成功性；</p>
+                    <p><span>高可用与容灾</span>：引入 Raft Joint Consensus 算法，提升 Region 成员变更时的可用性；</p>
+                    <p><span>安全合规</span>：错误信息与日志信息脱敏处理，避免敏感信息泄露。</p>
+                    <div class="read-more"><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0"
+                            target="_blank">探索更多功能</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="campaign-v5-ribbon">
+    <a href="https://app.ma.scrmtech.com/meetings/meetingPc/Detail?pf_uid=19697_1864&pf_type=3&id=30819&auto_apply_meeting=1"
+        target="_blank">
+        <img class="pc" src="https://download.pingcap.com/images/campaign/tidb-v5.0/ribbon.svg" />
+        <img class="mobile" src="https://download.pingcap.com/images/campaign/tidb-v5.0/ribbon-mobile.svg" />
+    </a>
+</section>
+
+<section class="campaign-v5-try">
+    <div class="container">
+        <div class="section-title">TiDB 5.0 抢先试用</div>
+        <p>
+            PingCAP 现面向所有 TiDB 核心用户群体，开放少量优先试用名额，您将有机会抢先体验 5.0 的各项新功能！
+        </p>
+        <div class="columns">
+            <div class="column is-10">
+                <p>
+                    与此同时，如果您反馈和分享实际场景下的试用体验，参与 TiDB 5.0 首席体验官的评选，还有多项激励等您来拿！
+                </p>
+            </div>
+            <div class="column is-2">
+                <div class="read-more"><a href="https://asktug.com/t/topic/69517 " target="_blank">了解活动详细流程</a></div>
+            </div>
+        </div>
+
+
+        <div class="columns rights">
+            <div class="column">
+                <div class="card">
+                    <div class="card-title">权益一</div>
+                    <div class="card-title">TiDB 最新定制周边</div>
+                    <div class="icons">
+                        <img src="https://download.pingcap.com/images/campaign/tidb-v5.0/icon-1.svg" />
+                    </div>
+                    <div class="detail">报名成功即可获得，我们将为所有报名用户提供一份 TiDB 最新定制周边礼品。
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-title">权益二</div>
+                    <div class="card-title">TiDB 专业服务支持礼包（限量 100 个）</div>
+                    <div class="icons">
+                        <img src="https://download.pingcap.com/images/campaign/tidb-v5.0/icon-2.svg" />
+                    </div>
+                    <div class="detail">报名并完成专项测试，即可获得 PingCAP 专家顾问提供的为期 2 个月 2 次紧急 OnCall 服务（限量100个，测试期间的专属支持服务除外）
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-title">权益三</div>
+                    <div class="card-title">TiDB 5.0 荣誉体验官（限额 10 名）</div>
+                    <div class="icons">
+                        <img src="https://download.pingcap.com/images/campaign/tidb-v5.0/icon-3.svg" />
+                    </div>
+                    <div class="detail">完成测试并分享试用体验，最受欢迎的前 10 名将受邀参加 TiDB DevCon 2021 ，现场授予荣誉并颁发奖品（Switch + 健身环）</div>
+                </div>
+            </div>
+        </div>
+        <div class="book">
+            <a href="https://app.ma.scrmtech.com/svip/IndexCustomerForm/CustomerIndex?pf_uid=19697_1864&is_follow=yes&pf_type=3&id=5618&channel=9034" target="_blank"><button>抢先试用</button></a>
+            <p>将有专属技术顾问为您提供全程支持</p>
+        </div>
+    </div>
+</section>
+
+<section class="campaign-v5-test-pkg">
+    <div class="container content">
+        <div class="columns">
+            <div class="column">
+                <div class="section-title">测试工具包</div>
+                <ul>
+                    <li><a href="/download-cn/">TiDB 5.0 软件包下载</a></li>
+                    <li><a href="https://docs.pingcap.com/zh/tidb/v5.0/release-5.0.0" target="_blank">TiDB 5.0 功能一览：TiDB v 5.0 正式版功能一览</a>
+                    </li>
+                    <li><a href="https://docs.pingcap.com/zh/tidb/stable/upgrade-tidb-using-tiup" target="_blank">升级指南：使用 TiUP 升级到 TiDB
+                            5.0</a></li>
+                </ul>
+            </div>
+            <div class="column right-icon">
+                <img src="https://download.pingcap.com/images/campaign/tidb-v5.0/download.svg" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="campaign-v5-case">
+    <div class="container">
+        <div class="section-title">TiDB 精彩案例</div>
+        <div class="columns">
+            {{ range $i := .Site.Data.campaign_tidb_5_0.cases }}
+            <div class="column">
+                <a href="{{ $i.link }}"><img src="{{ $i.img }}" /></a>
+                <p>{{ $i.name }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+</section>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/swiper.min.js"></script>
+<script type="text/javascript" src="/js/multi_slides_carousel.js"></script>
+{{- end -}}

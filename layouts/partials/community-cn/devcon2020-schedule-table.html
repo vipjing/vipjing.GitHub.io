@@ -1,0 +1,78 @@
+{{ $schedule := .schedule }}
+{{ $date := .date}}
+{{ $isCn := .isCn }}
+{{ $isPreDay := .isPreDay }}
+{{ $devcon2021 := .devcon2021 }}
+
+{{- range $idx, $i := $schedule -}}
+<div class="schedule {{ if eq $date "day2" }}hide-schedule {{ end }}{{ $date }}"
+    id="{{ replace (replace $i.name  "/" "-" ) " " "-" }}">
+    {{ if $devcon2021 }}
+        <div class="forum">
+            <div class="forum-title">
+                <div class="venue-title">{{ $i.name }}</div><img src="{{ $i.icon}}" />
+            </div>
+            <div class="venue-desc">{{ $i.desc }}</div>
+        </div>
+    {{ else }}
+        {{ if $i.name }}
+        <div class="venue-title">{{ $i.name }}</div>
+        {{ end }}
+    {{ end }}
+    {{ if $i.schedules }}
+    <table class="schedule-table">
+        <tr class="head">
+            <td>{{if $isCn }}时间{{else}}Time{{end}}</td>
+            <td>{{if $isCn }}{{if $isPreDay}}日程{{else}}议题{{end}}{{else}}Topic{{end}}</td>
+            <td>{{if $isCn }}{{if $isPreDay}}{{else}}演讲嘉宾{{end}}{{else}}Speaker{{end}}</td>
+            <td></td>
+        </tr>
+        {{- range $idx2, $j := $i.schedules -}}
+        {{- if $j.TBA -}}
+        <tr>
+            <td>{{ $j.time }}</td>
+            <td colspan="3">
+                <p class="TBA">{{if $isCn }}敬请期待{{else}}TBA{{end}}</p>
+            </td>
+        </tr>
+        {{- else if $j.break -}}
+        <tr>
+            <td>{{ $j.time }}</td>
+            <td colspan="3">
+                <p class="TBA">{{if $isCn }}【中场休息】{{else}}Half Time{{end}}</p>
+            </td>
+        </tr>
+        {{- else -}}
+        <tr class="{{ if $j.talk_detail }}collapsable{{ end }}">
+            <td>{{ $j.time }}</td>
+            <td>{{ $j.talk_title }}</td>
+            {{- if and $j.company -}}
+            <td><span class="speaker">{{ $j.speaker }} | </span>{{ $j.company }}</td>
+            {{- else -}}
+            <td>{{ $j.speaker }}</td>
+            {{- end -}}
+
+            {{- if $j.talk_detail -}}
+            <td class="add-icon"> + </td>
+            {{- else -}}
+            <td></td>
+            {{- end -}}
+        </tr>
+        {{- if $j.talk_detail -}}
+        <tr class="detail-block">
+            <td></td>
+            <td colspan="3">
+                <ul style="list-style: none;">
+                    {{- range $idx2, $k := $j.talk_detail -}}
+                    <li class="pagraphList">{{ $k }}</li>
+                    {{- end -}}
+                </ul>
+            </td>
+        </tr>
+        {{- end -}}
+        {{- end -}}
+        {{- end -}}
+    </table>
+    {{ end }}
+</div>
+{{- end -}}

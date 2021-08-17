@@ -1,0 +1,54 @@
+{{ $nav_active := $.Scratch.Get "nav_active" }}
+{{ $data_i18_link := $.Scratch.Get "data_i18_link" }}
+<!-- nav -->
+<nav class="mobile-sidebar">
+    <div class="nav-header">
+        <div class="logo-wrap">
+        <a class="nav-brand" href="/en"><img src="/images/pingcap-logo.png" alt="PingCAP"></a>
+        </div>
+    </div>
+    <ul class="ul-base">
+        <!-- <li class="docs-type-selector {{ if eq $nav_active "docs"}}sel{{end}}" id="docsTypeSelector">
+            <p class="header-doc-nav">文档</p>
+            <div class="header-dropdown-menu" id="docsTypeSelectorItem">
+                <a class="header-dropdown-item" href="/docs-cn/stable/" onclick="trackViews('navbar-tidb-docs', 'docs-cn_view')">TiDB</a>
+                <a class="header-dropdown-item" href="/docs-cn/tidb-in-kubernetes/stable/" onclick="trackViews('navbar-operator-docs', 'docs-cn_view')">TiDB in Kubernetes</a>
+                <a class="header-dropdown-item" href="/docs-cn/tidb-data-migration/stable/" onclick="trackViews('navbar-dm-docs', 'docs-cn_view')">TiDB Data Migration (DM)</a>
+            </div>
+        </li> -->
+
+        <li {{ if eq $nav_active "docs"}}class="sel"{{end}}><a href="https://docs.pingcap.com/zh/tidb/stable/">文档</a></li>
+        <li {{ if eq $nav_active "cases"}}class="sel"{{end}}><a href="/cases-cn">案例</a></li>
+        <li {{ if eq $nav_active "community"}}class="sel"{{end}}><a href="/community-cn">社区</a></li>
+        <li {{ if eq $nav_active "blog"}}class="sel"{{end}}><a href="/blog-cn">博客</a></li>
+        <li {{ if eq $nav_active "about"}}class="sel"{{end}}><a href="/about-cn">关于</a></li>
+        <li><a href="https://asktug.com" target="_blank"
+            onclick="trackViews('navbar-asktug', 'asktug_view')">问答</a></li>
+        <li {{ if eq $nav_active "download"}}class="sel"{{end}}><a href="/download-cn">下载试用</a></li>
+        <li><a class="link-download" href="/about-cn/#contact-us"
+            onclick="trackViews('navbar-contact-us', 'about_cn_view')">联系我们</a></li>
+        <li><a href="https://university.pingcap.com/"
+            onclick="trackViews('navbar-university', 'pingcap-university_view')" target="_blank"
+            class="nav-blinking">PingCAP Education</a></li>
+    </ul>
+    <div class="nav-footer">
+        <div class="contact-list-wrap">
+        <div class="flex-list">
+            <h4 class="list-title"><strong>Contact</strong></h4>
+            <ul class="social social-cn ul-base">
+            <li><a href="https://twitter.com/PingCAP" class="twitter" target="_blank">{{ partial "svgs/icon-twitter.svg" (dict "width" 18 "height" 18 ) }}</a></li>
+            <li><a href="https://www.linkedin.com/company/pingcap/" class="linkedin" target="_blank">{{ partial "svgs/icon-linked-in.svg" (dict "width" 18 "height" 18 ) }}</a></li>
+            <li><a href="https://www.reddit.com/r/TiDB/" class="reddit" target="_blank">{{ partial "svgs/icon-reddit.svg" (dict "width" 18 "height" 18 ) }}</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/tidb-user" class="google-plus" target="_blank">{{ partial "svgs/icon-google-plus.svg" (dict "width" 18 "height" 18 ) }}</a></li>
+            <li><a href="https://stackoverflow.com/questions/tagged/tidb" class="stack-overflow" target="_blank">{{ partial "svgs/icon-stack-overflow.svg" (dict "width" 18 "height" 18 ) }}</a></li>
+            <li id="wechat-mobile"><a class="wechat" href="javascript:void(0)">{{ partial "svgs/icon-weixin.svg" (dict "width" 18 "height" 18 ) }}</a>{{ partial "common/qr-code.html" . }}</li>
+            </ul>
+        </div>
+        <div class="subscribe" id="subscribe-mobile"></div>
+        </div>
+        <div class="container">
+        <a href="{{ or $data_i18_link .Params.data_i18_page_link }}" class="btn-lang" id="lang">English</a>
+        </div>
+    </div>
+</nav>
+<!-- @end nav -->

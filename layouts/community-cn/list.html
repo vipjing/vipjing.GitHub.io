@@ -1,0 +1,211 @@
+{{- define "headTpl" -}}
+{{$.Scratch.Set "nav_active" "community"}}
+{{- partial "head/preload-css" (dict "href" "/css/community/list.css") -}}
+{{- partial "head/preload-css" (dict "href" "/css/article-reading-card.css") -}}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{- partial "head/preload-css" (dict "href" "/css/vendor/calendar.css") -}}
+{{ $.Scratch.Set "data_i18_link" "/community" }}
+{{- end -}}
+
+{{- define "main" -}}
+<div class="community-homepage">
+    <div class="banner__section homepage__banner">
+        <div class="banner__content-container">
+            <a href="https://github.com/pingcap"><button class="gitHub">GitHub</button></a>
+            <div class="content">
+                <div class="title-image">
+                    <img src="/images/community/banners/TiDB+Community.svg" alt="Community banner" />
+                </div>
+                <div class="intro">
+                    「如果你有正确的态度，有趣的事情自然会找到你。」我们相信对技术的追求和对开源的热爱把你带到了这里。欢迎加入
+                    TiDB 社区，和我们一起开启一段精彩的旅程。
+                </div>
+                <div class="btns">
+                    <a href="/community-cn/organization/">
+                        <button class="community-btns">
+                            <span class="arrow"><img src="/images/svgs/white-right-arrow.svg" alt="Arrow" /></span>
+                            <span class="btn-text">了解社区</span>
+                        </button>
+                    </a>
+                    <a href="https://developer.tidb.io/" target="_blank" rel="noopener noreferrer">
+                        <button class="community-btns">
+                            <span class="arrow"><img src="/images/svgs/white-right-arrow.svg" alt="Arrow" /></span>
+                            <span class="btn-text">成为 Contributor</span>
+                        </button>
+                    </a>
+                    <a href="https://tug.tidb.io/">
+                        <button class="community-btns">
+                            <span class="arrow"><img src="/images/svgs/white-right-arrow.svg" alt="Arrow" /></span>
+                            <span class="btn-text">加入 TUG</span>
+                        </button>
+                    </a>
+                    <a href="https://tidb-jobs.pingcap.com/" target="_blank">
+                        <button class="community-btns">
+                            <span class="arrow"><img src="/images/svgs/white-right-arrow.svg" alt="Arrow" /></span>
+                            <span class="btn-text">寻找工作机会</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="relationship">
+                    <img src="/images/community/banners/community-banner-side-img.svg" alt="Banner background" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity__section">
+        <div class="section-container">
+            <h1 class="section-title">社区活动</h1>
+            <div class="current-activity">
+                {{- range $idx, $i := .Site.Data.meetup.next_meetup_or_activity -}}
+                <div class="feature-activity" style="display:none;">
+                    <p>{{ $i.topic }}</p>
+                    <p>{{ $i.date }}</p>
+                    <p>{{ $i.signup_link }}</p>
+                    <p>{{ $i.addr }}</p>
+                </div>
+                {{- end -}}
+
+                {{- range $idx, $i := .Site.Data.community_activities.upcoming_activities -}}
+                <div class="feature-activity" style="display:none;">
+                    <p>{{ $i.topic }}</p>
+                    <p>{{ $i.date }}</p>
+                    <p>{{ $i.signup_link }}</p>
+                    <p>{{ $i.addr }}</p>
+                </div>
+                {{- end -}}
+
+                {{- range $idx, $i := .Site.Data.community_activities.activities -}}
+                {{- if .active -}}
+                <div class="signable">
+                    <a href="{{ $i.link }}">
+                        <div class="picture">
+                            <img class="active_image_pc" src="{{ $i.active_image_pc }}" alt="Community activity" />
+                            <img class="active_image_mobile" src="{{ $i.active_image_mobile }}"
+                                alt="Community activity" />
+                        </div>
+                        <div class="current-activity-content">
+                            <div class="current-activity-summary">{{ $i.summary }}</div>
+                        </div>
+                    </a>
+                </div>
+                {{- end -}}
+                {{- end -}}
+
+                <div id="calendar">
+                    <div class="event-list">
+                        <div class="event-banner">Events</div>
+                        <a class="close-icon">
+                            <svg viewBox="0 0 20 20">
+                                <path
+                                    d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activities__list">
+                {{- range $idx, $i := .Site.Data.community_activities.activities -}}
+                {{- if not .active -}}
+                <div class="activity">
+                    <a href="{{ $i.link }}">
+                        <div class="picture">
+                            <img class="lazy" height="65" src="/images/svgs/loader-spinner.svg"
+                                data-original="{{ $i.active_image_mobile }}" alt="Community activity" />
+                        </div>
+                        <div class="name">{{ $i.name }}</div>
+                        <div class="summary">
+                            <p>{{ $i.summary }}</p>
+                        </div>
+                    </a>
+                </div>
+                {{- end -}}
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+
+    <div class="reading__section">
+        <div class="section-container">
+            <h1 class="section-title">社区学习库</h1>
+            <div class="reading-list">
+            {{ range $idx, $i := .Site.Data.community_activities.learning_materials }}
+                {{ if $i.tags }}
+                    <div class="blog__article">
+                        <div class="logo" style="background-color: {{- $i.bg_color -}}">
+                            <img class="lazy" src="{{- $i.thumb_img -}}" alt="Cover" />
+                        </div>
+                        <div class="content">
+                            <div class="title">{{ $i.title }}</div>
+                            <div class="brief">
+                                {{ $i.brief }}
+                            </div>
+                            <div class="tags">
+                            {{ range $idx2, $j := $i.tags }}
+                                <a class="tag {{ replace (lower $j.tag) " " "-" }}-tag" href="{{ $j.link }}" style="background-color: {{- $j.color -}}; border: 1px solid {{- $j.color -}};">{{ $j.tag }}</a>
+                            {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                {{ else }}
+                <a class="blog__article" href="{{ $i.link }}" target="{{ if $i.external_link }}_blank{{ end }}">
+                    <div class="logo" style="background-color: {{- $i.bg_color -}}">
+                        <img class="lazy" src="{{- $i.thumb_img -}}" alt="Cover" />
+                    </div>
+                    <div class="content">
+                        <div class="title">{{ $i.title }}</div>
+                        <div class="brief">
+                            {{ $i.brief }}
+                        </div>
+                        {{ if $i.tags }}
+                        {{ range $idx2, $j := $i.tags }}
+                        <a href="{{ $j.link }}" class="tag" style="background-color: {{- $j.color -}};">{{ $j.tag }}</a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<section class="video__section">
+    <div class="section-container">
+        <div class="video-wrapper">
+            <video id="video" preload="auto" controls webkit-playsinline="true"
+                poster="https://download.pingcap.com/images/community-poster.jpg" playsinline="true">
+                <source src="https://download.pingcap.com/videos/community-video.mp4"
+                    type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+
+<div class="tidb-planet-robot">
+    <img src="/images/tidb-planet/robot.svg" alt="TiDB robot" />
+</div>
+
+<div class="qr-tooltiptext f-hide">
+    欢迎加入 TiDB 社区～
+    <div class="tidb-robot-qrCode">
+        <img src="/images/community/tidb-robot-qrCode.jpg" alt="TiDB planet qrCode" />
+    </div>
+</div>
+</div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/community.js"></script>
+<script type="text/javascript" src="/js/vendor/calendar.js"></script>
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $('.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200
+    })
+</script>
+{{- end -}}

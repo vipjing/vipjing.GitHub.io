@@ -1,0 +1,92 @@
+{
+  "banners": [
+    {
+      "link": "/community-cn/devcon2021",
+      "gaTrackEventClass": "tidb-devcon-2021",
+      "gaTrackEventLabel": "tidb-devcon-2021",
+      "img": "/images/community/devcon2021/entry-banner-mobile.png",
+      "alt": "TiDB DevCon 2021",
+      "newTab": false
+    },
+    {
+      "link": "/community-cn/hacking-camp-2021-season-2",
+      "gaTrackEventClass": "tidb-hacking-camp-2021-s2_view",
+      "gaTrackEventLabel": "tidb-hacking-camp-2021-s2",
+      "img": "/images/community/hacking-camp-2021-s2/mobile-banner.svg",
+      "alt": "TiDB Hacking Camp 2021",
+      "newTab": false
+    },
+    {
+      "link": "https://app.ma.scrmtech.com/meetings/meetingPc/Detail?pf_uid=19697_1864&pf_type=3&id=30819&auto_apply_meeting=1",
+      "gaTrackEventClass": "tidb-v5.0-press-conference_view",
+      "gaTrackEventLabel": "tidb-v5.0-press-conference",
+      "img": "https://download.pingcap.com/images/tidb-5.0-press-conference.jpg",
+      "alt": "TiDB v5.0 Press Conference",
+      "newTab": true
+    },
+    {
+      "link": "/campaign/tidb-v5.0/",
+      "gaTrackEventClass": "campaign_tidb-v5.0_view",
+      "gaTrackEventLabel": "campaign-tidb-v5.0",
+      "img": "https://download.pingcap.com/images/campaign/tidb-v5.0/homepage-banner.jpg",
+      "alt": "Campaign TiDB v5.0",
+      "newTab": false
+    },
+    {
+      "link": "https://campus.pingcap.com",
+      "gaTrackEventClass": "job-campus-2021_view",
+      "gaTrackEventLabel": "job-campus-2021",
+      "img": "https://download.pingcap.com/images/community/activities/campus-job-2021.jpg",
+      "alt": "TiDB Campus Job 2021",
+      "newTab": true
+    },
+    {
+      "link": "https://github.com/pingcap/community/tree/master/incubator",
+      "gaTrackEventClass": "tidb-incubator-incubator_view",
+      "gaTrackEventLabel": "tidb-incubator-program",
+      "img": "https://download.pingcap.com/images/community/activities/home-incubator-program-carousel.svg",
+      "alt": "TiDB Incubator Program",
+      "newTab": true
+    },
+    {
+      "link": "https://university.pingcap.com/courses?categories=TiDB-4",
+      "gaTrackEventClass": "tidb-4-courses_view",
+      "gaTrackEventLabel": "tidb-4-courses",
+      "img": "/images/home-tidb-4-courses-carousel.jpg",
+      "alt": "TiDB 4.0 Courses",
+      "newTab": true
+    },
+    {
+      "link": "https://tidb-jobs.pingcap.com/",
+      "gaTrackEventClass": "community-careers_view",
+      "gaTrackEventLabel": "homepage-community-careers",
+      "img": "/images/home-careers-carousel.jpg",
+      "alt": "Community careers",
+      "newTab": false
+    },
+    {
+      "link": "https://university.pingcap.com/",
+      "gaTrackEventClass": "pingcap-university_view",
+      "gaTrackEventLabel": "homepage-university-banner",
+      "img": "https://download.pingcap.com/images/university-carousel-img.png",
+      "alt": "PingCAP Education banner",
+      "newTab": true
+    },
+    {
+      "link": "https://tug.tidb.io/",
+      "gaTrackEventClass": "asktug_view",
+      "gaTrackEventLabel": "homepage-asktug-banner",
+      "img": "https://download.pingcap.com/images/asktug-carousel-img.png",
+      "alt": "AskTUG banner",
+      "newTab": true
+    },
+    {
+      "link": "https://pingcap.com/cases-cn/user-message-2019/",
+      "gaTrackEventClass": "user_message_2019_view",
+      "gaTrackEventLabel": "homepage-user-message-2019-banner",
+      "img": "https://download.pingcap.com/user-message-2019-banner.png",
+      "alt": "User message 2019 banner",
+      "newTab": false
+    }
+  ]
+}

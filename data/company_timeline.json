@@ -1,0 +1,81 @@
+[
+  {
+    "time": "2020 年 7 月",
+    "event_detail": ["CNCF 宣布云原生的混沌工程 Chaos Mesh 正式进入 CNCF 沙箱托管项目"]
+  },
+  {
+    "time": "2020 年 5 月",
+    "event_detail": ["TiDB 4.0 GA 发版"]
+  },
+  {
+    "time": "2019 年 12 月",
+    "event_detail": ["Chaos Mesh 正式开源"]
+  },
+  {
+    "time": "2019 年 9 月",
+    "event_detail": ["一体化数据同步平台 TiDB Data Migration 1.0 GA 发版"]
+  },
+  {
+    "time": "2019 年 8 月",
+    "event_detail": ["TiDB 用户问答论坛 AskTUG 正式上线"]
+  },
+  {
+    "time": "2019 年 6 月",
+    "event_detail": ["TiDB 3.0 GA 发版"]
+  }, 
+  {
+    "time": "2019 年 5 月",
+    "event_detail": ["CNCF 技术监督委员会（TOC）宣布已投票决议通过，正式将 TiKV 从沙箱项目晋级至孵化项目"]
+  },
+  {
+    "time": "2019 年 1 月",
+    "year_node": 2019,
+    "event_detail": ["TiDB Lightning Toolset & TiDB Data Migration 正式开源"]
+  },
+  {
+    "time": "2018 年 11 月",
+    "event_detail": ["Cloud TiDB 在 GCP（Google Cloud Platform） 上开放测试"]
+  },
+  {
+    "time": "2018 年 9 月",
+    "event_detail": [
+      "宣布获得复星、晨兴资本领投的 5000 万美元的 C 轮融资",
+      "TiDB 入选 InfoWorld 2018 Bossie Award as one of the best open source software for data storage and analytics"
+    ]
+  },
+  {
+    "time": "2018 年 8 月",
+    "event_detail": [
+      "TiDB Operator 开源",
+      "CNCF 接纳 TiKV 作为 CNCF Sandbox 的云原生项目"
+    ]
+  },
+  {
+    "time": "2018 年 7 月",
+    "year_node": 2018,
+    "event_detail": ["TiDB 入选业界知名的 Big Data Landscape 2018（由著名投资机构 FirstMark 出品）"]
+  },
+  {
+    "time": "2017 年 6 月",
+    "year_node": 2017,
+    "event_detail": ["宣布获得华创资本领投的 1500 万美元 B 轮融资"]
+  },
+  {
+    "time": "2016 年 8 月",
+    "event_detail": [
+      "获得云启资本领投的 A 轮融资",
+      "第一家客户在生产环境中使用"
+    ]
+  },
+  {
+    "time": "2015 年 9 月",
+    "event_detail": [
+      "TiDB 在 GitHub 上开源，一个月 Star 数超过 2700"
+    ]
+  },
+  {
+    "time": "2015 年 4 月",
+    "year_node": 2015,
+    "event_detail": ["获得天使轮投资，成立 PingCAP"]
+  }
+]

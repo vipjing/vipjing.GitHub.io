@@ -1,0 +1,25 @@
+{{- define "headTpl" -}}
+    {{$.Scratch.Set "data_i18_link" "/about-cn/news" }}
+    {{- partial "head/preload-css" (dict "href" "/css/cases.css") -}}
+    {{ $.Scratch.Set "metaTitle" "TiDB" }}
+{{- end -}}
+
+{{- define "main" -}}
+    {{ $heading := "PingCAP in the news" }}
+    <div class="news">
+        {{ partial "layout/hero.html" (dict "heading" $heading) }}
+        <div class="container">
+            {{- partial "news/list.html" (dict "posts" .Site.Data.news "global" .) -}}
+        </div>
+    </div>
+{{- end -}}
+
+{{- define "footJS" -}}
+<script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+<script type="text/javascript">
+    $(".lazy").lazyload({
+        threshold: 200,
+        effect : "fadeIn"
+    });
+</script>
+{{- end -}}

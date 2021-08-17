@@ -1,0 +1,122 @@
+{{- define "headTpl" -}}
+    {{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/gridtab.min.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/cases.css") -}}
+    {{$.Scratch.Set "nav_active" "cases"}}
+    {{$.Scratch.Set "data_i18_link" "/success-stories" }}
+    {{$.Scratch.Set "data_i18_cn" true }}
+{{- end -}}
+
+{{- define "main" -}}
+    <div class="cases">
+        <div class="banner">
+            <div class="banner__inner">
+                <h1 class="banner__slogan">Make Data Creative</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="cases__intro">
+                <p>TiDB 现已被 <strong>1500 </strong>多家不同行业的领先企业应用在实际生产环境。</p>
+            </div>
+
+            {{ $posts := where (where (where .Site.Pages "Section" "blog-cn") ".Params.title" "!=" nil) ".Params.category" "==" "case" }}
+            <div id="cases-tabs">
+                {{- range $index, $toc := .Site.Data.cases_cn_toc -}}
+                    <dt class="tab tab-{{ $index }}">{{- .name -}}</dt>
+                    <dd>{{- partial "cases/tab-panel.html" (dict "posts" $posts "name" .name "global" .) -}}</dd>
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="https://download.pingcap.com/js/gridtab.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // process grid tabs
+            $('#cases-tabs').gridtab({
+                grid: 5,
+                borderWidth: 1,
+                tabPadding: 12,
+                contentPadding: 0,
+                config: {
+                    layout: 'tab',
+                    activeTab: 1,
+                    keepOpen: true,
+                },
+            });
+            // process cards
+            var zIndex = 10;
+            function scrollCard(ele) {
+                var wh = $(window).height();
+                var y = ele.offset().top;
+                var h = ele.height();
+                var offset = (y + h) - wh;
+
+                if(offset > 0) {
+                    $('html, body').animate({
+                        scrollTop: y - $('header').height() - $('.card.show').height(),
+                    }, 1000);
+                }
+            }
+            $(".tab").click(function(){
+                if ($(".cards").hasClass("showing")) {
+                    $(".cards")
+                        .removeClass("showing");
+                    $(".card.show")
+                        .removeClass("show");
+                }
+            })
+            $(".card").click(function (e) {
+                e.preventDefault();
+                var isShowing = false;
+                if ($(this).hasClass("show")) {
+                    isShowing = true
+                }
+                if ($(".cards").hasClass("showing")) {
+                    $(".card.show")
+                        .removeClass("show");
+
+                    if (isShowing) {
+                        $(".cards")
+                            .removeClass("showing");
+                    } else {
+                        $(this)
+                            .css({
+                                zIndex: zIndex
+                            })
+                            .addClass("show");
+
+                        scrollCard($('.card.show .flap2'));
+                    }
+                    zIndex++;
+                } else {
+                    $(".cards")
+                        .addClass("showing");
+                    $(this)
+                        .css({
+                            zIndex: zIndex
+                        })
+                        .addClass("show");
+
+                    scrollCard($('.card.show .flap2'));
+
+                    zIndex++;
+                }
+            });
+
+            $(".card__actions .btn-toggle").click(function(e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+                if(url) location.href = url;
+            })
+
+            // process image: lazy load and add fade in effect
+            $(".lazy").lazyload({
+                threshold: 200,
+                effect : "fadeIn"
+            });
+        });
+    </script>
+{{- end -}}

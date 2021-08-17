@@ -1,0 +1,1408 @@
+// import global variables
+@import "../variables.less";
+
+@C1: #FF5670;
+@C2: #0097FF;
+@C3: #0442C3;
+@C4: #343275;
+@C5: #07033B;
+@progress-bar-background-color: @C5  !important;
+@progress-value-background-color: @C2  !important;
+@progress-border-radius: 5px !important;
+
+body {
+    background-color: #f1f6f9 !important;
+}
+
+section {
+    margin-bottom: 7rem !important;
+}
+
+.title-wrapper {
+    position: relative;
+    z-index: 1;
+
+    .title {
+        position: relative;
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: @C5;
+        margin-bottom: 3rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-bottom: 27px solid @C1;
+            width: 100%;
+            height: 50%;
+            z-index: -1;
+        }
+    }
+
+    .title-en {
+        font-size: 2rem;
+        letter-spacing: 0px;
+
+        &::before {
+            border-bottom: 20px solid @C1;
+        }
+    }
+}
+
+.hero-body,
+.intro-body,
+.problems-body,
+.process-body,
+.award-body,
+.learning-materials,
+.attention-body {
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.hero {
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+
+        .slogan {
+            width: 50%;
+            margin-top: 7rem;
+
+            .date {
+                position: relative;
+                width: 67%;
+                font-size: 36px;
+                color: @C5;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-bottom: 27px solid @C1;
+                    width: 100%;
+                    height: 50%;
+                    z-index: -1;
+                }
+            }
+
+            .date-en {
+                font-weight: 600;
+            }
+
+            .title {
+                margin: 3.5rem 0 1.5rem;
+                font-size: 3.5rem;
+                color: @C5;
+                font-weight: 500;
+                letter-spacing: 5px;
+            }
+
+            .title-en {
+                letter-spacing: 0;
+                font-size: 3rem;
+                font-weight: 600;
+            }
+
+            .subtitle {
+                margin-top: 0 !important;
+                color: @C5;
+                font-size: 40px;
+                font-weight: 500;
+            }
+
+            .buttons {
+                width: 67%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                margin-top: 5rem;
+
+                button {
+                    border: none;
+                    border-radius: 30px;
+                    font-size: 24px;
+                    width: 200px;
+                    height: 64px;
+                    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+                }
+
+                .white-bg {
+                    color: @C5;
+                    background: white;
+
+                    &:hover {
+                        background: @C5;
+                        color: white;
+                    }
+                }
+
+                .color-bg {
+                    color: white;
+                    background: @C5;
+
+                    &:hover {
+                        color: white;
+                        background: @C1;
+                    }
+                }
+            }
+        }
+
+        .hero-bg {
+            width: 50%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.intro {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/intro-bg.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .container {
+        .content {
+            margin-left: 42%;
+            width: 58%;
+
+            .subtitle {
+                color: @C5;
+                font-weight: 400;
+                font-size: 1.7rem;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+
+                &.left-align {
+                    text-align: left;
+                }
+
+                &.right-align {
+                    text-align: right;
+                }
+            }
+
+            .detail {
+                color: @C5;
+                opacity: 0.75;
+                font-size: 16px;
+                line-height: 1.7;
+                margin: 2rem 0 0;
+            }
+        }
+    }
+}
+
+.challenge-problems {
+    .challenge-problems-body {
+        width: 67%;
+        margin: 0 auto;
+        text-align: center;
+
+        .element {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            &.ele-1 {
+                background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/ele1.svg');
+                left: 3rem;
+                top: 10rem;
+                width: 3rem;
+                height: 3rem;
+            }
+
+            &.ele-2 {
+                background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/ele2.svg');
+                left: 3rem;
+                bottom: 10rem;
+                width: 6rem;
+                height: 6rem;
+            }
+
+            &.ele-3 {
+                background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/ele3.svg');
+                right: 3rem;
+                top: 20rem;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+
+    .title::before {
+        left: 50%;
+        width: 30%;
+        transform: translateX(-50%);
+    }
+
+    .subtitle {
+        font-size: 20px !important;
+        margin-top: 2rem !important;
+        text-align: center;
+        line-height: 1.7;
+        color: @C5;
+    }
+
+    .scene-overview {
+        .card-title {
+            margin: 4rem 0 1.5rem;
+            text-align: left;
+            font-size: 20px;
+            font-weight: 600;
+            color: @C5;
+        }
+
+        .scene-bg img {
+            width: 100%;
+        }
+    }
+
+    .button {
+        width: 200px;
+        padding: 5px 0;
+        margin-top: 4rem;
+        border: none;
+        border-radius: 30px;
+        background: @C5;
+        color: white;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            color: white;
+            background: @C1;
+        }
+    }
+}
+
+.process {
+    .title {
+        text-align: right;
+
+        &::before {
+            left: auto;
+            right: 0 !important;
+            width: 20%;
+        }
+    }
+
+    .title-en::before {
+        width: 30%;
+    }
+
+    .steps {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        .step {
+            position: relative;
+            margin: 4rem 0;
+            width: 42%;
+        }
+
+        .label {
+            position: relative;
+            padding-left: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: @C1;
+            font-style: italic;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 0;
+                background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/step-icon.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 48px;
+                height: 40px;
+                transform: translateY(50%);
+            }
+        }
+
+        .step-title {
+            margin-bottom: 2rem;
+        }
+
+        .detail {
+            font-size: 16px;
+            line-height: 1.7;
+
+            a {
+                color: @C2;
+            }
+        }
+
+        .button {
+            border: none;
+            border-radius: 30px;
+            min-width: 180px;
+            background: @C4;
+            color: white;
+            margin-top: 2rem;
+            cursor: pointer;
+
+            &:hover {
+                background: @C1;
+            }
+        }
+
+        .grading {
+            display: none;
+            position: absolute;
+            border-radius: 5px;
+            background: white;
+            padding: 1.5rem;
+            bottom: -75%;
+            z-index: 2;
+
+            .close {
+                cursor: pointer;
+            }
+
+            .grading-title {
+                font-size: 20px;
+                font-weight: 600;
+                color: @C5;
+                text-align: center;
+            }
+
+            .item {
+                position: relative;
+                margin-top: 1rem;
+                padding-left: 1.5rem;
+
+                .criterion {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: @C5;
+                }
+
+                .detail {
+                    font-size: 16px;
+                    color: @C5;
+                    opacity: 0.75;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/grading-icon.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 20px;
+                    height: 20px;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.award-title {
+    margin-bottom: 0 !important;
+    text-align: right;
+
+    .title {
+        text-align: right;
+
+        &::before {
+            left: auto;
+            right: 0 !important;
+            width: 20%;
+        }
+    }
+}
+
+.awards {
+    .award-body {
+        background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/awards-bg.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 58%;
+        padding-top: 3rem;
+    }
+
+    .title {
+        text-align: right;
+
+        &::before {
+            left: auto;
+            right: 0 !important;
+            width: 30%;
+        }
+    }
+
+    .award {
+        .award-level {
+            position: relative;
+            font-size: 2rem;
+            color: @C1;
+            font-weight: 600;
+            padding-left: 3rem;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 0;
+                background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/step-icon.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 36px;
+                height: 30px;
+                transform: translateY(50%);
+            }
+        }
+
+        .detail {
+            padding: 0 0 1rem;
+            color: @C5;
+            line-height: 1.7;
+
+            .strong {
+                font-size: 32px;
+                font-weight: 600;
+            }
+
+            a {
+                color: @C2;
+            }
+        }
+    }
+
+    .annotation {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+
+.judges {
+    .title {
+        text-align: center;
+
+        &::before {
+            left: 50%;
+            width: 10%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .judge-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+        .judge {
+            margin: 1rem 3rem 2rem;
+            width: 15%;
+            height: auto;
+            text-align: center;
+            color: @C5;
+
+            .name {
+                margin: 2rem 0 0.3rem;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .desc {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.learning-materials {
+    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/learning-material-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .title {
+        padding: 4rem 0 0;
+
+        &::before {
+            width: 20%;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0 4%;
+        justify-content: space-between;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .learning-card {
+        width: 45%;
+        min-height: 500px;
+
+        .header {
+            background-color: @C5;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            height: 30px;
+            background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/terminal-dot.svg');
+            background-repeat: no-repeat;
+            background-position: 20px;
+        }
+
+        .detail {
+            border-radius: 0 0 10px 10px;
+            background-color: white;
+            justify-content: center;
+            padding: 0 2rem;
+            height: 80%;
+
+            .thumb {
+                height: 180px;
+                width: auto;
+                padding: 1rem 0;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .title {
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 0;
+                padding: 1rem 0;
+                margin-bottom: 0 !important;
+                color: @C5;
+            }
+
+            .desc {
+                padding: 0.5rem 0;
+                font-size: 16px;
+                color: @C5;
+                opacity: 0.75;
+                line-height: 1.7;
+            }
+        }
+    }
+}
+
+.ranking {
+    .terminal {
+        width: 83%;
+        margin: 5rem auto;
+
+        .terminal-header {
+            background-color: @C5;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            height: 60px;
+            background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/terminal-dot.svg');
+            background-repeat: no-repeat;
+            background-position: 20px;
+
+            .season-score {
+                position: relative;
+                color: white;
+                opacity: 0.5;
+                font-size: 22px;
+                font-weight: 400;
+                margin-left: 8rem;
+                padding-left: 3rem;
+                transform: translateY(45%);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 40px;
+                    height: 40px;
+                    transform: translateY(-12%);
+                    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/season-score.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        .terminal-body {
+            position: relative;
+            background: white;
+            max-height: 600px;
+            overflow: auto;
+            padding: 3rem 0;
+            border-radius: 0 0 10px 10px;
+
+            .annotation {
+                position: absolute;
+                right: 3rem;
+                font-size: 16px;
+                color: @C5;
+            }
+        }
+    }
+
+    #ranking-list {
+        width: 83%;
+        margin: 0 auto;
+        text-align: center;
+        color: @C5;
+    }
+
+    .ranking-item {
+        display: flex;
+        align-items: center;
+        padding: 0 0 1rem 0;
+    }
+
+    .progress-wrapper {
+        position: relative;
+        margin-left: 1.5rem;
+        width: 100%;
+
+        .team-name,
+        .score {
+            position: absolute;
+            transform: translateY(20%);
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .team-name {
+            left: 1rem;
+        }
+
+        .score {
+            right: 1rem;
+        }
+
+        progress {
+            background: @C5;
+            border-radius: @progress-border-radius;
+            height: 50px;
+
+            &::-webkit-progress-bar {
+                background-color: @progress-bar-background-color;
+            }
+
+            &::-webkit-progress-value {
+                background-color: @progress-value-background-color;
+            }
+
+            &::-moz-progress-bar {
+                background-color: @progress-value-background-color;
+            }
+
+            &::-ms-fill {
+                background-color: @progress-value-background-color;
+            }
+        }
+    }
+
+    .title {
+        text-align: center;
+
+        &::before {
+            left: 50%;
+            width: 30%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .medal {
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .medal1 {
+        background-image: url(https://download.pingcap.com/images/community/high-performance-tidb/medal1.svg);
+    }
+
+    .medal2 {
+        background-image: url(https://download.pingcap.com/images/community/high-performance-tidb/medal3.svg);
+    }
+
+    .medal3 {
+        background-image: url(https://download.pingcap.com/images/community/high-performance-tidb/medal2.svg);
+    }
+
+    .normal-rank {
+        background-image: url(https://download.pingcap.com/images/community/high-performance-tidb/normal-medal.svg);
+    }
+}
+
+.attention {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/entry-notice.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .attention-body {
+        width: 100%;
+    }
+
+    .content {
+        .title {
+            text-align: right;
+
+            &::before {
+                left: auto;
+                right: 0;
+                width: 20%;
+            }
+        }
+
+        .attention-list {
+            position: relative;
+            width: 42%;
+            margin-left: 58%;
+            padding-top: 4rem;
+
+            .list-card {
+                border-radius: 10px;
+                background: white;
+                text-align: right;
+                margin-bottom: 2rem;
+                padding: 1rem 2rem;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 1rem;
+                    background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/step-icon.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 36px;
+                    height: 30px;
+                }
+            }
+
+            .detail {
+                display: none;
+                position: absolute;
+                right: 110%;
+                top: 4rem;
+                background: white;
+                color: @C5;
+                width: 80%;
+                text-align: left;
+                padding: 1rem;
+
+                span {
+                    color: red;
+                }
+
+                p {
+                    display: inline;
+                }
+
+                a {
+                    color: @C2;
+                }
+
+                .item {
+                    display: flex;
+
+                    .numb {
+                        color: @C1;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        font-style: italic;
+                    }
+
+                    .desc {
+                        padding: 1rem 1rem 0;
+                        font-size: 16px;
+                        color: @C5;
+                        opacity: 0.75;
+                    }
+                }
+            }
+
+            .detail-mobile {
+                position: relative;
+                right: 0;
+                width: 100%;
+                background: transparent;
+                top: 1rem;
+            }
+
+        }
+
+    }
+}
+
+.img-mobile {
+    display: none;
+}
+
+.reviews {
+    .title {
+        text-align: center;
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: @C5;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            border-bottom: 27px solid #ff5670;
+            width: 20%;
+            height: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+        }
+    }
+
+    .title-en {
+        letter-spacing: 0px;
+        font-size: 2rem;
+
+        &::before {
+            border-bottom: 20px solid #ff5670;
+            width: 60%;
+        }
+    }
+
+    .cards {
+        padding-top: 4rem;
+
+        .usability {
+            margin-left: 8.3%;
+        }
+
+        .performance {
+            margin-left: 42%;
+            margin-top: -10rem;
+        }
+    }
+}
+
+.partners {
+    .title {
+        text-align: center;
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: @C5;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            border-bottom: 27px solid #ff5670;
+            width: 20%;
+            height: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+        }
+    }
+
+    .title-en {
+        font-size: 2rem;
+        letter-spacing: 0px;
+
+        &::before {
+            width: 20%;
+            border-bottom: 20px solid #ff5670;
+        }
+    }
+
+    .partners-body {
+        width: 67%;
+        margin: 0 auto;
+        text-align: center;
+
+        .ucloud {
+            margin-bottom: 4rem;
+        }
+
+        .sponsor-type {
+            font-size: 20px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .logo-list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin: 1rem auto;
+
+            img {
+                width: auto;
+                height: 70px;
+                margin: 10px 9%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .learning-materials {
+        .learning-card {
+            min-height: 600px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    section {
+        margin-bottom: 4rem !important;
+    }
+
+    .title-wrapper {
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+
+            &::before {
+                border-bottom: 15px solid @C1;
+            }
+        }
+    }
+
+    .hero .container {
+        &.reverse {
+            flex-flow: column-reverse;
+        }
+
+        .slogan {
+            width: 100%;
+            margin-top: 4rem;
+
+            .date {
+                width: 100%;
+                font-size: 1.5rem;
+
+                &::before {
+                    border-bottom: 15px solid @C1;
+                    width: 85%;
+                }
+            }
+
+            .title {
+                width: 100%;
+                font-size: 2.5rem;
+                margin: 2rem 0;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .buttons {
+                width: 100%;
+                margin-top: 3rem;
+
+                button {
+                    padding: 10px;
+                    width: 140px;
+                    font-size: 1rem;
+                    height: auto;
+                }
+            }
+        }
+
+        .hero-bg {
+            width: 100%;
+        }
+    }
+
+    .intro {
+        background-size: 35%;
+
+        .container .content {
+            width: 75%;
+            margin-left: 25%;
+
+            .title {
+                font-size: 1.5rem;
+                letter-spacing: 5px;
+
+                &::before {
+                    border-bottom: 15px solid @C1;
+                }
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .detail {
+                font-size: 13px;
+            }
+        }
+    }
+
+    .process {
+        background-image: url('https://download.pingcap.com/images/community/high-performance-tidb/step1-bg.svg');
+        background-size: 55%;
+        background-repeat: no-repeat;
+
+        .title::before {
+            width: 90%;
+        }
+
+        .title-wrapper {
+            padding-top: 3rem;
+
+            .title::before {
+                width: 40%;
+            }
+        }
+
+        .steps {
+            .step {
+                margin: 3rem 0 0;
+                width: 100%;
+
+                &:nth-child(2n) {
+                    margin-left: 25%;
+                }
+
+                .label {
+                    padding-left: 2rem;
+                    font-size: 1.5rem;
+
+                    &::before {
+                        width: 24px;
+                        height: 20px;
+                    }
+                }
+
+                .step-title {
+                    margin-bottom: 1rem;
+                }
+
+                .detail {
+                    font-size: 13px;
+                }
+
+                .button {
+                    margin-top: 1rem;
+                    min-width: 100px;
+                    font-size: 13px;
+                }
+            }
+
+            .step4-bg {
+                margin-left: 50% !important;
+                margin-top: -1.5rem;
+            }
+
+            .grading {
+
+                .grading-title,
+                .item .criterion {
+                    font-size: 16px;
+                }
+
+                .detail {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    .challenge-problems {
+        .title {
+            font-size: 1.5rem;
+
+            &::before {
+                border-bottom: 15px solid @C1;
+                width: 50%;
+            }
+        }
+
+        .challenge-problems-body {
+            width: 100%;
+            position: relative;
+
+            .element {
+                display: none;
+            }
+        }
+
+        .subtitle {
+            font-size: 1rem !important;
+        }
+
+        .scene-overview {
+            .card-title {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        .button {
+            width: 150px;
+            margin-top: 3rem;
+        }
+    }
+
+    .img-mobile {
+        display: block;
+    }
+
+    .img-pc {
+        display: none;
+    }
+
+    .awards {
+        .award-body {
+            background-size: 45%;
+        }
+
+        .content {
+            margin-left: 0;
+            padding-top: 6rem;
+        }
+
+        .award {
+            .detail {
+                padding-bottom: 3rem;
+
+                .strong {
+                    font-size: 22px;
+                }
+            }
+
+            .award-level {
+                padding-left: 4rem;
+
+                &::before {
+                    width: 37px;
+                    height: 30px;
+                    transform: translateY(30%);
+                }
+            }
+        }
+
+        .annotation {
+            font-size: 13px;
+        }
+
+
+        .title-wrapper {
+            padding-top: 3rem;
+
+            .title::before {
+                width: 40%;
+            }
+        }
+
+    }
+
+    .judges {
+        .title::before {
+            width: 20%;
+        }
+
+        .judge-list {
+            .judge {
+                margin: 1rem;
+                width: 25%;
+
+                .name {
+                    margin: 1rem 0 0.3rem;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                .desc {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+
+    .learning-materials {
+        .learning-card {
+            width: 100%;
+            min-height: auto;
+            height: 100%;
+            margin: 2rem 0;
+
+            .detail {
+                .title {
+                    line-height: 1.7;
+                }
+
+                .thumb {
+                    height: 80px;
+                }
+
+                .desc {
+                    padding: 0.5rem 0 2rem;
+                }
+            }
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 1rem;
+
+            &::before {
+                width: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        .content {
+            padding-top: 0;
+        }
+    }
+
+    .ranking {
+        .title::before {
+            width: 70%;
+        }
+
+        .terminal {
+            .terminal-header {
+                height: 50px;
+
+                .season-score {
+                    font-size: 1rem;
+                    margin-left: 6rem;
+                    transform: translateY(50%);
+
+                    &::before {
+                        width: 30px;
+                        height: 30px;
+                        transform: translateY(-3px);
+                    }
+                }
+            }
+
+            .terminal-body .annotation {
+                font-size: 13px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        .progress-wrapper {
+
+            .team-name,
+            .score {
+                position: absolute;
+                transform: translateY(30%);
+                font-size: 16px;
+            }
+
+            progress {
+                height: 40px;
+            }
+        }
+    }
+
+    .attention {
+        background-image: none;
+
+        .content {
+            .title {
+                text-align: center;
+                margin-bottom: 1rem;
+
+                &::before {
+                    width: 50%;
+                    right: 50%;
+                    transform: translateX(50%);
+                }
+            }
+
+            .title-wrapper {
+                padding-top: 3rem;
+            }
+
+            .attention-list {
+                width: 100%;
+                margin-left: 0;
+                padding-top: 1rem;
+            }
+        }
+
+        .img-mobile {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .attention-list .list-card {
+            .detail {
+                bottom: 100%;
+            }
+        }
+    }
+
+    .reviews {
+        .title {
+            &::before {
+                width: 40%;
+                border-bottom: 15px solid @C1;
+            }
+        }
+
+        .cards {
+            padding-top: 1rem;
+
+            .usability {
+                width: 50%;
+            }
+
+            .performance {
+                margin-top: -3rem;
+                width: 50%;
+            }
+        }
+    }
+
+    .partners .partners-body {
+        .title {
+            &::before {
+                width: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+// import global variables
+@import "./variables.less";
+
+.hero {
+  background: @bannerBgColor;
+  font-family: Helvetica;
+}
+
+.hero__container {
+  margin: 0 auto;
+  max-width: @pcMaxWidth;
+}
+
+.hero__inner {
+  margin: 0 auto;
+  padding: 60px @horizontalPadding;
+
+  h1,
+  h2 {
+    color: #fff;
+  }
+}
+
+.hero__heading {
+  max-width: 572px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.hero__subheading {
+  margin: 0.5em auto 0;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 34px;
+}
+
+.hero__logo_wrap {
+  .image {
+    height: 3.6em;
+  }
+}
+
+.hero__signin_bnt {
+  cursor: pointer;
+  margin-top: 27px;
+  border-radius: 1.8em;
+  background: #3A59F0;
+  border: none;
+  color: white;
+  font-size: 11px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+  padding: 10px 15px;
+
+  &:hover {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5), 0 5px 5px rgba(0,0,0,0.22);
+    background: #556AFF;
+  }
+}
+.hero__tips {
+  color: white;
+  font-size: 12px;
+  margin-top: 14px;
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+@media (min-width: 1920px) {
+  .hero__container {
+    max-width: @containerMaxWidth;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero__inner {
+    padding: 80px @horizontalPadding;
+  }
+
+  .hero__heading {
+    max-width: 732px;
+    font-size: @heroLTitleSize;
+  }
+
+  .hero__subheading {
+    max-width: 780px;
+    // margin: 0.8em auto 0;
+    font-size: 1.2em;
+    line-height: 38px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__subheading {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero__heading {
+    font-size: @heroSTitleSize;
+  }
+}

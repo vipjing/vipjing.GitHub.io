@@ -1,0 +1,74 @@
+{{- define "headTpl" -}}
+    {{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/github-markdown.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+    {{$.Scratch.Set "nav_active" "blog"}}
+    {{$.Scratch.Set "data_i18_link" "/blog-cn" }}
+    {{ $.Scratch.Set "metaTitle" "TiDB" }}
+{{- end -}}
+
+{{- define "main" -}}
+    <div class="blog">
+        <div class="blogArticle__container">
+            {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
+            <div class="archive">
+                {{- if (isset .Params "categories") -}}
+                    {{- range $idx, $i := .Params.categories -}}
+                        <div class="article-nav">
+                            <a href="/blog/#{{ replace $i " " "-"}}">BLOG HOME</a> <span> > </span>{{- $i -}}
+                        </div>
+                    {{- end -}}
+                {{- else -}}
+                    <div class="article-nav">
+                        <a href="/blog">BLOG HOME</a>
+                    </div>
+                {{- end -}}
+                <div class="content markdown-body">
+                    <h1 class="title">{{ .Title }}</h1>
+                    <ul class="blog-post-meta">
+                        <li class="meta-item">
+                            <img src="/images/svgs/icon-date.svg" alt="Date icon">
+                        {{- .Date.Format "Mon, Jan 2, 2006" -}}
+                        </li>
+                        <li class="meta-item">
+                            <img src="/images/svgs/icon-writer.svg" alt="Pen icon">
+                            {{- if .Params.author -}}
+                                {{ $len := len .Params.author }}
+                                {{- range $idx, $i := .Params.author -}}
+                                    {{ . }}
+                                    {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                                {{- end -}}
+                            {{- else -}}
+                                PingCAP
+                            {{- end -}}
+                        </li>
+                    </ul>
+                    <div class="blog-text">
+                        {{- .Content -}}
+                    </div>
+                </div>
+                <div class="article-toc"></div>
+                {{- partial "archives/post-share.html" . -}}
+                <div class="trackable-btns">
+                    <a href="/download" onclick="trackViews('{{ .Title }}', 'download-tidb-btn-bottom')"><button>Download
+                        TiDB</button></a>
+                    <a href="https://share.hsforms.com/1e2W03wLJQQKPd1d9rCbj_Q2npzm"
+                      onclick="trackViews('{{ .Title }}', 'subscribe-blog-btn-bottom')"><button>Subscribe to
+                        Blog</button></a>
+                </div>
+            </div>
+            <div class="sidebar-page">
+                <div class="sticky-sidebar">
+                    <p class="toc-title">What’s on this page</p>
+                    <div id="smart_toc_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript" src="/js/doc.js"></script>
+    <script type="text/javascript" src="/js/anchor.js"></script>
+{{- end -}}
+

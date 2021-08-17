@@ -1,0 +1,229 @@
+{{ define "title" }}
+  TiDB Bug Hunting
+{{ end }}
+
+{{ define "headTpl" }}
+{{ $.Scratch.Set "nav_active" "community" }}
+{{ $.Scratch.Set "data_i18_cn" true }}
+{{ $.Scratch.Set "data_i18_link" "/" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@5.3.1/css/swiper.min.css">
+{{ partial "head/preload-css" (dict "href" "/css/community/tidb-usability-challenge.css") }}
+{{ end }}
+
+{{ define "main" }}
+<section class="hero is-medium tuc-hero">
+  <div class="hero-body bug-hunting">
+    <div class="container">
+      <h1 class="title is-1">
+        TiDB 4.0 捉“虫”竞赛
+      </h1>
+      <h2 class="subtitle is-4">
+        2020.04.08 - 2020.05.30
+      </h2>
+      <div class="banner-buttons">
+        <a class="button button-receive" style="cursor: not-allowed;">活动已结束</a>
+        <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/bug-hunting-programs/bug-hunting-program-cn.md">竞赛细则</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section has-text-centered tuc-readme" style="padding-top: 4rem;">
+  <h2 class="desc" id="get-started">TiDB 4.0 版本计划于 2020 年 5 月 31 日 GA，众多新功能备受大家期待。</h2>
+  <p class="desc">为了让大家更早体验 TiDB 4.0，我们邀请您参与到 TiDB 4.0 捉“虫”竟赛，</p>
+  <p class="desc">找到 Bug 的参赛选手可以获得积分并兑换社区礼物哦～</p>
+</section>
+
+<section class="section has-text-centered tuc-highlights">
+  <div class="container">
+    <h2 class="subtitle is-6 primary tab">大赛流程</h2>
+    <div class="main">
+      <div class="placeholder">
+        <img src="https://download.pingcap.com/images/tidb-usability-challenge/placeholder-highlights.svg" alt="placeholder" />
+      </div>
+      <div class="content">
+        <ul class="highlights">
+          <li>
+            <h3 class="title primary">测试 Feature</h3>
+            <p>我们为大家准备了用户文档，在开始测试前请仔细阅读。</p>
+          </li>
+          <li>
+            <h3 class="title primary">提交 Bug</h3>
+            <p>在测试完成后，如果参赛者发现了 bug，则可以在 <a target="_blank" href="https://github.com/tidb-challenge-program/bug-hunting-issue">bug-hunting/issue</a> 按照模版提交 Issue。</p>
+          </li>
+          <li>
+            <h3 class="title primary">评估 Bug</h3>
+            <p>PingCAP QA 团队会根据 Bug 等级，为 Bug 打上 label（P0，P1，P2，P3），如果你是第一个发现 bug 的小伙伴，官方会根据 bug 的等级给你加上积分</p>
+          </li>
+          <li>
+            <h3 class="title primary">积分兑换</h3>
+            <p>积分获得情况将会在此页面底部积分排行榜呈现。在比赛结束一年之内都可以兑换 PingCAP 设置的奖项。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a class="button button-details" target="_blank" href="https://github.com/pingcap/community/blob/master/bug-hunting-programs/bug-hunting-program-cn.md">竞赛细则</a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered t4c-demands">
+  <h2 class="subtitle is-6 primary tab">测试榜</h2>
+  <div class="container columns is-multiline">
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/pessimistic-transaction" class="title">悲观锁</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/pessimistic-transaction" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/tidb/stable/tidb-configuration-file" class="title">大事务支持</a><a target="_blank" href="https://docs.pingcap.com/tidb/stable/tidb-configuration-file" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/optimizer-hints" class="title">SQL Hint</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/optimizer-hints" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/sql-plan-management" class="title">SQL Plan Management</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/sql-plan-management" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/sql-statement-admin" class="title">ADMIN DDL 支持 [like_or_where]</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/sql-statement-admin" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/auto-random" class="title">AutoRandom Key</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/auto-random" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/backup-and-restore-tool//" class="title">快速备份恢复功能</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/backup-and-restore-tool/" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/tiflash-overview/" class="title">TiFlash</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/tiflash-overview/" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/character-set-and-collation/" class="title">大小写不敏感排序规则</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/character-set-and-collation/" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/views/" class="title">View</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/views/" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/role-based-access-control" class="title">RBAC</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/role-based-access-control" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/sql-statement-load-data" class="title">LOAD DATA 功能完善与优化</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/dev/sql-statement-load-data" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="/" class="title">Dashboard（文档补充中）</a><a target="_blank" href="https://pingcap.com/blog-cn/tidb-4.0-tidb-dashboard/" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a target="_blank" href="https://book.tidb.io/session2/chapter1/tiup-intro.html" class="title">TiUP</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/production-deployment-using-tiup" class="button">操作手册</a></div>
+    </div>
+    <div class="column is-one-fifth">
+      <div class="box"><a class="title">其他未列出 Feature</a><a target="_blank" href="https://docs.pingcap.com/zh/tidb/stable" class="button">操作手册</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-prizes">
+  <h2 class="subtitle is-6 primary tab">奖项设置</h2>
+  <div class="container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">10000</div>
+              <div class="text">PCTP 进阶原厂线上培训（1人/月，含1人/次认证考试，可转赠）</div>
+              <img src="/images/tidb-4-challenge/pctp-advanced-training.svg" alt="PCTP advanced training" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">1500</div>
+              <div class="text">PCTP 进阶认证考试免费券（1人/次，可转赠）</div>
+              <img src="/images/tidb-4-challenge/pctp-free-voucher.svg" alt="PCTP free voucher" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">800</div>
+              <div class="text">PCTA 基础认证考试免费券（1人/次，可转赠）</div>
+              <img src="/images/tidb-4-challenge/pcta-free-voucher.svg" alt="PCTA free voucher" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">500</div>
+              <div class="text">TUG 帽衫</div>
+              <img class="is-png" src="/images/tidb-4-challenge/jacket.png" alt="TUG jacket" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">200</div>
+              <div class="text">PCTA & PCTP 超厚教材蓝宝书</div>
+              <img class="is-png" src="/images/tidb-4-challenge/book.png" alt="PCTA & PCTP book" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="score">100</div>
+              <div class="text">TUG T-shirt</div>
+              <img class="is-png" src="/images/tidb-4-challenge/tshirt.png" alt="TUG tshirt" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <div class="text">更多神秘大奖解锁中...</div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="swiper-button-next"></div>
+</div>
+</section>
+
+<section class="section has-text-centered tuc-studies">
+  <h2 class="subtitle is-6 primary tab">学习资料</h2>
+  <div class="container columns">
+    <div class="column">
+      <a class="card" target="_blank" href="https://book.tidb.io">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-1.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">TiDB in Action</h3>
+          <div class="text">
+            TiDB 第一本开源书，包括了 TiDB 基本架构原理；最佳实践及案例：部署、运维（慢查询、热点问题调优）、备份恢复、数据同步和迁移；TiDB 开源社区及周边生态发展历程等等。
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="card" target="_blank" href="https://docs.pingcap.com/zh/tidb/stable/">
+        <div class="placeholder">
+          <img src="https://download.pingcap.com/images/tidb-usability-challenge/study-2.svg" />
+        </div>
+        <div class="content">
+          <h3 class="title is-6 primary">TiDB 官方用户文档</h3>
+          <div class="text">
+            在开始测试前可以阅读 TiDB 官方用户文档，帮助进一步了解 TiDB。
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section has-text-centered tuc-leaderboard">
+  <h2 class="subtitle is-6 primary tab">积分排行榜</h2>
+  <div class="container">
+    <div id="ranking-switch">
+      <div class="first">赛季积分</div>
+      <div class="second">历史积分</div>
+      <div class="slider" data-lang="cn"></div>
+    </div>
+    <div id="ranking-list"></div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "footJS" }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@5.3.1/js/swiper.min.js"></script>
+<script src="/js/tidb_4_challenge.js"></script>
+{{ end }}
