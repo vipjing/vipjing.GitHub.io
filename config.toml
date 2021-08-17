@@ -1,4 +1,4 @@
-baseurl = "https://pingcap.com/"
+baseurl = "https://vipjing.github.io/"
 title = "SQL at Scale"
 # Do not make the url/path to lowercase
 disablePathToLower = true
